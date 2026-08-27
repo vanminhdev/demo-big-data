@@ -1,0 +1,24 @@
+# Image NameNode co san python3 (khong can cai lai moi lan restart container).
+#
+# Van de goc (xem sessions/07_mapreduce/LOCAL_REPORT.md ISSUE-02): image goc
+# bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8 chay tren Debian 9 "stretch"
+# (da EOL), khong co san python3, va deb.debian.org da ngung phuc vu Debian 9
+# nen `apt-get update` mac dinh 404. Cai runtime bang docker exec khong persist
+# qua lan `docker compose down`/`up` tao container moi.
+#
+# Fix: build san 1 image cuc bo, tro apt sang archive.debian.org (kho luu tru
+# vinh vien cac ban Debian EOL) roi cai python3 ngay trong lop image, giu
+# nguyen entrypoint/CMD cua image goc (khong sua gi khac ve HDFS).
+FROM bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+
+# Ghi de toan bo sources.list: chi giu "stretch main" + "stretch/updates main"
+# tro sang archive.debian.org (bo dong "stretch-updates" vi kho archive
+# khong con giu index rieng cho no -> 404). Day la 2 repo du de cai python3.
+RUN printf '%s\n%s\n' \
+      'deb http://archive.debian.org/debian stretch main' \
+      'deb http://archive.debian.org/debian-security stretch/updates main' \
+      > /etc/apt/sources.list \
+    && apt-get -o Acquire::Check-Valid-Until=false update \
+    && apt-get install -y --no-install-recommends python3 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*

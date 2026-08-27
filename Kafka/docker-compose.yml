@@ -1,0 +1,62 @@
+# Buổi 13 - Apache Kafka (KRaft mode, không cần Zookeeper riêng)
+# Image ghim version cụ thể (KHÔNG dùng :latest): apache/kafka:3.7.1
+# (ảnh chính thức Apache Kafka, docker.io/apache/kafka, đã kiểm thử pull được
+# miễn phí tại thời điểm triển khai - không gặp vấn đề "no longer available
+# for free" như bitnami/spark ở Buổi 9).
+#
+# 1 broker duy nhất, combined mode (process.roles=broker,controller) - đủ để
+# minh hoạ topic/partition/producer/consumer/consumer group ở mức nhập môn.
+#
+# Dual listener: BROKER (nội bộ mạng Docker, dùng bởi Spark container qua
+# hostname "kafka") và EXTERNAL (map ra host Windows qua localhost:9092, dùng
+# bởi producer.py/consumer.py chạy trực tiếp trên máy host).
+#
+# Kafka được gắn thêm vào network "spark_spark-net" (network external do
+# Spark/docker-compose.yml tạo ở Buổi 9) để container Spark (spark-master/
+# spark-worker) gọi được Kafka qua hostname "kafka:29092" khi chạy
+# spark_kafka_job.py với Kafka source. KHÔNG sửa Spark/docker-compose.yml.
+
+services:
+  kafka:
+    image: apache/kafka:3.7.1
+    container_name: kafka
+    ports:
+      - "9092:9092"   # EXTERNAL listener - producer/consumer chạy trên host Windows
+      - "9101:9101"   # JMX (không bắt buộc dùng, để trống cổng cho tương lai)
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: BROKER://:29092,CONTROLLER://:9093,EXTERNAL://:9092
+      KAFKA_ADVERTISED_LISTENERS: BROKER://kafka:29092,EXTERNAL://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,BROKER:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: BROKER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      # Chi dinh tuong minh log.dirs (mac dinh thuc te cua image la /tmp/kafka-logs,
+      # KHONG phai /tmp/kraft-combined-logs nhu ghi trong server.properties mau -
+      # da kiem thu that va phat hien sai lech nay) de mount volume dung cho.
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+    volumes:
+      - ./data:/var/lib/kafka/data   # ben vung topic/message qua cac lan restart
+    mem_limit: 800m
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:29092 || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 20s
+    networks:
+      - kafka-net
+      - spark-net
+
+networks:
+  kafka-net:
+    driver: bridge
+  spark-net:
+    external: true
+    name: spark_spark-net

@@ -1,0 +1,103 @@
+# Event log: D:\school\Big Data\Spark\data\session15_optimization\event_logs\app-20260820073729-0016
+# So stage co task end event: 13
+
+## Stage 0: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=1524 median=1524 max=1524
+   input_bytes  min=3750477 median=3750477 max=3750477 total=3750477
+   shuffle_write_bytes  min=59 median=59 max=59 total=59
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=0 dur=1524 input=3750477 shuffle_read=0
+
+## Stage 1: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=304 median=304 max=304
+   shuffle_read_bytes  min=59 median=59 max=59 total=59
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=1 dur=304 input=0 shuffle_read=59
+
+## Stage 2: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=217 median=217 max=217
+   input_bytes  min=4190638 median=4190638 max=4190638 total=4190638
+   shuffle_write_bytes  min=59 median=59 max=59 total=59
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=2 dur=217 input=4190638 shuffle_read=0
+
+## Stage 3: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=65 median=65 max=65
+   shuffle_read_bytes  min=59 median=59 max=59 total=59
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=3 dur=65 input=0 shuffle_read=59
+
+## Stage 4: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=1514 median=1514 max=1514
+   input_bytes  min=4190638 median=4190638 max=4190638 total=4190638
+   shuffle_write_bytes  min=402719 median=402719 max=402719 total=402719
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=4 dur=1514 input=4190638 shuffle_read=0
+
+## Stage 5: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=2354 median=2354 max=2354
+   input_bytes  min=3750477 median=3750477 max=3750477 total=3750477
+   shuffle_write_bytes  min=287716 median=287716 max=287716 total=287716
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=5 dur=2354 input=3750477 shuffle_read=0
+
+## Stage 6: count at NativeMethodAccessorImpl.java:0
+   numTasks=8
+   duration_ms  min=89 median=119 max=591
+   shuffle_read_bytes  min=84469 median=86354 max=87637 total=690435
+   shuffle_write_bytes  min=59 median=59 max=59 total=472
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=6 dur=591 input=0 shuffle_read=86845
+     task=7 dur=171 input=0 shuffle_read=87360
+     task=10 dur=129 input=0 shuffle_read=87542
+
+## Stage 7: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=239 median=239 max=239
+   shuffle_read_bytes  min=472 median=472 max=472 total=472
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=14 dur=239 input=0 shuffle_read=472
+
+## Stage 8: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=568 median=568 max=568
+   input_bytes  min=3750477 median=3750477 max=3750477 total=3750477
+   shuffle_write_bytes  min=59 median=59 max=59 total=59
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=15 dur=568 input=3750477 shuffle_read=0
+
+## Stage 9: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=59 median=59 max=59
+   shuffle_read_bytes  min=59 median=59 max=59 total=59
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=16 dur=59 input=0 shuffle_read=59
+
+## Stage 10: $anonfun$withThreadLocalCaptured$1 at FutureTask.java:264
+   numTasks=1
+   duration_ms  min=805 median=805 max=805
+   input_bytes  min=3750477 median=3750477 max=3750477 total=3750477
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=17 dur=805 input=3750477 shuffle_read=0
+
+## Stage 11: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=545 median=545 max=545
+   input_bytes  min=4190638 median=4190638 max=4190638 total=4190638
+   shuffle_write_bytes  min=59 median=59 max=59 total=59
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=18 dur=545 input=4190638 shuffle_read=0
+
+## Stage 12: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=97 median=97 max=97
+   shuffle_read_bytes  min=59 median=59 max=59 total=59
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=19 dur=97 input=0 shuffle_read=59
+

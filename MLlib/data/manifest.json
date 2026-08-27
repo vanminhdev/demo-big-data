@@ -1,0 +1,60 @@
+{
+  "data_version": "retailstream-data-v1",
+  "schema_version": "1.0",
+  "generated_at": "2026-08-20T05:11:23+00:00",
+  "seed": 42,
+  "scale": "lab",
+  "record_counts": {
+    "customers": 20001,
+    "products": 5000,
+    "orders": 50000,
+    "order_items": 124862,
+    "web_logs": 100000,
+    "clickstream": 100000,
+    "product_events": 20000
+  },
+  "intentional_data_issues": [
+    "customers.csv: 1 ban ghi trung id (CUST00001) de phuc vu bai lam sach du lieu",
+    "products.json: field 'brand' = null cho cac product_id chia het cho 17",
+    "orders.csv: ban ghi cuoi cung co total_amount = -1.0 (du lieu loi co chu y)",
+    "web_logs.jsonl: co status_code 404/500 va customer_id null cho khach vang lai"
+  ],
+  "files": {
+    "customers.csv": {
+      "sha256": "a9f5cae5a5bb56e63aea45db4a3e1ca4ede2e2f05d9ad5cc09ab4fc48c41363c",
+      "bytes": 1038569
+    },
+    "products.json": {
+      "sha256": "a0437de8284fa3262dfcc9cb2000f4b0477103a22a431df54757ce0c25c5524c",
+      "bytes": 1644229
+    },
+    "orders.csv": {
+      "sha256": "5073bd5dbd4b0ed0698cb40eceaa97e25b7d28b04f273c50ae0a9df040251d48",
+      "bytes": 3750477
+    },
+    "order_items.csv": {
+      "sha256": "dffc6b21db18262c01e0c56dd2e15cc8e5fe015b07ff6c830b1024e744add156",
+      "bytes": 4190638
+    },
+    "web_logs.jsonl": {
+      "sha256": "23b951147ba53f09becf75b15373452aa68bc169d0a7897fc422512c31d6dff1",
+      "bytes": 20869348
+    },
+    "clickstream.jsonl": {
+      "sha256": "72907c1331a8d20f2154a0a28f5b0174c2102cb9fe275c62d197a6d3797e38ce",
+      "bytes": 17474756
+    },
+    "product_events.jsonl": {
+      "sha256": "aee6e7d67147f4f8812d178fab9b2e6bd07106d5ea9bdae7869887aad975881c",
+      "bytes": 3826925
+    },
+    "orders.parquet": {
+      "sha256": "3f698c72570a792a026e09185340a9240747dc390cc25c758cbce8b9b1024b3a",
+      "bytes": 1433013
+    },
+    "order_items.parquet": {
+      "sha256": "b709219edd61353042afbb868945422066a79555258e93b20d58cad378b0ab8a",
+      "bytes": 945820
+    }
+  }
+}

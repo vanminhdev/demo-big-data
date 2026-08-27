@@ -1,0 +1,1602 @@
+[
+  {
+    "review_id": "REV00001",
+    "product_id": "PROD0027",
+    "customer_id": "CUST0045",
+    "rating": 2,
+    "comment": "San pham khong nhu mo ta.",
+    "created_at": "2026-05-18T08:56:51.717511+00:00"
+  },
+  {
+    "review_id": "REV00002",
+    "product_id": "PROD0076",
+    "customer_id": "CUST0012",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-07-06T09:45:41.649652+00:00"
+  },
+  {
+    "review_id": "REV00003",
+    "product_id": "PROD0030",
+    "customer_id": "CUST0081",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-07-22T02:46:25.841735+00:00"
+  },
+  {
+    "review_id": "REV00004",
+    "product_id": "PROD0018",
+    "customer_id": "CUST0080",
+    "rating": 2,
+    "comment": "San pham khong nhu mo ta.",
+    "created_at": "2026-06-22T06:03:57.587510+00:00"
+  },
+  {
+    "review_id": "REV00005",
+    "product_id": "PROD0061",
+    "customer_id": "CUST0078",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-06-03T11:01:15.550877+00:00"
+  },
+  {
+    "review_id": "REV00006",
+    "product_id": "PROD0066",
+    "customer_id": "CUST0061",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-04-15T15:16:20.396579+00:00"
+  },
+  {
+    "review_id": "REV00007",
+    "product_id": "PROD0033",
+    "customer_id": "CUST0003",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-01-30T08:56:00.543401+00:00"
+  },
+  {
+    "review_id": "REV00008",
+    "product_id": "PROD0001",
+    "customer_id": "CUST0006",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-06-16T17:02:32.160291+00:00"
+  },
+  {
+    "review_id": "REV00009",
+    "product_id": "PROD0045",
+    "customer_id": "CUST0064",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-05-12T20:35:31.297756+00:00"
+  },
+  {
+    "review_id": "REV00010",
+    "product_id": "PROD0016",
+    "customer_id": "CUST0018",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-04-06T03:07:10.657135+00:00"
+  },
+  {
+    "review_id": "REV00011",
+    "product_id": "PROD0025",
+    "customer_id": "CUST0098",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-05-20T01:58:43.060332+00:00"
+  },
+  {
+    "review_id": "REV00012",
+    "product_id": "PROD0075",
+    "customer_id": "CUST0096",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-07-20T14:30:36.998161+00:00"
+  },
+  {
+    "review_id": "REV00013",
+    "product_id": "PROD0018",
+    "customer_id": "CUST0032",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-07-04T14:29:24.729031+00:00"
+  },
+  {
+    "review_id": "REV00014",
+    "product_id": "PROD0031",
+    "customer_id": "CUST0011",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-06-10T12:18:03.555796+00:00"
+  },
+  {
+    "review_id": "REV00015",
+    "product_id": "PROD0057",
+    "customer_id": "CUST0014",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-02-06T20:09:12.229127+00:00"
+  },
+  {
+    "review_id": "REV00016",
+    "product_id": "PROD0007",
+    "customer_id": "CUST0081",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-04-19T17:41:08.696718+00:00"
+  },
+  {
+    "review_id": "REV00017",
+    "product_id": "PROD0031",
+    "customer_id": "CUST0006",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-05-03T01:55:24.263307+00:00"
+  },
+  {
+    "review_id": "REV00018",
+    "product_id": "PROD0041",
+    "customer_id": "CUST0057",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-03-26T12:33:56.376097+00:00"
+  },
+  {
+    "review_id": "REV00019",
+    "product_id": "PROD0001",
+    "customer_id": "CUST0036",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-08-18T23:28:42.049075+00:00"
+  },
+  {
+    "review_id": "REV00020",
+    "product_id": "PROD0061",
+    "customer_id": "CUST0068",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-04-03T03:45:16.491052+00:00"
+  },
+  {
+    "review_id": "REV00021",
+    "product_id": "PROD0052",
+    "customer_id": "CUST0096",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-04-18T07:57:37.303316+00:00"
+  },
+  {
+    "review_id": "REV00022",
+    "product_id": "PROD0022",
+    "customer_id": "CUST0008",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-07-27T19:05:45.126914+00:00"
+  },
+  {
+    "review_id": "REV00023",
+    "product_id": "PROD0042",
+    "customer_id": "CUST0084",
+    "rating": 2,
+    "comment": "San pham khong nhu mo ta.",
+    "created_at": "2026-06-22T05:33:51.070561+00:00"
+  },
+  {
+    "review_id": "REV00024",
+    "product_id": "PROD0028",
+    "customer_id": "CUST0004",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-02-04T05:26:19.636505+00:00"
+  },
+  {
+    "review_id": "REV00025",
+    "product_id": "PROD0004",
+    "customer_id": "CUST0086",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-06-10T04:02:20.463471+00:00"
+  },
+  {
+    "review_id": "REV00026",
+    "product_id": "PROD0030",
+    "customer_id": "CUST0070",
+    "rating": 2,
+    "comment": "Chat luong duoi mong doi.",
+    "created_at": "2026-07-29T12:12:04.652724+00:00"
+  },
+  {
+    "review_id": "REV00027",
+    "product_id": "PROD0042",
+    "customer_id": "CUST0031",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-04-06T05:50:43.989106+00:00"
+  },
+  {
+    "review_id": "REV00028",
+    "product_id": "PROD0017",
+    "customer_id": "CUST0002",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-04-18T15:07:47.262996+00:00"
+  },
+  {
+    "review_id": "REV00029",
+    "product_id": "PROD0074",
+    "customer_id": "CUST0034",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-03-23T03:18:40.684559+00:00"
+  },
+  {
+    "review_id": "REV00030",
+    "product_id": "PROD0065",
+    "customer_id": "CUST0055",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-05-18T07:11:49.075036+00:00"
+  },
+  {
+    "review_id": "REV00031",
+    "product_id": "PROD0024",
+    "customer_id": "CUST0032",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-05-13T03:43:17.664448+00:00"
+  },
+  {
+    "review_id": "REV00032",
+    "product_id": "PROD0058",
+    "customer_id": "CUST0041",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-01-06T01:42:06.329136+00:00"
+  },
+  {
+    "review_id": "REV00033",
+    "product_id": "PROD0065",
+    "customer_id": "CUST0013",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-02-04T07:01:44.808499+00:00"
+  },
+  {
+    "review_id": "REV00034",
+    "product_id": "PROD0037",
+    "customer_id": "CUST0037",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-02-26T16:26:54.916033+00:00"
+  },
+  {
+    "review_id": "REV00035",
+    "product_id": "PROD0080",
+    "customer_id": "CUST0092",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-02-10T11:09:52.775743+00:00"
+  },
+  {
+    "review_id": "REV00036",
+    "product_id": "PROD0021",
+    "customer_id": "CUST0088",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-03-27T12:15:55.536944+00:00"
+  },
+  {
+    "review_id": "REV00037",
+    "product_id": "PROD0077",
+    "customer_id": "CUST0076",
+    "rating": 1,
+    "comment": "That vong, khong nen mua.",
+    "created_at": "2026-02-15T04:52:18.465345+00:00"
+  },
+  {
+    "review_id": "REV00038",
+    "product_id": "PROD0016",
+    "customer_id": "CUST0052",
+    "rating": 1,
+    "comment": "That vong, khong nen mua.",
+    "created_at": "2026-02-12T05:26:32.781570+00:00"
+  },
+  {
+    "review_id": "REV00039",
+    "product_id": "PROD0025",
+    "customer_id": "CUST0058",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-06-26T02:58:51.029964+00:00"
+  },
+  {
+    "review_id": "REV00040",
+    "product_id": "PROD0017",
+    "customer_id": "CUST0053",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-03-10T05:30:06.598312+00:00"
+  },
+  {
+    "review_id": "REV00041",
+    "product_id": "PROD0010",
+    "customer_id": "CUST0048",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-02-12T01:56:49.873557+00:00"
+  },
+  {
+    "review_id": "REV00042",
+    "product_id": "PROD0005",
+    "customer_id": "CUST0090",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-07-18T02:28:36.361919+00:00"
+  },
+  {
+    "review_id": "REV00043",
+    "product_id": "PROD0049",
+    "customer_id": "CUST0095",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-04-07T03:26:43.608535+00:00"
+  },
+  {
+    "review_id": "REV00044",
+    "product_id": "PROD0035",
+    "customer_id": "CUST0081",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-04-22T06:48:05.576879+00:00"
+  },
+  {
+    "review_id": "REV00045",
+    "product_id": "PROD0068",
+    "customer_id": "CUST0015",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-04-30T10:01:01.871502+00:00"
+  },
+  {
+    "review_id": "REV00046",
+    "product_id": "PROD0007",
+    "customer_id": "CUST0063",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-02-05T09:40:49.920125+00:00"
+  },
+  {
+    "review_id": "REV00047",
+    "product_id": "PROD0057",
+    "customer_id": "CUST0022",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-07-08T03:25:42.222414+00:00"
+  },
+  {
+    "review_id": "REV00048",
+    "product_id": "PROD0066",
+    "customer_id": "CUST0083",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-01-13T01:17:15.421785+00:00"
+  },
+  {
+    "review_id": "REV00049",
+    "product_id": "PROD0079",
+    "customer_id": "CUST0046",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-06-23T20:03:23.996999+00:00"
+  },
+  {
+    "review_id": "REV00050",
+    "product_id": "PROD0068",
+    "customer_id": "CUST0044",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-03-18T21:23:08.934733+00:00"
+  },
+  {
+    "review_id": "REV00051",
+    "product_id": "PROD0043",
+    "customer_id": "CUST0100",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-08-12T20:40:01.491920+00:00"
+  },
+  {
+    "review_id": "REV00052",
+    "product_id": "PROD0044",
+    "customer_id": "CUST0004",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-03-24T20:50:31.547264+00:00"
+  },
+  {
+    "review_id": "REV00053",
+    "product_id": "PROD0003",
+    "customer_id": "CUST0022",
+    "rating": 2,
+    "comment": "Chat luong duoi mong doi.",
+    "created_at": "2026-02-19T15:06:12.738941+00:00"
+  },
+  {
+    "review_id": "REV00054",
+    "product_id": "PROD0026",
+    "customer_id": "CUST0070",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-07-15T03:27:13.635104+00:00"
+  },
+  {
+    "review_id": "REV00055",
+    "product_id": "PROD0058",
+    "customer_id": "CUST0002",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-04-14T10:21:22.962432+00:00"
+  },
+  {
+    "review_id": "REV00056",
+    "product_id": "PROD0044",
+    "customer_id": "CUST0097",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-02-08T22:37:52.974796+00:00"
+  },
+  {
+    "review_id": "REV00057",
+    "product_id": "PROD0030",
+    "customer_id": "CUST0028",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-02-07T09:32:45.859441+00:00"
+  },
+  {
+    "review_id": "REV00058",
+    "product_id": "PROD0059",
+    "customer_id": "CUST0034",
+    "rating": 2,
+    "comment": "San pham khong nhu mo ta.",
+    "created_at": "2026-05-24T04:52:01.008123+00:00"
+  },
+  {
+    "review_id": "REV00059",
+    "product_id": "PROD0025",
+    "customer_id": "CUST0074",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-05-10T12:48:47.645932+00:00"
+  },
+  {
+    "review_id": "REV00060",
+    "product_id": "PROD0058",
+    "customer_id": "CUST0016",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-02-05T12:46:46.657452+00:00"
+  },
+  {
+    "review_id": "REV00061",
+    "product_id": "PROD0045",
+    "customer_id": "CUST0093",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-02-20T17:07:35.440354+00:00"
+  },
+  {
+    "review_id": "REV00062",
+    "product_id": "PROD0023",
+    "customer_id": "CUST0068",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-08-08T03:01:12.600167+00:00"
+  },
+  {
+    "review_id": "REV00063",
+    "product_id": "PROD0054",
+    "customer_id": "CUST0084",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-04-25T17:10:38.670037+00:00"
+  },
+  {
+    "review_id": "REV00064",
+    "product_id": "PROD0017",
+    "customer_id": "CUST0081",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-03-15T08:04:16.746912+00:00"
+  },
+  {
+    "review_id": "REV00065",
+    "product_id": "PROD0048",
+    "customer_id": "CUST0020",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-04-11T16:43:33.293507+00:00"
+  },
+  {
+    "review_id": "REV00066",
+    "product_id": "PROD0029",
+    "customer_id": "CUST0082",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-02-04T18:58:28.167549+00:00"
+  },
+  {
+    "review_id": "REV00067",
+    "product_id": "PROD0071",
+    "customer_id": "CUST0083",
+    "rating": 2,
+    "comment": "Chat luong duoi mong doi.",
+    "created_at": "2026-05-19T11:32:11.884272+00:00"
+  },
+  {
+    "review_id": "REV00068",
+    "product_id": "PROD0078",
+    "customer_id": "CUST0038",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-01-18T04:49:30.032240+00:00"
+  },
+  {
+    "review_id": "REV00069",
+    "product_id": "PROD0057",
+    "customer_id": "CUST0086",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-02-07T23:42:19.331099+00:00"
+  },
+  {
+    "review_id": "REV00070",
+    "product_id": "PROD0071",
+    "customer_id": "CUST0090",
+    "rating": 2,
+    "comment": "San pham khong nhu mo ta.",
+    "created_at": "2026-05-30T16:25:50.260724+00:00"
+  },
+  {
+    "review_id": "REV00071",
+    "product_id": "PROD0005",
+    "customer_id": "CUST0040",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-06-12T10:48:46.788632+00:00"
+  },
+  {
+    "review_id": "REV00072",
+    "product_id": "PROD0047",
+    "customer_id": "CUST0005",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-06-30T07:32:30.458046+00:00"
+  },
+  {
+    "review_id": "REV00073",
+    "product_id": "PROD0035",
+    "customer_id": "CUST0091",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-07-14T16:03:53.984172+00:00"
+  },
+  {
+    "review_id": "REV00074",
+    "product_id": "PROD0030",
+    "customer_id": "CUST0077",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-02-08T09:01:15.982661+00:00"
+  },
+  {
+    "review_id": "REV00075",
+    "product_id": "PROD0013",
+    "customer_id": "CUST0048",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-06-11T05:33:53.330761+00:00"
+  },
+  {
+    "review_id": "REV00076",
+    "product_id": "PROD0026",
+    "customer_id": "CUST0052",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-04-29T14:48:39.173704+00:00"
+  },
+  {
+    "review_id": "REV00077",
+    "product_id": "PROD0054",
+    "customer_id": "CUST0007",
+    "rating": 1,
+    "comment": "That vong, khong nen mua.",
+    "created_at": "2026-03-18T02:41:36.946737+00:00"
+  },
+  {
+    "review_id": "REV00078",
+    "product_id": "PROD0001",
+    "customer_id": "CUST0015",
+    "rating": 1,
+    "comment": "San pham loi, da doi tra.",
+    "created_at": "2026-03-13T21:22:43.616162+00:00"
+  },
+  {
+    "review_id": "REV00079",
+    "product_id": "PROD0073",
+    "customer_id": "CUST0017",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-03-28T18:49:14.000293+00:00"
+  },
+  {
+    "review_id": "REV00080",
+    "product_id": "PROD0047",
+    "customer_id": "CUST0092",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-03-02T04:05:00.771481+00:00"
+  },
+  {
+    "review_id": "REV00081",
+    "product_id": "PROD0009",
+    "customer_id": "CUST0027",
+    "rating": 2,
+    "comment": "Chat luong duoi mong doi.",
+    "created_at": "2026-01-19T17:43:04.118693+00:00"
+  },
+  {
+    "review_id": "REV00082",
+    "product_id": "PROD0009",
+    "customer_id": "CUST0094",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-02-04T09:29:59.454548+00:00"
+  },
+  {
+    "review_id": "REV00083",
+    "product_id": "PROD0074",
+    "customer_id": "CUST0078",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-01-23T02:15:03.764428+00:00"
+  },
+  {
+    "review_id": "REV00084",
+    "product_id": "PROD0065",
+    "customer_id": "CUST0014",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-03-07T04:07:06.387423+00:00"
+  },
+  {
+    "review_id": "REV00085",
+    "product_id": "PROD0054",
+    "customer_id": "CUST0071",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-04-28T19:28:46.699310+00:00"
+  },
+  {
+    "review_id": "REV00086",
+    "product_id": "PROD0047",
+    "customer_id": "CUST0048",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-04-15T09:52:06.302211+00:00"
+  },
+  {
+    "review_id": "REV00087",
+    "product_id": "PROD0024",
+    "customer_id": "CUST0067",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-01-19T22:13:51.915157+00:00"
+  },
+  {
+    "review_id": "REV00088",
+    "product_id": "PROD0074",
+    "customer_id": "CUST0089",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-06-16T04:21:09.215987+00:00"
+  },
+  {
+    "review_id": "REV00089",
+    "product_id": "PROD0008",
+    "customer_id": "CUST0076",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-06-30T00:57:50.356241+00:00"
+  },
+  {
+    "review_id": "REV00090",
+    "product_id": "PROD0073",
+    "customer_id": "CUST0094",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-02-10T04:30:50.667160+00:00"
+  },
+  {
+    "review_id": "REV00091",
+    "product_id": "PROD0019",
+    "customer_id": "CUST0057",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-07-15T01:01:36.575728+00:00"
+  },
+  {
+    "review_id": "REV00092",
+    "product_id": "PROD0020",
+    "customer_id": "CUST0029",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-08-13T02:58:26.569709+00:00"
+  },
+  {
+    "review_id": "REV00093",
+    "product_id": "PROD0075",
+    "customer_id": "CUST0046",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-08-06T20:47:58.252061+00:00"
+  },
+  {
+    "review_id": "REV00094",
+    "product_id": "PROD0025",
+    "customer_id": "CUST0025",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-07-11T20:39:32.596008+00:00"
+  },
+  {
+    "review_id": "REV00095",
+    "product_id": "PROD0003",
+    "customer_id": "CUST0053",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-04-02T16:20:01.684219+00:00"
+  },
+  {
+    "review_id": "REV00096",
+    "product_id": "PROD0004",
+    "customer_id": "CUST0026",
+    "rating": 1,
+    "comment": "That vong, khong nen mua.",
+    "created_at": "2026-06-26T10:11:05.883143+00:00"
+  },
+  {
+    "review_id": "REV00097",
+    "product_id": "PROD0011",
+    "customer_id": "CUST0079",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-04-23T04:12:00.299010+00:00"
+  },
+  {
+    "review_id": "REV00098",
+    "product_id": "PROD0013",
+    "customer_id": "CUST0047",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-04-30T23:36:23.043099+00:00"
+  },
+  {
+    "review_id": "REV00099",
+    "product_id": "PROD0037",
+    "customer_id": "CUST0078",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-05-09T13:33:29.997633+00:00"
+  },
+  {
+    "review_id": "REV00100",
+    "product_id": "PROD0030",
+    "customer_id": "CUST0088",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-04-15T07:09:48.118732+00:00"
+  },
+  {
+    "review_id": "REV00101",
+    "product_id": "PROD0008",
+    "customer_id": "CUST0041",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-01-06T13:14:51.677155+00:00"
+  },
+  {
+    "review_id": "REV00102",
+    "product_id": "PROD0010",
+    "customer_id": "CUST0045",
+    "rating": 2,
+    "comment": "Chat luong duoi mong doi.",
+    "created_at": "2026-02-17T06:37:59.760521+00:00"
+  },
+  {
+    "review_id": "REV00103",
+    "product_id": "PROD0076",
+    "customer_id": "CUST0080",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-05-02T11:59:23.113000+00:00"
+  },
+  {
+    "review_id": "REV00104",
+    "product_id": "PROD0039",
+    "customer_id": "CUST0045",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-02-05T09:52:52.738170+00:00"
+  },
+  {
+    "review_id": "REV00105",
+    "product_id": "PROD0042",
+    "customer_id": "CUST0098",
+    "rating": 1,
+    "comment": "San pham loi, da doi tra.",
+    "created_at": "2026-06-19T05:49:13.846147+00:00"
+  },
+  {
+    "review_id": "REV00106",
+    "product_id": "PROD0040",
+    "customer_id": "CUST0062",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-01-25T23:14:54.633996+00:00"
+  },
+  {
+    "review_id": "REV00107",
+    "product_id": "PROD0073",
+    "customer_id": "CUST0063",
+    "rating": 1,
+    "comment": "That vong, khong nen mua.",
+    "created_at": "2026-03-08T23:29:04.866035+00:00"
+  },
+  {
+    "review_id": "REV00108",
+    "product_id": "PROD0018",
+    "customer_id": "CUST0054",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-06-14T14:24:29.314195+00:00"
+  },
+  {
+    "review_id": "REV00109",
+    "product_id": "PROD0074",
+    "customer_id": "CUST0031",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-06-29T00:04:10.226173+00:00"
+  },
+  {
+    "review_id": "REV00110",
+    "product_id": "PROD0016",
+    "customer_id": "CUST0046",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-07-15T06:51:34.669122+00:00"
+  },
+  {
+    "review_id": "REV00111",
+    "product_id": "PROD0005",
+    "customer_id": "CUST0084",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-03-04T14:50:01.255217+00:00"
+  },
+  {
+    "review_id": "REV00112",
+    "product_id": "PROD0034",
+    "customer_id": "CUST0044",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-06-18T05:16:31.274844+00:00"
+  },
+  {
+    "review_id": "REV00113",
+    "product_id": "PROD0027",
+    "customer_id": "CUST0003",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-05-18T03:00:39.585652+00:00"
+  },
+  {
+    "review_id": "REV00114",
+    "product_id": "PROD0009",
+    "customer_id": "CUST0070",
+    "rating": 2,
+    "comment": "San pham khong nhu mo ta.",
+    "created_at": "2026-02-23T17:50:03.330839+00:00"
+  },
+  {
+    "review_id": "REV00115",
+    "product_id": "PROD0053",
+    "customer_id": "CUST0022",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-02-23T23:45:23.401088+00:00"
+  },
+  {
+    "review_id": "REV00116",
+    "product_id": "PROD0019",
+    "customer_id": "CUST0087",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-01-17T05:54:30.258579+00:00"
+  },
+  {
+    "review_id": "REV00117",
+    "product_id": "PROD0054",
+    "customer_id": "CUST0004",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-04-25T12:56:19.962233+00:00"
+  },
+  {
+    "review_id": "REV00118",
+    "product_id": "PROD0034",
+    "customer_id": "CUST0045",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-01-14T10:46:17.835746+00:00"
+  },
+  {
+    "review_id": "REV00119",
+    "product_id": "PROD0028",
+    "customer_id": "CUST0053",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-04-28T12:34:19.157941+00:00"
+  },
+  {
+    "review_id": "REV00120",
+    "product_id": "PROD0021",
+    "customer_id": "CUST0071",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-01-17T07:26:07.356885+00:00"
+  },
+  {
+    "review_id": "REV00121",
+    "product_id": "PROD0015",
+    "customer_id": "CUST0017",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-02-07T08:14:50.269102+00:00"
+  },
+  {
+    "review_id": "REV00122",
+    "product_id": "PROD0021",
+    "customer_id": "CUST0025",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-04-06T12:59:05.496132+00:00"
+  },
+  {
+    "review_id": "REV00123",
+    "product_id": "PROD0021",
+    "customer_id": "CUST0053",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-07-25T08:16:33.864831+00:00"
+  },
+  {
+    "review_id": "REV00124",
+    "product_id": "PROD0027",
+    "customer_id": "CUST0060",
+    "rating": 2,
+    "comment": "Chat luong duoi mong doi.",
+    "created_at": "2026-07-19T19:42:00.801176+00:00"
+  },
+  {
+    "review_id": "REV00125",
+    "product_id": "PROD0014",
+    "customer_id": "CUST0053",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-03-06T03:44:30.409572+00:00"
+  },
+  {
+    "review_id": "REV00126",
+    "product_id": "PROD0014",
+    "customer_id": "CUST0098",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-08-16T12:08:01.276146+00:00"
+  },
+  {
+    "review_id": "REV00127",
+    "product_id": "PROD0027",
+    "customer_id": "CUST0095",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-07-15T00:39:22.751253+00:00"
+  },
+  {
+    "review_id": "REV00128",
+    "product_id": "PROD0009",
+    "customer_id": "CUST0062",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-03-19T21:56:39.299348+00:00"
+  },
+  {
+    "review_id": "REV00129",
+    "product_id": "PROD0054",
+    "customer_id": "CUST0077",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-05-24T15:19:57.389082+00:00"
+  },
+  {
+    "review_id": "REV00130",
+    "product_id": "PROD0044",
+    "customer_id": "CUST0008",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-06-11T20:55:37.181281+00:00"
+  },
+  {
+    "review_id": "REV00131",
+    "product_id": "PROD0058",
+    "customer_id": "CUST0024",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-04-10T18:44:32.973830+00:00"
+  },
+  {
+    "review_id": "REV00132",
+    "product_id": "PROD0008",
+    "customer_id": "CUST0011",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-05-11T18:15:29.460428+00:00"
+  },
+  {
+    "review_id": "REV00133",
+    "product_id": "PROD0004",
+    "customer_id": "CUST0043",
+    "rating": 1,
+    "comment": "San pham loi, da doi tra.",
+    "created_at": "2026-03-22T21:53:25.841469+00:00"
+  },
+  {
+    "review_id": "REV00134",
+    "product_id": "PROD0039",
+    "customer_id": "CUST0087",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-06-07T12:32:56.777425+00:00"
+  },
+  {
+    "review_id": "REV00135",
+    "product_id": "PROD0012",
+    "customer_id": "CUST0032",
+    "rating": 2,
+    "comment": "San pham khong nhu mo ta.",
+    "created_at": "2026-08-15T03:16:24.374278+00:00"
+  },
+  {
+    "review_id": "REV00136",
+    "product_id": "PROD0049",
+    "customer_id": "CUST0035",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-01-04T07:22:36.355893+00:00"
+  },
+  {
+    "review_id": "REV00137",
+    "product_id": "PROD0010",
+    "customer_id": "CUST0098",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-05-21T20:15:43.055451+00:00"
+  },
+  {
+    "review_id": "REV00138",
+    "product_id": "PROD0052",
+    "customer_id": "CUST0083",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-07-24T15:45:04.702005+00:00"
+  },
+  {
+    "review_id": "REV00139",
+    "product_id": "PROD0054",
+    "customer_id": "CUST0082",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-01-29T06:55:31.821258+00:00"
+  },
+  {
+    "review_id": "REV00140",
+    "product_id": "PROD0009",
+    "customer_id": "CUST0082",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-05-05T23:43:13.795469+00:00"
+  },
+  {
+    "review_id": "REV00141",
+    "product_id": "PROD0050",
+    "customer_id": "CUST0065",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-01-11T09:23:48.459712+00:00"
+  },
+  {
+    "review_id": "REV00142",
+    "product_id": "PROD0024",
+    "customer_id": "CUST0088",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-05-11T15:09:59.102813+00:00"
+  },
+  {
+    "review_id": "REV00143",
+    "product_id": "PROD0038",
+    "customer_id": "CUST0055",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-01-17T03:49:31.684875+00:00"
+  },
+  {
+    "review_id": "REV00144",
+    "product_id": "PROD0064",
+    "customer_id": "CUST0042",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-04-03T06:26:39.310419+00:00"
+  },
+  {
+    "review_id": "REV00145",
+    "product_id": "PROD0015",
+    "customer_id": "CUST0021",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-06-27T05:33:03.682972+00:00"
+  },
+  {
+    "review_id": "REV00146",
+    "product_id": "PROD0049",
+    "customer_id": "CUST0006",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-02-27T01:42:04.265873+00:00"
+  },
+  {
+    "review_id": "REV00147",
+    "product_id": "PROD0001",
+    "customer_id": "CUST0040",
+    "rating": 2,
+    "comment": "Chat luong duoi mong doi.",
+    "created_at": "2026-06-23T13:34:05.585125+00:00"
+  },
+  {
+    "review_id": "REV00148",
+    "product_id": "PROD0056",
+    "customer_id": "CUST0078",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-02-14T02:25:58.816400+00:00"
+  },
+  {
+    "review_id": "REV00149",
+    "product_id": "PROD0048",
+    "customer_id": "CUST0038",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-07-26T04:16:55.624615+00:00"
+  },
+  {
+    "review_id": "REV00150",
+    "product_id": "PROD0059",
+    "customer_id": "CUST0042",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-03-29T14:35:33.794475+00:00"
+  },
+  {
+    "review_id": "REV00151",
+    "product_id": "PROD0071",
+    "customer_id": "CUST0022",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-07-20T22:00:22.683525+00:00"
+  },
+  {
+    "review_id": "REV00152",
+    "product_id": "PROD0007",
+    "customer_id": "CUST0047",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-03-19T21:03:25.592289+00:00"
+  },
+  {
+    "review_id": "REV00153",
+    "product_id": "PROD0063",
+    "customer_id": "CUST0038",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-07-04T16:33:01.412831+00:00"
+  },
+  {
+    "review_id": "REV00154",
+    "product_id": "PROD0039",
+    "customer_id": "CUST0053",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-08-17T16:24:55.616190+00:00"
+  },
+  {
+    "review_id": "REV00155",
+    "product_id": "PROD0077",
+    "customer_id": "CUST0069",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-04-29T20:38:24.408360+00:00"
+  },
+  {
+    "review_id": "REV00156",
+    "product_id": "PROD0078",
+    "customer_id": "CUST0036",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-05-23T07:52:33.469492+00:00"
+  },
+  {
+    "review_id": "REV00157",
+    "product_id": "PROD0050",
+    "customer_id": "CUST0088",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-01-17T16:11:33.695320+00:00"
+  },
+  {
+    "review_id": "REV00158",
+    "product_id": "PROD0079",
+    "customer_id": "CUST0071",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-06-30T07:19:50.804287+00:00"
+  },
+  {
+    "review_id": "REV00159",
+    "product_id": "PROD0008",
+    "customer_id": "CUST0048",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-05-25T13:17:58.075296+00:00"
+  },
+  {
+    "review_id": "REV00160",
+    "product_id": "PROD0012",
+    "customer_id": "CUST0070",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-07-20T19:38:29.859744+00:00"
+  },
+  {
+    "review_id": "REV00161",
+    "product_id": "PROD0045",
+    "customer_id": "CUST0074",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-02-18T01:59:04.620498+00:00"
+  },
+  {
+    "review_id": "REV00162",
+    "product_id": "PROD0024",
+    "customer_id": "CUST0092",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-04-04T14:29:01.015849+00:00"
+  },
+  {
+    "review_id": "REV00163",
+    "product_id": "PROD0005",
+    "customer_id": "CUST0070",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-07-15T06:10:16.786045+00:00"
+  },
+  {
+    "review_id": "REV00164",
+    "product_id": "PROD0003",
+    "customer_id": "CUST0038",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-01-19T02:33:14.031568+00:00"
+  },
+  {
+    "review_id": "REV00165",
+    "product_id": "PROD0066",
+    "customer_id": "CUST0055",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-02-08T06:15:13.702040+00:00"
+  },
+  {
+    "review_id": "REV00166",
+    "product_id": "PROD0050",
+    "customer_id": "CUST0047",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-07-10T04:12:00.514701+00:00"
+  },
+  {
+    "review_id": "REV00167",
+    "product_id": "PROD0037",
+    "customer_id": "CUST0063",
+    "rating": 1,
+    "comment": "That vong, khong nen mua.",
+    "created_at": "2026-03-21T21:52:08.604207+00:00"
+  },
+  {
+    "review_id": "REV00168",
+    "product_id": "PROD0049",
+    "customer_id": "CUST0085",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-08-06T15:37:03.459219+00:00"
+  },
+  {
+    "review_id": "REV00169",
+    "product_id": "PROD0035",
+    "customer_id": "CUST0018",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-08-04T11:08:48.940017+00:00"
+  },
+  {
+    "review_id": "REV00170",
+    "product_id": "PROD0006",
+    "customer_id": "CUST0028",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-04-02T00:00:21.497850+00:00"
+  },
+  {
+    "review_id": "REV00171",
+    "product_id": "PROD0019",
+    "customer_id": "CUST0011",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-03-26T13:27:15.639562+00:00"
+  },
+  {
+    "review_id": "REV00172",
+    "product_id": "PROD0077",
+    "customer_id": "CUST0058",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-04-18T18:20:15.890535+00:00"
+  },
+  {
+    "review_id": "REV00173",
+    "product_id": "PROD0050",
+    "customer_id": "CUST0009",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-07-21T04:50:46.970283+00:00"
+  },
+  {
+    "review_id": "REV00174",
+    "product_id": "PROD0041",
+    "customer_id": "CUST0004",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-04-18T17:59:30.495572+00:00"
+  },
+  {
+    "review_id": "REV00175",
+    "product_id": "PROD0006",
+    "customer_id": "CUST0085",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-01-28T17:50:07.583627+00:00"
+  },
+  {
+    "review_id": "REV00176",
+    "product_id": "PROD0051",
+    "customer_id": "CUST0012",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-02-24T09:55:24.806737+00:00"
+  },
+  {
+    "review_id": "REV00177",
+    "product_id": "PROD0018",
+    "customer_id": "CUST0046",
+    "rating": 1,
+    "comment": "San pham loi, da doi tra.",
+    "created_at": "2026-02-28T07:14:56.723952+00:00"
+  },
+  {
+    "review_id": "REV00178",
+    "product_id": "PROD0050",
+    "customer_id": "CUST0001",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-07-30T03:46:43.327038+00:00"
+  },
+  {
+    "review_id": "REV00179",
+    "product_id": "PROD0063",
+    "customer_id": "CUST0093",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-06-24T14:00:23.200047+00:00"
+  },
+  {
+    "review_id": "REV00180",
+    "product_id": "PROD0012",
+    "customer_id": "CUST0092",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-05-17T14:44:49.105290+00:00"
+  },
+  {
+    "review_id": "REV00181",
+    "product_id": "PROD0061",
+    "customer_id": "CUST0078",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-05-18T03:08:26.877208+00:00"
+  },
+  {
+    "review_id": "REV00182",
+    "product_id": "PROD0001",
+    "customer_id": "CUST0058",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-08-12T11:27:01.766790+00:00"
+  },
+  {
+    "review_id": "REV00183",
+    "product_id": "PROD0060",
+    "customer_id": "CUST0001",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-07-13T19:13:27.142007+00:00"
+  },
+  {
+    "review_id": "REV00184",
+    "product_id": "PROD0019",
+    "customer_id": "CUST0005",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-05-30T23:19:21.578337+00:00"
+  },
+  {
+    "review_id": "REV00185",
+    "product_id": "PROD0042",
+    "customer_id": "CUST0052",
+    "rating": 1,
+    "comment": "That vong, khong nen mua.",
+    "created_at": "2026-06-23T20:12:56.956842+00:00"
+  },
+  {
+    "review_id": "REV00186",
+    "product_id": "PROD0032",
+    "customer_id": "CUST0021",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-04-03T12:45:23.189016+00:00"
+  },
+  {
+    "review_id": "REV00187",
+    "product_id": "PROD0029",
+    "customer_id": "CUST0095",
+    "rating": 3,
+    "comment": "San pham tam on, khong co gi noi bat.",
+    "created_at": "2026-08-05T20:36:53.338088+00:00"
+  },
+  {
+    "review_id": "REV00188",
+    "product_id": "PROD0076",
+    "customer_id": "CUST0017",
+    "rating": 5,
+    "comment": "Dong goi can than, giao hang nhanh.",
+    "created_at": "2026-03-18T12:43:21.798847+00:00"
+  },
+  {
+    "review_id": "REV00189",
+    "product_id": "PROD0039",
+    "customer_id": "CUST0076",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-04-10T03:56:36.266069+00:00"
+  },
+  {
+    "review_id": "REV00190",
+    "product_id": "PROD0001",
+    "customer_id": "CUST0024",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-03-16T12:10:02.660057+00:00"
+  },
+  {
+    "review_id": "REV00191",
+    "product_id": "PROD0030",
+    "customer_id": "CUST0096",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-01-16T22:34:21.595622+00:00"
+  },
+  {
+    "review_id": "REV00192",
+    "product_id": "PROD0007",
+    "customer_id": "CUST0097",
+    "rating": 5,
+    "comment": "Chat luong vuot mong doi, se mua lai.",
+    "created_at": "2026-07-22T20:13:10.326158+00:00"
+  },
+  {
+    "review_id": "REV00193",
+    "product_id": "PROD0025",
+    "customer_id": "CUST0044",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-06-29T17:42:24.320611+00:00"
+  },
+  {
+    "review_id": "REV00194",
+    "product_id": "PROD0036",
+    "customer_id": "CUST0017",
+    "rating": 3,
+    "comment": "Dung tam duoc, chua that su an tuong.",
+    "created_at": "2026-05-11T18:34:28.021833+00:00"
+  },
+  {
+    "review_id": "REV00195",
+    "product_id": "PROD0067",
+    "customer_id": "CUST0074",
+    "rating": 4,
+    "comment": "Chat luong tot nhung gia hoi cao.",
+    "created_at": "2026-06-23T07:00:06.519754+00:00"
+  },
+  {
+    "review_id": "REV00196",
+    "product_id": "PROD0075",
+    "customer_id": "CUST0094",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-04-09T01:54:20.721943+00:00"
+  },
+  {
+    "review_id": "REV00197",
+    "product_id": "PROD0056",
+    "customer_id": "CUST0089",
+    "rating": 5,
+    "comment": "San pham rat tot, dung nhu mo ta.",
+    "created_at": "2026-07-02T16:41:20.798153+00:00"
+  },
+  {
+    "review_id": "REV00198",
+    "product_id": "PROD0066",
+    "customer_id": "CUST0095",
+    "rating": 4,
+    "comment": "San pham on, dung duoc.",
+    "created_at": "2026-06-27T13:38:03.145737+00:00"
+  },
+  {
+    "review_id": "REV00199",
+    "product_id": "PROD0035",
+    "customer_id": "CUST0021",
+    "rating": 4,
+    "comment": "Giao hang hoi cham nhung san pham ok.",
+    "created_at": "2026-06-10T18:34:56.628184+00:00"
+  },
+  {
+    "review_id": "REV00200",
+    "product_id": "PROD0020",
+    "customer_id": "CUST0049",
+    "rating": 2,
+    "comment": "Chat luong duoi mong doi.",
+    "created_at": "2026-05-24T17:43:48.253509+00:00"
+  }
+]

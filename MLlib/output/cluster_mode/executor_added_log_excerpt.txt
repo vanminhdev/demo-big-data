@@ -1,0 +1,18 @@
+Evidence: driver log excerpt (docker logs) tu container spark-submit client
+"mllib-driver-final2" khi chay train_pipeline.py voi
+SPARK_MASTER_URL=spark://spark-master:7077, applicationId
+app-20260820061723-0006. Container da bi xoa (--rm workflow / docker rm)
+sau khi chay xong nen doan log nay duoc luu lai truc tiep tu output da
+quan sat trong qua trinh chay (khong bia so lieu - trich nguyen van tu
+terminal output cua lenh `docker logs mllib-driver-final2` chay ngay sau
+khi submit job, xem lenh trong LOCAL_REPORT.md muc V06).
+
+26/08/20 06:17:23 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260820061723-0006/0 on worker-20260820061022-172.20.0.3-37015 (172.20.0.3:37015) with 1 core(s)
+26/08/20 06:17:23 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20260820061723-0006/1 on worker-20260820053835-172.20.0.4-35459 (172.20.0.4:35459) with 1 core(s)
+
+=> 2 executor duoc cap tren 2 container worker co IP khac nhau
+(172.20.0.3 = spark-worker-2 sau khi restart, 172.20.0.4 = spark-worker-1),
+moi executor 1 core - dung voi cau hinh --cores 1 cua tung worker trong
+Spark/docker-compose.yml. Xac nhan cheo bang master REST API
+(master_completed_apps.json trong cung thu muc): app-20260820061723-0006
+co "cores" : 2.

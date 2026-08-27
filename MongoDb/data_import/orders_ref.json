@@ -1,0 +1,1202 @@
+[
+  {
+    "order_id": "ORD000001",
+    "customer_id": "CUST00095",
+    "order_time": "2026-07-05T20:18:36+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 35934000.0
+  },
+  {
+    "order_id": "ORD000002",
+    "customer_id": "CUST00074",
+    "order_time": "2026-04-05T10:05:49+00:00",
+    "status": "CREATED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 123603000.0
+  },
+  {
+    "order_id": "ORD000003",
+    "customer_id": "CUST00045",
+    "order_time": "2026-06-23T02:37:21+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 114013000.0
+  },
+  {
+    "order_id": "ORD000004",
+    "customer_id": "CUST00085",
+    "order_time": "2026-03-26T00:44:33+00:00",
+    "status": "CANCELLED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 54492000.0
+  },
+  {
+    "order_id": "ORD000005",
+    "customer_id": "CUST00053",
+    "order_time": "2026-05-18T02:01:16+00:00",
+    "status": "CREATED",
+    "payment_method": "E_WALLET",
+    "total_amount": 96117000.0
+  },
+  {
+    "order_id": "ORD000006",
+    "customer_id": "CUST00057",
+    "order_time": "2026-05-24T17:22:51+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 48264000.0
+  },
+  {
+    "order_id": "ORD000007",
+    "customer_id": "CUST00071",
+    "order_time": "2026-07-09T17:56:26+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 24094000.0
+  },
+  {
+    "order_id": "ORD000008",
+    "customer_id": "CUST00064",
+    "order_time": "2026-06-27T18:56:00+00:00",
+    "status": "CANCELLED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 135011000.0
+  },
+  {
+    "order_id": "ORD000009",
+    "customer_id": "CUST00009",
+    "order_time": "2026-03-30T09:37:46+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 102201000.0
+  },
+  {
+    "order_id": "ORD000010",
+    "customer_id": "CUST00020",
+    "order_time": "2026-05-24T11:59:56+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 83414000.0
+  },
+  {
+    "order_id": "ORD000011",
+    "customer_id": "CUST00030",
+    "order_time": "2026-06-06T18:08:00+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 149007000.0
+  },
+  {
+    "order_id": "ORD000012",
+    "customer_id": "CUST00005",
+    "order_time": "2026-02-26T22:02:11+00:00",
+    "status": "CREATED",
+    "payment_method": "COD",
+    "total_amount": 14164000.0
+  },
+  {
+    "order_id": "ORD000013",
+    "customer_id": "CUST00068",
+    "order_time": "2026-08-17T02:22:58+00:00",
+    "status": "CANCELLED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 77620000.0
+  },
+  {
+    "order_id": "ORD000014",
+    "customer_id": "CUST00084",
+    "order_time": "2026-06-21T05:05:11+00:00",
+    "status": "CREATED",
+    "payment_method": "COD",
+    "total_amount": 117080000.0
+  },
+  {
+    "order_id": "ORD000015",
+    "customer_id": "CUST00031",
+    "order_time": "2026-03-06T06:38:43+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 23741000.0
+  },
+  {
+    "order_id": "ORD000016",
+    "customer_id": "CUST00057",
+    "order_time": "2026-06-27T01:38:26+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 41086000.0
+  },
+  {
+    "order_id": "ORD000017",
+    "customer_id": "CUST00032",
+    "order_time": "2026-05-09T08:57:46+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 34775000.0
+  },
+  {
+    "order_id": "ORD000018",
+    "customer_id": "CUST00064",
+    "order_time": "2026-07-24T19:07:30+00:00",
+    "status": "CANCELLED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 73184000.0
+  },
+  {
+    "order_id": "ORD000019",
+    "customer_id": "CUST00010",
+    "order_time": "2026-06-18T05:38:32+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 68915000.0
+  },
+  {
+    "order_id": "ORD000020",
+    "customer_id": "CUST00031",
+    "order_time": "2026-06-16T02:29:28+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 46524000.0
+  },
+  {
+    "order_id": "ORD000021",
+    "customer_id": "CUST00078",
+    "order_time": "2026-03-22T05:22:06+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 39564000.0
+  },
+  {
+    "order_id": "ORD000022",
+    "customer_id": "CUST00080",
+    "order_time": "2026-04-05T06:15:14+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 107694000.0
+  },
+  {
+    "order_id": "ORD000023",
+    "customer_id": "CUST00040",
+    "order_time": "2026-08-13T15:28:24+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 66206000.0
+  },
+  {
+    "order_id": "ORD000024",
+    "customer_id": "CUST00023",
+    "order_time": "2026-03-30T14:06:21+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 64566000.0
+  },
+  {
+    "order_id": "ORD000025",
+    "customer_id": "CUST00038",
+    "order_time": "2026-06-19T22:06:04+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 8393000.0
+  },
+  {
+    "order_id": "ORD000026",
+    "customer_id": "CUST00072",
+    "order_time": "2026-03-30T15:56:01+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 48188000.0
+  },
+  {
+    "order_id": "ORD000027",
+    "customer_id": "CUST00075",
+    "order_time": "2026-04-26T16:55:23+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 72600000.0
+  },
+  {
+    "order_id": "ORD000028",
+    "customer_id": "CUST00079",
+    "order_time": "2026-08-07T19:57:13+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 37740000.0
+  },
+  {
+    "order_id": "ORD000029",
+    "customer_id": "CUST00064",
+    "order_time": "2026-07-08T05:18:01+00:00",
+    "status": "CREATED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 209741000.0
+  },
+  {
+    "order_id": "ORD000030",
+    "customer_id": "CUST00054",
+    "order_time": "2026-03-22T08:17:09+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 60620000.0
+  },
+  {
+    "order_id": "ORD000031",
+    "customer_id": "CUST00047",
+    "order_time": "2026-04-18T01:20:18+00:00",
+    "status": "CREATED",
+    "payment_method": "COD",
+    "total_amount": 55667000.0
+  },
+  {
+    "order_id": "ORD000032",
+    "customer_id": "CUST00085",
+    "order_time": "2026-04-25T23:03:19+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 7494000.0
+  },
+  {
+    "order_id": "ORD000033",
+    "customer_id": "CUST00017",
+    "order_time": "2026-07-13T06:25:33+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 37503000.0
+  },
+  {
+    "order_id": "ORD000034",
+    "customer_id": "CUST00001",
+    "order_time": "2026-08-18T16:00:25+00:00",
+    "status": "CANCELLED",
+    "payment_method": "COD",
+    "total_amount": 36427000.0
+  },
+  {
+    "order_id": "ORD000035",
+    "customer_id": "CUST00085",
+    "order_time": "2026-07-26T22:22:13+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 14763000.0
+  },
+  {
+    "order_id": "ORD000036",
+    "customer_id": "CUST00007",
+    "order_time": "2026-06-05T02:50:11+00:00",
+    "status": "CREATED",
+    "payment_method": "E_WALLET",
+    "total_amount": 46448000.0
+  },
+  {
+    "order_id": "ORD000037",
+    "customer_id": "CUST00066",
+    "order_time": "2026-05-30T10:14:27+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 53118000.0
+  },
+  {
+    "order_id": "ORD000038",
+    "customer_id": "CUST00059",
+    "order_time": "2026-08-13T10:27:42+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 118034000.0
+  },
+  {
+    "order_id": "ORD000039",
+    "customer_id": "CUST00078",
+    "order_time": "2026-07-27T16:29:34+00:00",
+    "status": "CREATED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 38747000.0
+  },
+  {
+    "order_id": "ORD000040",
+    "customer_id": "CUST00013",
+    "order_time": "2026-07-29T18:40:22+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 51957000.0
+  },
+  {
+    "order_id": "ORD000041",
+    "customer_id": "CUST00059",
+    "order_time": "2026-04-10T08:53:07+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 73795000.0
+  },
+  {
+    "order_id": "ORD000042",
+    "customer_id": "CUST00012",
+    "order_time": "2026-08-03T03:01:29+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 73834000.0
+  },
+  {
+    "order_id": "ORD000043",
+    "customer_id": "CUST00086",
+    "order_time": "2026-06-16T17:09:12+00:00",
+    "status": "CREATED",
+    "payment_method": "COD",
+    "total_amount": 144685000.0
+  },
+  {
+    "order_id": "ORD000044",
+    "customer_id": "CUST00074",
+    "order_time": "2026-07-22T16:28:31+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 2235000.0
+  },
+  {
+    "order_id": "ORD000045",
+    "customer_id": "CUST00015",
+    "order_time": "2026-05-07T21:19:18+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 36597000.0
+  },
+  {
+    "order_id": "ORD000046",
+    "customer_id": "CUST00004",
+    "order_time": "2026-04-15T05:14:04+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 40252000.0
+  },
+  {
+    "order_id": "ORD000047",
+    "customer_id": "CUST00009",
+    "order_time": "2026-04-27T23:59:30+00:00",
+    "status": "CREATED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 59116000.0
+  },
+  {
+    "order_id": "ORD000048",
+    "customer_id": "CUST00048",
+    "order_time": "2026-06-21T17:00:48+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 14753000.0
+  },
+  {
+    "order_id": "ORD000049",
+    "customer_id": "CUST00021",
+    "order_time": "2026-08-10T23:08:58+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 120789000.0
+  },
+  {
+    "order_id": "ORD000050",
+    "customer_id": "CUST00045",
+    "order_time": "2026-06-29T08:46:12+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 87890000.0
+  },
+  {
+    "order_id": "ORD000051",
+    "customer_id": "CUST00027",
+    "order_time": "2026-07-12T20:18:46+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 26365000.0
+  },
+  {
+    "order_id": "ORD000052",
+    "customer_id": "CUST00023",
+    "order_time": "2026-05-15T21:57:06+00:00",
+    "status": "CREATED",
+    "payment_method": "COD",
+    "total_amount": 67893000.0
+  },
+  {
+    "order_id": "ORD000053",
+    "customer_id": "CUST00059",
+    "order_time": "2026-03-17T06:26:32+00:00",
+    "status": "CANCELLED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 85420000.0
+  },
+  {
+    "order_id": "ORD000054",
+    "customer_id": "CUST00080",
+    "order_time": "2026-04-17T12:33:43+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 119017000.0
+  },
+  {
+    "order_id": "ORD000055",
+    "customer_id": "CUST00040",
+    "order_time": "2026-07-10T08:53:20+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 45054000.0
+  },
+  {
+    "order_id": "ORD000056",
+    "customer_id": "CUST00068",
+    "order_time": "2026-03-09T14:22:41+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 54257000.0
+  },
+  {
+    "order_id": "ORD000057",
+    "customer_id": "CUST00023",
+    "order_time": "2026-04-04T12:47:35+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 79030000.0
+  },
+  {
+    "order_id": "ORD000058",
+    "customer_id": "CUST00088",
+    "order_time": "2026-05-09T18:47:01+00:00",
+    "status": "CANCELLED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 45508000.0
+  },
+  {
+    "order_id": "ORD000059",
+    "customer_id": "CUST00057",
+    "order_time": "2026-03-29T02:15:11+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 72867000.0
+  },
+  {
+    "order_id": "ORD000060",
+    "customer_id": "CUST00048",
+    "order_time": "2026-08-05T08:38:39+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 41712000.0
+  },
+  {
+    "order_id": "ORD000061",
+    "customer_id": "CUST00060",
+    "order_time": "2026-02-28T12:43:29+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 42324000.0
+  },
+  {
+    "order_id": "ORD000062",
+    "customer_id": "CUST00042",
+    "order_time": "2026-05-20T20:03:56+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 146980000.0
+  },
+  {
+    "order_id": "ORD000063",
+    "customer_id": "CUST00006",
+    "order_time": "2026-06-01T18:46:39+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 72786000.0
+  },
+  {
+    "order_id": "ORD000064",
+    "customer_id": "CUST00100",
+    "order_time": "2026-05-03T14:58:51+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 144653000.0
+  },
+  {
+    "order_id": "ORD000065",
+    "customer_id": "CUST00033",
+    "order_time": "2026-04-22T22:47:50+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 94233000.0
+  },
+  {
+    "order_id": "ORD000066",
+    "customer_id": "CUST00045",
+    "order_time": "2026-04-23T06:36:52+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 42055000.0
+  },
+  {
+    "order_id": "ORD000067",
+    "customer_id": "CUST00083",
+    "order_time": "2026-03-25T23:37:44+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 16665000.0
+  },
+  {
+    "order_id": "ORD000068",
+    "customer_id": "CUST00066",
+    "order_time": "2026-06-15T13:25:55+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 63234000.0
+  },
+  {
+    "order_id": "ORD000069",
+    "customer_id": "CUST00018",
+    "order_time": "2026-06-27T00:03:04+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 26564000.0
+  },
+  {
+    "order_id": "ORD000070",
+    "customer_id": "CUST00077",
+    "order_time": "2026-07-20T23:58:15+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 45922000.0
+  },
+  {
+    "order_id": "ORD000071",
+    "customer_id": "CUST00087",
+    "order_time": "2026-02-25T21:20:00+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 113160000.0
+  },
+  {
+    "order_id": "ORD000072",
+    "customer_id": "CUST00060",
+    "order_time": "2026-04-01T10:56:14+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 58643000.0
+  },
+  {
+    "order_id": "ORD000073",
+    "customer_id": "CUST00048",
+    "order_time": "2026-07-31T17:21:24+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 3788000.0
+  },
+  {
+    "order_id": "ORD000074",
+    "customer_id": "CUST00035",
+    "order_time": "2026-05-18T19:12:07+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 23031000.0
+  },
+  {
+    "order_id": "ORD000075",
+    "customer_id": "CUST00045",
+    "order_time": "2026-06-05T22:31:36+00:00",
+    "status": "CANCELLED",
+    "payment_method": "E_WALLET",
+    "total_amount": 55390000.0
+  },
+  {
+    "order_id": "ORD000076",
+    "customer_id": "CUST00013",
+    "order_time": "2026-04-24T05:58:05+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 60576000.0
+  },
+  {
+    "order_id": "ORD000077",
+    "customer_id": "CUST00098",
+    "order_time": "2026-05-31T05:55:15+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 1952000.0
+  },
+  {
+    "order_id": "ORD000078",
+    "customer_id": "CUST00020",
+    "order_time": "2026-04-10T14:12:25+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 41112000.0
+  },
+  {
+    "order_id": "ORD000079",
+    "customer_id": "CUST00039",
+    "order_time": "2026-07-07T11:14:43+00:00",
+    "status": "CREATED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 120337000.0
+  },
+  {
+    "order_id": "ORD000080",
+    "customer_id": "CUST00092",
+    "order_time": "2026-06-03T03:32:50+00:00",
+    "status": "CREATED",
+    "payment_method": "COD",
+    "total_amount": 83065000.0
+  },
+  {
+    "order_id": "ORD000081",
+    "customer_id": "CUST00068",
+    "order_time": "2026-08-07T07:31:33+00:00",
+    "status": "CANCELLED",
+    "payment_method": "COD",
+    "total_amount": 9120000.0
+  },
+  {
+    "order_id": "ORD000082",
+    "customer_id": "CUST00082",
+    "order_time": "2026-06-13T02:08:43+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 52740000.0
+  },
+  {
+    "order_id": "ORD000083",
+    "customer_id": "CUST00099",
+    "order_time": "2026-04-05T16:04:43+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 128139000.0
+  },
+  {
+    "order_id": "ORD000084",
+    "customer_id": "CUST00090",
+    "order_time": "2026-07-18T01:27:26+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 36206000.0
+  },
+  {
+    "order_id": "ORD000085",
+    "customer_id": "CUST00070",
+    "order_time": "2026-08-12T18:55:10+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 63103000.0
+  },
+  {
+    "order_id": "ORD000086",
+    "customer_id": "CUST00016",
+    "order_time": "2026-06-01T23:10:10+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 107450000.0
+  },
+  {
+    "order_id": "ORD000087",
+    "customer_id": "CUST00011",
+    "order_time": "2026-08-05T05:10:44+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 25486000.0
+  },
+  {
+    "order_id": "ORD000088",
+    "customer_id": "CUST00042",
+    "order_time": "2026-06-25T06:04:39+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 60731000.0
+  },
+  {
+    "order_id": "ORD000089",
+    "customer_id": "CUST00036",
+    "order_time": "2026-03-30T11:29:47+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 93873000.0
+  },
+  {
+    "order_id": "ORD000090",
+    "customer_id": "CUST00005",
+    "order_time": "2026-07-07T21:39:40+00:00",
+    "status": "CREATED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 95569000.0
+  },
+  {
+    "order_id": "ORD000091",
+    "customer_id": "CUST00048",
+    "order_time": "2026-04-04T02:16:29+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 20005000.0
+  },
+  {
+    "order_id": "ORD000092",
+    "customer_id": "CUST00095",
+    "order_time": "2026-05-17T22:19:44+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 22526000.0
+  },
+  {
+    "order_id": "ORD000093",
+    "customer_id": "CUST00028",
+    "order_time": "2026-06-28T17:13:43+00:00",
+    "status": "CANCELLED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 27583000.0
+  },
+  {
+    "order_id": "ORD000094",
+    "customer_id": "CUST00012",
+    "order_time": "2026-02-25T21:26:39+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 89490000.0
+  },
+  {
+    "order_id": "ORD000095",
+    "customer_id": "CUST00092",
+    "order_time": "2026-04-15T19:02:55+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 35493000.0
+  },
+  {
+    "order_id": "ORD000096",
+    "customer_id": "CUST00004",
+    "order_time": "2026-05-08T13:00:40+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 28657000.0
+  },
+  {
+    "order_id": "ORD000097",
+    "customer_id": "CUST00051",
+    "order_time": "2026-04-12T02:23:31+00:00",
+    "status": "CANCELLED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 114879000.0
+  },
+  {
+    "order_id": "ORD000098",
+    "customer_id": "CUST00088",
+    "order_time": "2026-07-27T02:31:34+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 79479000.0
+  },
+  {
+    "order_id": "ORD000099",
+    "customer_id": "CUST00016",
+    "order_time": "2026-06-26T02:27:24+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 3233000.0
+  },
+  {
+    "order_id": "ORD000100",
+    "customer_id": "CUST00026",
+    "order_time": "2026-05-12T17:29:10+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 84331000.0
+  },
+  {
+    "order_id": "ORD000101",
+    "customer_id": "CUST00022",
+    "order_time": "2026-04-11T16:56:53+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 24751000.0
+  },
+  {
+    "order_id": "ORD000102",
+    "customer_id": "CUST00006",
+    "order_time": "2026-04-02T23:05:46+00:00",
+    "status": "CANCELLED",
+    "payment_method": "COD",
+    "total_amount": 65325000.0
+  },
+  {
+    "order_id": "ORD000103",
+    "customer_id": "CUST00064",
+    "order_time": "2026-05-13T04:20:29+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 140762000.0
+  },
+  {
+    "order_id": "ORD000104",
+    "customer_id": "CUST00010",
+    "order_time": "2026-07-22T03:31:59+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 136842000.0
+  },
+  {
+    "order_id": "ORD000105",
+    "customer_id": "CUST00052",
+    "order_time": "2026-06-13T18:20:54+00:00",
+    "status": "CREATED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 96133000.0
+  },
+  {
+    "order_id": "ORD000106",
+    "customer_id": "CUST00013",
+    "order_time": "2026-03-02T00:03:41+00:00",
+    "status": "CREATED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 136283000.0
+  },
+  {
+    "order_id": "ORD000107",
+    "customer_id": "CUST00098",
+    "order_time": "2026-02-21T06:40:31+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 57616000.0
+  },
+  {
+    "order_id": "ORD000108",
+    "customer_id": "CUST00028",
+    "order_time": "2026-08-10T23:19:32+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 33952000.0
+  },
+  {
+    "order_id": "ORD000109",
+    "customer_id": "CUST00098",
+    "order_time": "2026-08-11T19:22:34+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 33491000.0
+  },
+  {
+    "order_id": "ORD000110",
+    "customer_id": "CUST00065",
+    "order_time": "2026-05-12T05:38:06+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 12789000.0
+  },
+  {
+    "order_id": "ORD000111",
+    "customer_id": "CUST00048",
+    "order_time": "2026-06-19T01:33:20+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 24875000.0
+  },
+  {
+    "order_id": "ORD000112",
+    "customer_id": "CUST00006",
+    "order_time": "2026-04-12T18:47:31+00:00",
+    "status": "CREATED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 124834000.0
+  },
+  {
+    "order_id": "ORD000113",
+    "customer_id": "CUST00051",
+    "order_time": "2026-04-08T15:15:28+00:00",
+    "status": "CANCELLED",
+    "payment_method": "E_WALLET",
+    "total_amount": 109518000.0
+  },
+  {
+    "order_id": "ORD000114",
+    "customer_id": "CUST00061",
+    "order_time": "2026-06-14T01:11:48+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 109652000.0
+  },
+  {
+    "order_id": "ORD000115",
+    "customer_id": "CUST00034",
+    "order_time": "2026-03-31T08:00:10+00:00",
+    "status": "CANCELLED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 79134000.0
+  },
+  {
+    "order_id": "ORD000116",
+    "customer_id": "CUST00068",
+    "order_time": "2026-04-29T15:23:40+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 31051000.0
+  },
+  {
+    "order_id": "ORD000117",
+    "customer_id": "CUST00025",
+    "order_time": "2026-06-24T09:21:55+00:00",
+    "status": "CREATED",
+    "payment_method": "COD",
+    "total_amount": 105030000.0
+  },
+  {
+    "order_id": "ORD000118",
+    "customer_id": "CUST00091",
+    "order_time": "2026-07-13T08:48:27+00:00",
+    "status": "CREATED",
+    "payment_method": "E_WALLET",
+    "total_amount": 32813000.0
+  },
+  {
+    "order_id": "ORD000119",
+    "customer_id": "CUST00087",
+    "order_time": "2026-04-11T14:48:35+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 60829000.0
+  },
+  {
+    "order_id": "ORD000120",
+    "customer_id": "CUST00029",
+    "order_time": "2026-02-23T10:53:54+00:00",
+    "status": "CANCELLED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 39146000.0
+  },
+  {
+    "order_id": "ORD000121",
+    "customer_id": "CUST00045",
+    "order_time": "2026-03-04T02:25:29+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 50303000.0
+  },
+  {
+    "order_id": "ORD000122",
+    "customer_id": "CUST00099",
+    "order_time": "2026-06-28T10:37:44+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 1490000.0
+  },
+  {
+    "order_id": "ORD000123",
+    "customer_id": "CUST00096",
+    "order_time": "2026-07-14T02:40:44+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 103088000.0
+  },
+  {
+    "order_id": "ORD000124",
+    "customer_id": "CUST00007",
+    "order_time": "2026-05-15T19:13:40+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 33878000.0
+  },
+  {
+    "order_id": "ORD000125",
+    "customer_id": "CUST00092",
+    "order_time": "2026-04-19T06:05:19+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 61106000.0
+  },
+  {
+    "order_id": "ORD000126",
+    "customer_id": "CUST00097",
+    "order_time": "2026-06-22T13:41:59+00:00",
+    "status": "CANCELLED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 16665000.0
+  },
+  {
+    "order_id": "ORD000127",
+    "customer_id": "CUST00069",
+    "order_time": "2026-03-19T21:42:11+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 39751000.0
+  },
+  {
+    "order_id": "ORD000128",
+    "customer_id": "CUST00001",
+    "order_time": "2026-03-03T11:43:16+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 128200000.0
+  },
+  {
+    "order_id": "ORD000129",
+    "customer_id": "CUST00043",
+    "order_time": "2026-02-22T10:35:39+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 70189000.0
+  },
+  {
+    "order_id": "ORD000130",
+    "customer_id": "CUST00021",
+    "order_time": "2026-04-24T14:52:46+00:00",
+    "status": "SHIPPED",
+    "payment_method": "E_WALLET",
+    "total_amount": 47206000.0
+  },
+  {
+    "order_id": "ORD000131",
+    "customer_id": "CUST00073",
+    "order_time": "2026-07-15T15:29:28+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 117795000.0
+  },
+  {
+    "order_id": "ORD000132",
+    "customer_id": "CUST00018",
+    "order_time": "2026-03-04T13:04:38+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 158440000.0
+  },
+  {
+    "order_id": "ORD000133",
+    "customer_id": "CUST00034",
+    "order_time": "2026-04-17T05:48:38+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 48188000.0
+  },
+  {
+    "order_id": "ORD000134",
+    "customer_id": "CUST00052",
+    "order_time": "2026-03-05T23:45:45+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 80541000.0
+  },
+  {
+    "order_id": "ORD000135",
+    "customer_id": "CUST00029",
+    "order_time": "2026-05-25T11:47:22+00:00",
+    "status": "CANCELLED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 84232000.0
+  },
+  {
+    "order_id": "ORD000136",
+    "customer_id": "CUST00098",
+    "order_time": "2026-04-05T07:26:34+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 3486000.0
+  },
+  {
+    "order_id": "ORD000137",
+    "customer_id": "CUST00010",
+    "order_time": "2026-07-30T00:11:46+00:00",
+    "status": "CANCELLED",
+    "payment_method": "E_WALLET",
+    "total_amount": 18920000.0
+  },
+  {
+    "order_id": "ORD000138",
+    "customer_id": "CUST00067",
+    "order_time": "2026-04-18T20:38:07+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 108752000.0
+  },
+  {
+    "order_id": "ORD000139",
+    "customer_id": "CUST00059",
+    "order_time": "2026-05-10T18:31:20+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 57301000.0
+  },
+  {
+    "order_id": "ORD000140",
+    "customer_id": "CUST00075",
+    "order_time": "2026-06-04T01:31:06+00:00",
+    "status": "CREATED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 12522000.0
+  },
+  {
+    "order_id": "ORD000141",
+    "customer_id": "CUST00005",
+    "order_time": "2026-07-18T11:21:56+00:00",
+    "status": "PAID",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 114946000.0
+  },
+  {
+    "order_id": "ORD000142",
+    "customer_id": "CUST00084",
+    "order_time": "2026-07-28T16:40:09+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 76520000.0
+  },
+  {
+    "order_id": "ORD000143",
+    "customer_id": "CUST00069",
+    "order_time": "2026-07-09T05:15:24+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 53691000.0
+  },
+  {
+    "order_id": "ORD000144",
+    "customer_id": "CUST00085",
+    "order_time": "2026-04-03T06:19:21+00:00",
+    "status": "PAID",
+    "payment_method": "COD",
+    "total_amount": 20379000.0
+  },
+  {
+    "order_id": "ORD000145",
+    "customer_id": "CUST00013",
+    "order_time": "2026-05-30T23:55:04+00:00",
+    "status": "SHIPPED",
+    "payment_method": "COD",
+    "total_amount": 61137000.0
+  },
+  {
+    "order_id": "ORD000146",
+    "customer_id": "CUST00052",
+    "order_time": "2026-05-14T02:53:12+00:00",
+    "status": "PAID",
+    "payment_method": "E_WALLET",
+    "total_amount": 38367000.0
+  },
+  {
+    "order_id": "ORD000147",
+    "customer_id": "CUST00030",
+    "order_time": "2026-04-10T00:30:34+00:00",
+    "status": "SHIPPED",
+    "payment_method": "CREDIT_CARD",
+    "total_amount": 99615000.0
+  },
+  {
+    "order_id": "ORD000148",
+    "customer_id": "CUST00053",
+    "order_time": "2026-08-08T02:50:49+00:00",
+    "status": "PAID",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 56818000.0
+  },
+  {
+    "order_id": "ORD000149",
+    "customer_id": "CUST00007",
+    "order_time": "2026-03-02T20:54:20+00:00",
+    "status": "CANCELLED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": 67679000.0
+  },
+  {
+    "order_id": "ORD000150",
+    "customer_id": "CUST00031",
+    "order_time": "2026-06-26T04:32:39+00:00",
+    "status": "SHIPPED",
+    "payment_method": "BANK_TRANSFER",
+    "total_amount": -1.0
+  }
+]

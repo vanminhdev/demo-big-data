@@ -1,0 +1,82 @@
+# Spark Standalone cluster cho Buổi 9 - Giới thiệu Apache Spark
+# Image ghim version cụ thể (KHÔNG dùng :latest): apache/spark:3.5.9-python3
+# (ảnh chính thức Apache Spark 3.5.9 kèm Python 3 / PySpark, docker.io/apache/spark)
+#
+# Lưu ý: image bitnami/spark không còn được phát hành miễn phí trên Docker Hub
+# (repo trả về "no longer available for free"), nên dự án dùng ảnh chính thức
+# apache/spark thay thế.
+#
+# Entrypoint của apache/spark chỉ có chế độ đặc biệt cho "driver"/"executor"
+# (Spark on Kubernetes); mọi lệnh khác chạy pass-through. Vì vậy container
+# Master/Worker được khởi động trực tiếp bằng `spark-class` (foreground),
+# không dùng sbin/start-master.sh vì script đó daemonize rồi thoát tiến trình
+# nền, khiến container dừng ngay.
+
+services:
+  spark-master:
+    image: apache/spark:3.5.9-python3
+    container_name: spark-master
+    command: >
+      /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+      --host spark-master --port 7077 --webui-port 8080
+    ports:
+      - "7077:7077"   # Spark master RPC (spark-submit trỏ tới đây)
+      - "8080:8080"   # Spark Master Web UI
+      - "4040:4040"   # Spark Application UI (chỉ có khi driver đang chạy job, client mode
+                       # bên trong container spark-master, ví dụ khi spark-submit từ đây)
+    environment:
+      - SPARK_NO_DAEMONIZE=true
+    volumes:
+      - ./data:/opt/spark-data
+      - ./jobs:/opt/spark-apps:ro
+    # mem_limit 1536m: container nay vua chay Spark Master daemon vua dong
+    # vai tro driver khi spark-submit chay tu ben trong (client mode) - voi
+    # du lieu muc "lab" (~50.000 dong orders) va PipelineModel MLlib
+    # (StringIndexer/OneHotEncoder/LogisticRegression), 512m khong du RAM
+    # va se bi Docker OOMKill container giua chung khi luu/nap lai model.
+    mem_limit: 1536m
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - spark-net
+
+  spark-worker-1:
+    image: apache/spark:3.5.9-python3
+    container_name: spark-worker-1
+    command: >
+      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
+      spark://spark-master:7077 --webui-port 8081 --cores 1 --memory 640m
+    depends_on:
+      - spark-master
+    ports:
+      - "8081:8081"   # Spark Worker 1 Web UI
+    volumes:
+      - ./data:/opt/spark-data
+      - ./jobs:/opt/spark-apps:ro
+    mem_limit: 800m
+    networks:
+      - spark-net
+
+  spark-worker-2:
+    image: apache/spark:3.5.9-python3
+    container_name: spark-worker-2
+    command: >
+      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
+      spark://spark-master:7077 --webui-port 8082 --cores 1 --memory 640m
+    depends_on:
+      - spark-master
+    ports:
+      - "8082:8082"   # Spark Worker 2 Web UI
+    volumes:
+      - ./data:/opt/spark-data
+      - ./jobs:/opt/spark-apps:ro
+    mem_limit: 800m
+    networks:
+      - spark-net
+
+networks:
+  spark-net:
+    driver: bridge

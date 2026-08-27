@@ -1,0 +1,52 @@
+{
+  "data_version": "retailstream-data-v1",
+  "schema_version": "1.0",
+  "generated_at": "2026-08-20T04:55:03+00:00",
+  "seed": 42,
+  "scale": "sample",
+  "record_counts": {
+    "customers": 101,
+    "products": 60,
+    "orders": 150,
+    "order_items": 380,
+    "web_logs": 200,
+    "clickstream": 200,
+    "product_events": 80
+  },
+  "intentional_data_issues": [
+    "customers_sample.csv: 1 ban ghi trung id (CUST00001) de phuc vu bai lam sach du lieu",
+    "products_sample.json: field 'brand' = null cho cac product_id chia het cho 17",
+    "orders_sample.csv: ban ghi cuoi cung co total_amount = -1.0 (du lieu loi co chu y)",
+    "web_logs_sample.jsonl: co status_code 404/500 va customer_id null cho khach vang lai"
+  ],
+  "files": {
+    "customers_sample.csv": {
+      "sha256": "b7874b1a28a76a2d6a0fab6e21c6e388e734c75046a0b9165574eafa897e349c",
+      "bytes": 5286
+    },
+    "products_sample.json": {
+      "sha256": "cd2e3d543b95f553ef4730be6e84e9540e1ba2ccb54bfce12c6e70c374bd685c",
+      "bytes": 19607
+    },
+    "orders_sample.csv": {
+      "sha256": "4dfdf031b4655cae78e449d663fcd612ddc181012f5a23d1c6a7070ab9af3d4e",
+      "bytes": 11407
+    },
+    "order_items_sample.csv": {
+      "sha256": "084d7686b9cd957791ef506112e7f8444b998fb2106377564a2c0cc09b3d961f",
+      "bytes": 12798
+    },
+    "web_logs_sample.jsonl": {
+      "sha256": "4b901779a52039da14c5d0df64d02a419bd7c771faebb101727dafac08136fe4",
+      "bytes": 41668
+    },
+    "clickstream_sample.jsonl": {
+      "sha256": "b486732159e04bc4b237c541246559fe636268334c5fb7753abc633a2ffdeb4b",
+      "bytes": 35024
+    },
+    "product_events_sample.jsonl": {
+      "sha256": "f20807473b4f780eb7161e888164b12370d2115245e4345bcb89e3d7ab9b8a80",
+      "bytes": 15325
+    }
+  }
+}

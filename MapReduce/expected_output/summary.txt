@@ -1,0 +1,5 @@
+total_lines	200
+null_product_id_lines	171
+non_null_product_id_lines	29
+distinct_product_ids	23
+sum_of_counts	29

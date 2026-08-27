@@ -1,0 +1,165 @@
+# Event log: D:\school\Big Data\Spark\data\session15_optimization\event_logs\app-20260820073906-0017
+# So stage co task end event: 18
+
+## Stage 0: count at NativeMethodAccessorImpl.java:0
+   numTasks=2
+   duration_ms  min=3018 median=3143 max=3268
+   input_bytes  min=6640226 median=8792369 max=10944512 total=17584738
+   shuffle_write_bytes  min=59 median=59 max=59 total=118
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=0 dur=3268 input=10944512 shuffle_read=0
+     task=1 dur=3018 input=6640226 shuffle_read=0
+
+## Stage 1: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=249 median=249 max=249
+   shuffle_read_bytes  min=118 median=118 max=118 total=118
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=2 dur=249 input=0 shuffle_read=118
+
+## Stage 2: collect at /opt/spark-apps/data_skew_demo.py:66
+   numTasks=2
+   duration_ms  min=1654 median=1806 max=1959
+   input_bytes  min=6640226 median=8792369 max=10944512 total=17584738
+   shuffle_write_bytes  min=43988 median=44186 max=44385 total=88373
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=3 dur=1959 input=10944512 shuffle_read=0
+     task=4 dur=1654 input=6640226 shuffle_read=0
+
+## Stage 3: collect at /opt/spark-apps/data_skew_demo.py:66
+   numTasks=8
+   duration_ms  min=97 median=116 max=668
+   shuffle_read_bytes  min=10659 median=11079 max=11473 total=88373
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=6 dur=668 input=0 shuffle_read=10717
+     task=5 dur=507 input=0 shuffle_read=11444
+     task=8 dur=134 input=0 shuffle_read=11144
+
+## Stage 4: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=2
+   duration_ms  min=510 median=624 max=739
+   input_bytes  min=6640226 median=8792369 max=10944512 total=17584738
+   shuffle_write_bytes  min=198017 median=259648 max=321280 total=519297
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=13 dur=739 input=10944512 shuffle_read=0
+     task=14 dur=510 input=6640226 shuffle_read=0
+
+## Stage 5: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=8
+   duration_ms  min=109 median=144 max=548
+   shuffle_read_bytes  min=61626 median=65690 max=68332 total=519297
+   shuffle_write_bytes  min=59 median=63 max=63 total=500
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=15 dur=548 input=0 shuffle_read=67500
+     task=16 dur=472 input=0 shuffle_read=61626
+     task=22 dur=147 input=0 shuffle_read=61773
+
+## Stage 6: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=8
+   duration_ms  min=105 median=114 max=513
+   shuffle_read_bytes  min=0 median=61 max=189 total=500
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=23 dur=513 input=0 shuffle_read=63
+     task=24 dur=497 input=0 shuffle_read=63
+     task=25 dur=148 input=0 shuffle_read=189
+
+## Stage 9: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=8
+   duration_ms  min=87 median=111 max=261
+   shuffle_read_bytes  min=0 median=61 max=189 total=500
+   shuffle_write_bytes  min=0 median=61 max=189 total=500
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=31 dur=261 input=0 shuffle_read=63
+     task=32 dur=217 input=0 shuffle_read=63
+     task=33 dur=154 input=0 shuffle_read=189
+
+## Stage 10: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=8
+   duration_ms  min=72 median=102 max=338
+   shuffle_read_bytes  min=59 median=63 max=63 total=500
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=40 dur=338 input=0 shuffle_read=59
+     task=39 dur=322 input=0 shuffle_read=63
+     task=43 dur=135 input=0 shuffle_read=63
+
+## Stage 11: count at NativeMethodAccessorImpl.java:0
+   numTasks=2
+   duration_ms  min=414 median=452 max=490
+   input_bytes  min=6640226 median=8792369 max=10944512 total=17584738
+   shuffle_write_bytes  min=59 median=59 max=59 total=118
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=47 dur=490 input=10944512 shuffle_read=0
+     task=48 dur=414 input=6640226 shuffle_read=0
+
+## Stage 12: count at NativeMethodAccessorImpl.java:0
+   numTasks=1
+   duration_ms  min=94 median=94 max=94
+   shuffle_read_bytes  min=118 median=118 max=118 total=118
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=49 dur=94 input=0 shuffle_read=118
+
+## Stage 13: collect at /opt/spark-apps/data_skew_demo.py:66
+   numTasks=2
+   duration_ms  min=493 median=532 max=571
+   input_bytes  min=6640226 median=8792369 max=10944512 total=17584738
+   shuffle_write_bytes  min=21427 median=25358 max=29288 total=50715
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=50 dur=571 input=10944512 shuffle_read=0
+     task=51 dur=493 input=6640226 shuffle_read=0
+
+## Stage 14: collect at /opt/spark-apps/data_skew_demo.py:66
+   numTasks=8
+   duration_ms  min=82 median=118 max=213
+   shuffle_read_bytes  min=6044 median=6374 max=6524 total=50715
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=53 dur=213 input=0 shuffle_read=6134
+     task=54 dur=166 input=0 shuffle_read=6520
+     task=52 dur=155 input=0 shuffle_read=6431
+
+## Stage 15: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=2
+   duration_ms  min=462 median=489 max=516
+   input_bytes  min=6640226 median=8792369 max=10944512 total=17584738
+   shuffle_write_bytes  min=32186 median=41453 max=50720 total=82906
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=60 dur=516 input=10944512 shuffle_read=0
+     task=61 dur=462 input=6640226 shuffle_read=0
+
+## Stage 16: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=8
+   duration_ms  min=63 median=98 max=161
+   shuffle_read_bytes  min=6514 median=6948 max=34902 total=82906
+   shuffle_write_bytes  min=59 median=63 max=63 total=500
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=62 dur=161 input=0 shuffle_read=34902
+     task=67 dur=132 input=0 shuffle_read=6676
+     task=63 dur=118 input=0 shuffle_read=6514
+
+## Stage 17: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=8
+   duration_ms  min=55 median=64 max=129
+   shuffle_read_bytes  min=0 median=61 max=189 total=500
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=71 dur=129 input=0 shuffle_read=63
+     task=70 dur=109 input=0 shuffle_read=63
+     task=72 dur=81 input=0 shuffle_read=189
+
+## Stage 20: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=8
+   duration_ms  min=51 median=58 max=180
+   shuffle_read_bytes  min=0 median=61 max=189 total=500
+   shuffle_write_bytes  min=0 median=61 max=189 total=500
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=79 dur=180 input=0 shuffle_read=63
+     task=81 dur=64 input=0 shuffle_read=59
+     task=83 dur=62 input=0 shuffle_read=126
+
+## Stage 21: collect at /opt/spark-apps/data_skew_demo.py:79
+   numTasks=8
+   duration_ms  min=35 median=58 max=119
+   shuffle_read_bytes  min=59 median=63 max=63 total=500
+   top3 task theo duration (taskId, duration_ms, input_bytes, shuffle_read_bytes):
+     task=87 dur=119 input=0 shuffle_read=63
+     task=86 dur=89 input=0 shuffle_read=59
+     task=89 dur=69 input=0 shuffle_read=63
+

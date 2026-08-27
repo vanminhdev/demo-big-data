@@ -1,0 +1,14 @@
+{"event_id": "CEV000195", "event_time": "2026-08-06T00:18:15+00:00", "customer_id": "CUST00044", "session_id": "SESS00006", "product_id": "PROD00041", "event_type": "VIEW"}
+{"event_id": "CEV000165", "event_time": "2026-08-06T02:03:41+00:00", "customer_id": "CUST00067", "session_id": "SESS00024", "product_id": "PROD00012", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000183", "event_time": "2026-08-06T02:48:27+00:00", "customer_id": null, "session_id": "SESS00035", "product_id": "PROD00009", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000139", "event_time": "2026-08-06T03:05:26+00:00", "customer_id": "CUST00053", "session_id": "SESS00015", "product_id": "PROD00001", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000176", "event_time": "2026-08-06T04:23:53+00:00", "customer_id": null, "session_id": "SESS00035", "product_id": "PROD00031", "event_type": "VIEW"}
+{"event_id": "CEV000031", "event_time": "2026-08-06T05:14:04+00:00", "customer_id": "CUST00082", "session_id": "SESS00001", "product_id": "PROD00034", "event_type": "VIEW"}
+{"event_id": "CEV000037", "event_time": "2026-08-06T07:26:47+00:00", "customer_id": "CUST00062", "session_id": "SESS00028", "product_id": "PROD00059", "event_type": "VIEW"}
+{"event_id": "CEV000024", "event_time": "2026-08-06T08:52:23+00:00", "customer_id": null, "session_id": "SESS00021", "product_id": "PROD00015", "event_type": "VIEW"}
+{"event_id": "CEV000144", "event_time": "2026-08-06T11:16:23+00:00", "customer_id": null, "session_id": "SESS00050", "product_id": "PROD00043", "event_type": "VIEW"}
+{"event_id": "CEV000079", "event_time": "2026-08-06T12:07:31+00:00", "customer_id": "CUST00053", "session_id": "SESS00047", "product_id": "PROD00010", "event_type": "VIEW"}
+{"event_id": "CEV000200", "event_time": "2026-08-06T15:58:57+00:00", "customer_id": "CUST00077", "session_id": "SESS00047", "product_id": "PROD00005", "event_type": "VIEW"}
+{"event_id": "CEV000113", "event_time": "2026-08-06T16:47:47+00:00", "customer_id": "CUST00001", "session_id": "SESS00039", "product_id": "PROD00042", "event_type": "VIEW"}
+{"event_id": "CEV000090", "event_time": "2026-08-06T18:47:43+00:00", "customer_id": "CUST00028", "session_id": "SESS00026", "product_id": "PROD00035", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000022", "event_time": "2026-08-06T22:10:12+00:00", "customer_id": "CUST00072", "session_id": "SESS00042", "product_id": "PROD00001", "event_type": "ADD_TO_CART"}

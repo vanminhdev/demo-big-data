@@ -1,0 +1,12 @@
+{"event_id": "CEV000103", "event_time": "2026-08-10T02:06:19+00:00", "customer_id": null, "session_id": "SESS00047", "product_id": "PROD00038", "event_type": "VIEW"}
+{"event_id": "CEV000162", "event_time": "2026-08-10T03:24:28+00:00", "customer_id": "CUST00022", "session_id": "SESS00041", "product_id": "PROD00027", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000015", "event_time": "2026-08-10T04:44:16+00:00", "customer_id": null, "session_id": "SESS00011", "product_id": "PROD00055", "event_type": "VIEW"}
+{"event_id": "CEV000131", "event_time": "2026-08-10T05:40:05+00:00", "customer_id": "CUST00046", "session_id": "SESS00018", "product_id": "PROD00013", "event_type": "VIEW"}
+{"event_id": "CEV000021", "event_time": "2026-08-10T11:56:49+00:00", "customer_id": "CUST00056", "session_id": "SESS00045", "product_id": "PROD00023", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000009", "event_time": "2026-08-10T12:59:51+00:00", "customer_id": "CUST00033", "session_id": "SESS00047", "product_id": "PROD00019", "event_type": "VIEW"}
+{"event_id": "CEV000164", "event_time": "2026-08-10T17:09:38+00:00", "customer_id": "CUST00078", "session_id": "SESS00019", "product_id": "PROD00029", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000124", "event_time": "2026-08-10T17:56:32+00:00", "customer_id": "CUST00071", "session_id": "SESS00026", "product_id": "PROD00004", "event_type": "VIEW"}
+{"event_id": "CEV000097", "event_time": "2026-08-10T19:43:17+00:00", "customer_id": null, "session_id": "SESS00003", "product_id": "PROD00034", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000177", "event_time": "2026-08-10T21:04:51+00:00", "customer_id": "CUST00038", "session_id": "SESS00050", "product_id": "PROD00036", "event_type": "VIEW"}
+{"event_id": "CEV000042", "event_time": "2026-08-10T22:49:53+00:00", "customer_id": "CUST00071", "session_id": "SESS00046", "product_id": "PROD00040", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000096", "event_time": "2026-08-06T22:41:42+00:00", "customer_id": "CUST00067", "session_id": "SESS00003", "product_id": "PROD00031", "event_type": "PURCHASE"}

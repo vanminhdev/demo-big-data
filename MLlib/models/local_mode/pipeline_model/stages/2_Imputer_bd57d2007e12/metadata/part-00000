@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.ImputerModel","timestamp":1787206614085,"sparkVersion":"3.5.9","uid":"Imputer_bd57d2007e12","paramMap":{"outputCols":["total_amount_imputed"],"inputCols":["total_amount"],"strategy":"median"},"defaultParamMap":{"outputCol":"Imputer_bd57d2007e12__output","missingValue":"NaN","relativeError":0.001,"strategy":"mean"}}

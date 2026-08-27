@@ -1,0 +1,537 @@
+--- V01 Read ---
+{
+  _id: ObjectId('6a8689ee15da9006f7de2ed4'),
+  product_id: 'PROD99999',
+  category_id: 'CAT01',
+  category_name: 'Dien tu',
+  product_name: 'San pham demo CRUD',
+  brand: 'DemoBrand',
+  price: 199000,
+  attributes: {
+    color: 'den',
+    warranty_months: 12
+  },
+  updated_at: '2026-08-20T05:00:30.008Z'
+}
+--- V01 Update ---
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+--- V01 Delete ---
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+--- V02 createIndex ---
+order_time_1_status_1
+--- V03 Aggregation: doanh thu theo danh muc/thang ---
+{
+  _id: {
+    category: 'Thuc pham',
+    month: '2026-02'
+  },
+  revenue: 155063000,
+  order_item_count: 4
+}
+{
+  _id: {
+    category: 'My pham',
+    month: '2026-02'
+  },
+  revenue: 84634000,
+  order_item_count: 4
+}
+{
+  _id: {
+    category: 'Gia dung',
+    month: '2026-02'
+  },
+  revenue: 54244000,
+  order_item_count: 3
+}
+{
+  _id: {
+    category: 'Dien tu',
+    month: '2026-02'
+  },
+  revenue: 53173000,
+  order_item_count: 2
+}
+{
+  _id: {
+    category: 'Thoi trang',
+    month: '2026-02'
+  },
+  revenue: 25665000,
+  order_item_count: 2
+}
+{
+  _id: {
+    category: 'Thuc pham',
+    month: '2026-03'
+  },
+  revenue: 504870000,
+  order_item_count: 13
+}
+{
+  _id: {
+    category: 'My pham',
+    month: '2026-03'
+  },
+  revenue: 146514000,
+  order_item_count: 8
+}
+{
+  _id: {
+    category: 'Dien tu',
+    month: '2026-03'
+  },
+  revenue: 130487000,
+  order_item_count: 4
+}
+{
+  _id: {
+    category: 'Gia dung',
+    month: '2026-03'
+  },
+  revenue: 116000000,
+  order_item_count: 7
+}
+{
+  _id: {
+    category: 'Sach',
+    month: '2026-03'
+  },
+  revenue: 100144000,
+  order_item_count: 4
+}
+{
+  _id: {
+    category: 'Thoi trang',
+    month: '2026-03'
+  },
+  revenue: 35762000,
+  order_item_count: 2
+}
+{
+  _id: {
+    category: 'Thuc pham',
+    month: '2026-04'
+  },
+  revenue: 586942000,
+  order_item_count: 17
+}
+{
+  _id: {
+    category: 'Dien tu',
+    month: '2026-04'
+  },
+  revenue: 365360000,
+  order_item_count: 9
+}
+{
+  _id: {
+    category: 'Sach',
+    month: '2026-04'
+  },
+  revenue: 233693000,
+  order_item_count: 8
+}
+{
+  _id: {
+    category: 'My pham',
+    month: '2026-04'
+  },
+  revenue: 136092000,
+  order_item_count: 8
+}
+{
+  _id: {
+    category: 'Gia dung',
+    month: '2026-04'
+  },
+  revenue: 132096000,
+  order_item_count: 10
+}
+{
+  _id: {
+    category: 'Thoi trang',
+    month: '2026-04'
+  },
+  revenue: 31318000,
+  order_item_count: 4
+}
+{
+  _id: {
+    category: 'Sach',
+    month: '2026-05'
+  },
+  revenue: 284920000,
+  order_item_count: 8
+}
+{
+  _id: {
+    category: 'Dien tu',
+    month: '2026-05'
+  },
+  revenue: 209157000,
+  order_item_count: 5
+}
+{
+  _id: {
+    category: 'Gia dung',
+    month: '2026-05'
+  },
+  revenue: 193753000,
+  order_item_count: 9
+}
+{
+  _id: {
+    category: 'Thuc pham',
+    month: '2026-05'
+  },
+  revenue: 193507000,
+  order_item_count: 6
+}
+{
+  _id: {
+    category: 'Thoi trang',
+    month: '2026-05'
+  },
+  revenue: 134688000,
+  order_item_count: 4
+}
+{
+  _id: {
+    category: 'My pham',
+    month: '2026-05'
+  },
+  revenue: 36507000,
+  order_item_count: 3
+}
+{
+  _id: {
+    category: 'Thuc pham',
+    month: '2026-06'
+  },
+  revenue: 445102000,
+  order_item_count: 14
+}
+{
+  _id: {
+    category: 'Sach',
+    month: '2026-06'
+  },
+  revenue: 273844000,
+  order_item_count: 12
+}
+{
+  _id: {
+    category: 'Dien tu',
+    month: '2026-06'
+  },
+  revenue: 215186000,
+  order_item_count: 7
+}
+{
+  _id: {
+    category: 'Gia dung',
+    month: '2026-06'
+  },
+  revenue: 114203000,
+  order_item_count: 6
+}
+{
+  _id: {
+    category: 'Thoi trang',
+    month: '2026-06'
+  },
+  revenue: 85920000,
+  order_item_count: 7
+}
+{
+  _id: {
+    category: 'My pham',
+    month: '2026-06'
+  },
+  revenue: 49466000,
+  order_item_count: 5
+}
+{
+  _id: {
+    category: 'Dien tu',
+    month: '2026-07'
+  },
+  revenue: 317741000,
+  order_item_count: 9
+}
+{
+  _id: {
+    category: 'Sach',
+    month: '2026-07'
+  },
+  revenue: 186073000,
+  order_item_count: 7
+}
+{
+  _id: {
+    category: 'Thuc pham',
+    month: '2026-07'
+  },
+  revenue: 171850000,
+  order_item_count: 7
+}
+{
+  _id: {
+    category: 'Thoi trang',
+    month: '2026-07'
+  },
+  revenue: 132779000,
+  order_item_count: 8
+}
+{
+  _id: {
+    category: 'My pham',
+    month: '2026-07'
+  },
+  revenue: 119193000,
+  order_item_count: 8
+}
+{
+  _id: {
+    category: 'Gia dung',
+    month: '2026-07'
+  },
+  revenue: 78546000,
+  order_item_count: 4
+}
+{
+  _id: {
+    category: 'Dien tu',
+    month: '2026-08'
+  },
+  revenue: 228211000,
+  order_item_count: 6
+}
+{
+  _id: {
+    category: 'Thuc pham',
+    month: '2026-08'
+  },
+  revenue: 197376000,
+  order_item_count: 7
+}
+{
+  _id: {
+    category: 'Gia dung',
+    month: '2026-08'
+  },
+  revenue: 106098000,
+  order_item_count: 6
+}
+{
+  _id: {
+    category: 'Thoi trang',
+    month: '2026-08'
+  },
+  revenue: 58316000,
+  order_item_count: 5
+}
+{
+  _id: {
+    category: 'My pham',
+    month: '2026-08'
+  },
+  revenue: 48314000,
+  order_item_count: 3
+}
+{
+  _id: {
+    category: 'Sach',
+    month: '2026-08'
+  },
+  revenue: 32850000,
+  order_item_count: 3
+}
+--- V04 explain(executionStats) ---
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'retailstream.orders',
+    parsedQuery: {
+      status: {
+        '$eq': 'PAID'
+      }
+    },
+    indexFilterSet: false,
+    queryHash: 'FBDDB846',
+    planCacheShapeHash: 'FBDDB846',
+    planCacheKey: 'B57F40DA',
+    optimizationTimeMillis: 0,
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    prunedSimilarIndexes: false,
+    winningPlan: {
+      isCached: false,
+      stage: 'FETCH',
+      filter: {
+        status: {
+          '$eq': 'PAID'
+        }
+      },
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: {
+          order_time: 1,
+          status: 1
+        },
+        indexName: 'order_time_1_status_1',
+        isMultiKey: false,
+        multiKeyPaths: {
+          order_time: [],
+          status: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          order_time: [
+            '[MinKey, MaxKey]'
+          ],
+          status: [
+            '[MinKey, MaxKey]'
+          ]
+        }
+      }
+    },
+    rejectedPlans: []
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 48,
+    executionTimeMillis: 0,
+    totalKeysExamined: 150,
+    totalDocsExamined: 150,
+    executionStages: {
+      isCached: false,
+      stage: 'FETCH',
+      filter: {
+        status: {
+          '$eq': 'PAID'
+        }
+      },
+      nReturned: 48,
+      executionTimeMillisEstimate: 0,
+      works: 151,
+      advanced: 48,
+      needTime: 102,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      docsExamined: 150,
+      alreadyHasObj: 0,
+      inputStage: {
+        stage: 'IXSCAN',
+        nReturned: 150,
+        executionTimeMillisEstimate: 0,
+        works: 151,
+        advanced: 150,
+        needTime: 0,
+        needYield: 0,
+        saveState: 0,
+        restoreState: 0,
+        isEOF: 1,
+        keyPattern: {
+          order_time: 1,
+          status: 1
+        },
+        indexName: 'order_time_1_status_1',
+        isMultiKey: false,
+        multiKeyPaths: {
+          order_time: [],
+          status: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          order_time: [
+            '[MinKey, MaxKey]'
+          ],
+          status: [
+            '[MinKey, MaxKey]'
+          ]
+        },
+        keysExamined: 150,
+        seeks: 1,
+        dupsTested: 0,
+        dupsDropped: 0
+      }
+    }
+  },
+  queryShapeHash: 'BAE078CAFE3FF49548E7F993B335C896F8E98B339B63627DE2D85088D3AC4EDB',
+  command: {
+    find: 'orders',
+    filter: {
+      status: 'PAID'
+    },
+    sort: {
+      order_time: 1
+    },
+    '$db': 'retailstream'
+  },
+  serverInfo: {
+    host: '5f8f475f1771',
+    port: 27017,
+    version: '8.0.29',
+    gitVersion: '559d67c651f7393e62757234a0b25cb7a8622148'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted',
+    internalQueryPlannerIgnoreIndexWithCollationForRegex: 1
+  },
+  ok: 1
+}
+--- V05 embedding (orders_embedded) ---
+{
+  _id: ObjectId('6a868999ca82d5cc71bd5786'),
+  order_id: 'ORD000001',
+  customer_id: 'CUST00095',
+  order_time: '2026-07-05T20:18:36+00:00',
+  status: 'PAID',
+  payment_method: 'E_WALLET',
+  total_amount: 35934000,
+  items: [
+    {
+      product_id: 'PROD00049',
+      quantity: 3,
+      unit_price: 11978000
+    }
+  ]
+}
+--- V05 referencing (order_items) ---
+{
+  _id: ObjectId('6a8689996672d7cb0a073f62'),
+  order_id: 'ORD000001',
+  product_id: 'PROD00049',
+  quantity: 3,
+  unit_price: 11978000
+}

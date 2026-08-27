@@ -1,0 +1,247 @@
+services:
+  namenode:
+    # Image build cuc bo tu MapReduce/Dockerfile.namenode-with-python3, FROM
+    # dung bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8 (khong doi version
+    # Hadoop) + cai san python3 trong lop image (khong can cai lai moi lan
+    # container khoi dong lai). Build lai bang:
+    #   docker build -t retailstream-hadoop-namenode-py3:2.0.0-hadoop3.2.1-java8 \
+    #     -f MapReduce/Dockerfile.namenode-with-python3 MapReduce/
+    image: retailstream-hadoop-namenode-py3:2.0.0-hadoop3.2.1-java8
+    container_name: hdfs-namenode
+    hostname: namenode
+    restart: "no"
+    ports:
+      - "${NAMENODE_HTTP_PORT:-9870}:9870"
+      - "${NAMENODE_RPC_PORT:-9000}:9000"
+    environment:
+      - CLUSTER_NAME=${CLUSTER_NAME:-retailstream-hdfs-lab}
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - CORE_CONF_hadoop_http_staticuser_user=root
+      - HDFS_CONF_dfs_replication=${HDFS_REPLICATION:-2}
+      - HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check=false
+      - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+      - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+      - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+      - YARN_CONF_yarn_resourcemanager_resource_tracker_address=resourcemanager:8031
+      - YARN_CONF_yarn_nodemanager_aux___services=mapreduce_shuffle
+      - MAPRED_CONF_mapreduce_framework_name=yarn
+      - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_memory_mb=512
+      - MAPRED_CONF_mapreduce_reduce_memory_mb=512
+    volumes:
+      - namenode-data:/hadoop/dfs/name
+    # mem_limit them 2026-08-22 (may cau hinh thap can gioi han RAM ro rang,
+    # truoc do khong dat mem_limit = tran mac dinh la toan bo Docker VM).
+    # 768m du choi cho NameNode + python3 da build san (thuc te do duoc
+    # ~235MiB luc idle, con du bien do khi chay fsck/lenh nang).
+    mem_limit: 768m
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9870/dfshealth.html || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    networks:
+      - hdfs-net
+
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: hdfs-datanode1
+    hostname: datanode1
+    restart: "no"
+    depends_on:
+      namenode:
+        condition: service_healthy
+    ports:
+      - "${DATANODE1_HTTP_PORT:-9864}:9864"
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_replication=${HDFS_REPLICATION:-2}
+      - HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check=false
+      - SERVICE_PRECONDITION=namenode:9870
+    volumes:
+      - datanode1-data:/hadoop/dfs/data
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9864/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    networks:
+      - hdfs-net
+
+  datanode2:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: hdfs-datanode2
+    hostname: datanode2
+    restart: "no"
+    depends_on:
+      namenode:
+        condition: service_healthy
+    ports:
+      - "${DATANODE2_HTTP_PORT:-9865}:9864"
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_replication=${HDFS_REPLICATION:-2}
+      - HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check=false
+      - SERVICE_PRECONDITION=namenode:9870
+    volumes:
+      - datanode2-data:/hadoop/dfs/data
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9864/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    networks:
+      - hdfs-net
+
+  resourcemanager:
+    # ResourceManager YARN that (khong con LocalJobRunner). Cung ho image
+    # bde2020/docker-hadoop, cung tag 2.0.0-hadoop3.2.1-java8 de tuong thich
+    # dung Hadoop 3.2.1 da ghim o NameNode/DataNode (khong doi version).
+    image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
+    container_name: hdfs-resourcemanager
+    hostname: resourcemanager
+    restart: "no"
+    depends_on:
+      namenode:
+        condition: service_healthy
+      datanode1:
+        condition: service_healthy
+      datanode2:
+        condition: service_healthy
+    ports:
+      - "${RESOURCEMANAGER_HTTP_PORT:-8088}:8088"
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - CORE_CONF_hadoop_http_staticuser_user=root
+      - HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check=false
+      - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+      - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+      - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+      - YARN_CONF_yarn_resourcemanager_resource_tracker_address=resourcemanager:8031
+      - YARN_CONF_yarn_resourcemanager_scheduler_class=org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler
+      - YARN_CONF_yarn_scheduler_capacity_root_default_maximum___allocation___mb=2560
+      - YARN_CONF_yarn_scheduler_capacity_root_default_maximum___allocation___vcores=2
+      - YARN_CONF_yarn_scheduler_minimum___allocation___mb=256
+      - YARN_CONF_yarn_scheduler_capacity_maximum___am___resource___percent=1.0
+      - YARN_CONF_yarn_nodemanager_aux___services=mapreduce_shuffle
+      - YARN_CONF_yarn_log___aggregation___enable=true
+      - YARN_CONF_yarn_nodemanager_remote___app___log___dir=/app-logs
+      - MAPRED_CONF_mapreduce_framework_name=yarn
+      - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_memory_mb=512
+      - MAPRED_CONF_mapreduce_reduce_memory_mb=512
+      - MAPRED_CONF_yarn_app_mapreduce_am_resource_mb=512
+    mem_limit: 768m
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8088/cluster || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    networks:
+      - hdfs-net
+
+  nodemanager1:
+    # 1 NodeManager - toi thieu de co ResourceManager + NodeManager hoat
+    # dong that (co the mo rong them NodeManager neu can quan sat lich su
+    # job dai qua nhieu node). Image build cuc bo tu
+    # MapReduce/Dockerfile.nodemanager-with-python3: mapper.py/reducer.py
+    # (Hadoop Streaming) thuc thi that tren NodeManager (khong phai
+    # NameNode) nen container nay can python3 san co, persist qua lan
+    # restart. Build:
+    #   docker build -t retailstream-hadoop-nodemanager-py3:2.0.0-hadoop3.2.1-java8 \
+    #     -f MapReduce/Dockerfile.nodemanager-with-python3 MapReduce/
+    image: retailstream-hadoop-nodemanager-py3:2.0.0-hadoop3.2.1-java8
+    container_name: hdfs-nodemanager1
+    hostname: nodemanager1
+    restart: "no"
+    depends_on:
+      resourcemanager:
+        condition: service_healthy
+    ports:
+      - "${NODEMANAGER1_HTTP_PORT:-8042}:8042"
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - CORE_CONF_hadoop_http_staticuser_user=root
+      - HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check=false
+      - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+      - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+      - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+      - YARN_CONF_yarn_resourcemanager_resource_tracker_address=resourcemanager:8031
+      - YARN_CONF_yarn_nodemanager_aux___services=mapreduce_shuffle
+      - YARN_CONF_yarn_nodemanager_resource_memory___mb=2560
+      - YARN_CONF_yarn_nodemanager_resource_cpu___vcores=2
+      - YARN_CONF_yarn_scheduler_minimum___allocation___mb=256
+      - YARN_CONF_yarn_nodemanager_vmem___check___enabled=false
+      - YARN_CONF_yarn_log___aggregation___enable=true
+      - YARN_CONF_yarn_nodemanager_remote___app___log___dir=/app-logs
+      - MAPRED_CONF_mapreduce_framework_name=yarn
+      - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_memory_mb=512
+      - MAPRED_CONF_mapreduce_reduce_memory_mb=512
+      - MAPRED_CONF_yarn_app_mapreduce_am_resource_mb=512
+    # mem_limit PHAI lon hon YARN_CONF_yarn_nodemanager_resource_memory___mb
+    # (2560) o tren + du dem cho JVM cua ban than NodeManager - neu dat qua
+    # sat se bi Docker OOMKill container.
+    mem_limit: 3072m
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8042/node || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    networks:
+      - hdfs-net
+
+  historyserver:
+    # HistoryServer - tuy chon theo yeu cau BRIEF ("khong bat buoc neu ton
+    # qua nhieu thoi gian"); da lam vi image co san cung ho, chi phi them
+    # thap. Cho phep xem lai job da hoan thanh qua UI :8188.
+    image: bde2020/hadoop-historyserver:2.0.0-hadoop3.2.1-java8
+    container_name: hdfs-historyserver
+    hostname: historyserver
+    restart: "no"
+    depends_on:
+      resourcemanager:
+        condition: service_healthy
+    ports:
+      - "${HISTORYSERVER_HTTP_PORT:-8188}:8188"
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - CORE_CONF_hadoop_http_staticuser_user=root
+      - HDFS_CONF_dfs_namenode_datanode_registration_ip___hostname___check=false
+      - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+      - YARN_CONF_yarn_timeline___service_enabled=true
+      - YARN_CONF_yarn_timeline___service_generic___application___history_enabled=true
+      - YARN_CONF_yarn_log___aggregation___enable=true
+      - YARN_CONF_yarn_nodemanager_remote___app___log___dir=/app-logs
+      - MAPRED_CONF_mapreduce_framework_name=yarn
+      - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+    volumes:
+      - historyserver-data:/hadoop/yarn/timeline
+    mem_limit: 512m
+    networks:
+      - hdfs-net
+
+networks:
+  hdfs-net:
+    name: ${CLUSTER_NAME:-retailstream-hdfs-lab}-net
+
+volumes:
+  namenode-data:
+  datanode1-data:
+  datanode2-data:
+  historyserver-data:

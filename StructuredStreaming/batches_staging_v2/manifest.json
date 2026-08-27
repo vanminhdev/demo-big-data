@@ -1,0 +1,133 @@
+{
+  "source": "data_source_v2/clickstream_compressed.jsonl (sinh boi compress_timeline.py)",
+  "window_minutes": 5,
+  "base_window_start": "2026-08-20T09:00:00+00:00",
+  "late_record": {
+    "event_id": "CEV000068",
+    "event_time": "2026-08-20T09:14:22.367283+00:00",
+    "customer_id": null,
+    "session_id": "SESS00007",
+    "product_id": "PROD00048",
+    "event_type": "ADD_TO_CART"
+  },
+  "late_window_index": 2,
+  "inject_window_index": 6,
+  "batches_in_arrival_order": [
+    {
+      "file": "win_01_0900.jsonl",
+      "window_index": 0,
+      "window_start": "2026-08-20T09:00:00+00:00",
+      "count": 11
+    },
+    {
+      "file": "win_02_0905.jsonl",
+      "window_index": 1,
+      "window_start": "2026-08-20T09:05:00+00:00",
+      "count": 12
+    },
+    {
+      "file": "win_03_0910.jsonl",
+      "window_index": 2,
+      "window_start": "2026-08-20T09:10:00+00:00",
+      "count": 9
+    },
+    {
+      "file": "win_04_0915.jsonl",
+      "window_index": 3,
+      "window_start": "2026-08-20T09:15:00+00:00",
+      "count": 14
+    },
+    {
+      "file": "win_05_0920.jsonl",
+      "window_index": 4,
+      "window_start": "2026-08-20T09:20:00+00:00",
+      "count": 7
+    },
+    {
+      "file": "win_06_0925.jsonl",
+      "window_index": 5,
+      "window_start": "2026-08-20T09:25:00+00:00",
+      "count": 13
+    },
+    {
+      "file": "win_07_0930.jsonl",
+      "window_index": 6,
+      "window_start": "2026-08-20T09:30:00+00:00",
+      "count": 10,
+      "contains_late_record": "CEV000068",
+      "late_record_actual_window_index": 2
+    },
+    {
+      "file": "win_08_0935.jsonl",
+      "window_index": 7,
+      "window_start": "2026-08-20T09:35:00+00:00",
+      "count": 9
+    },
+    {
+      "file": "win_09_0940.jsonl",
+      "window_index": 8,
+      "window_start": "2026-08-20T09:40:00+00:00",
+      "count": 11
+    },
+    {
+      "file": "win_10_0945.jsonl",
+      "window_index": 9,
+      "window_start": "2026-08-20T09:45:00+00:00",
+      "count": 11
+    },
+    {
+      "file": "win_11_0950.jsonl",
+      "window_index": 10,
+      "window_start": "2026-08-20T09:50:00+00:00",
+      "count": 10
+    },
+    {
+      "file": "win_12_0955.jsonl",
+      "window_index": 11,
+      "window_start": "2026-08-20T09:55:00+00:00",
+      "count": 9
+    },
+    {
+      "file": "win_13_1000.jsonl",
+      "window_index": 12,
+      "window_start": "2026-08-20T10:00:00+00:00",
+      "count": 12
+    },
+    {
+      "file": "win_14_1005.jsonl",
+      "window_index": 13,
+      "window_start": "2026-08-20T10:05:00+00:00",
+      "count": 7
+    },
+    {
+      "file": "win_15_1010.jsonl",
+      "window_index": 14,
+      "window_start": "2026-08-20T10:10:00+00:00",
+      "count": 16
+    },
+    {
+      "file": "win_16_1015.jsonl",
+      "window_index": 15,
+      "window_start": "2026-08-20T10:15:00+00:00",
+      "count": 19
+    },
+    {
+      "file": "win_17_1020.jsonl",
+      "window_index": 16,
+      "window_start": "2026-08-20T10:20:00+00:00",
+      "count": 14
+    },
+    {
+      "file": "win_18_1025.jsonl",
+      "window_index": 17,
+      "window_start": "2026-08-20T10:25:00+00:00",
+      "count": 5
+    },
+    {
+      "file": "win_19_1030.jsonl",
+      "window_index": 18,
+      "window_start": "2026-08-20T10:30:00+00:00",
+      "count": 1
+    }
+  ]
+}

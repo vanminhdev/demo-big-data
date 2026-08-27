@@ -1,0 +1,62 @@
+{
+  "data_version": "retailstream-data-v1",
+  "schema_version": "1.0",
+  "generated_at": "2026-08-20T08:01:08+00:00",
+  "seed": 42,
+  "scale": "lab",
+  "correlated_labels": true,
+  "record_counts": {
+    "customers": 20001,
+    "products": 5000,
+    "orders": 50000,
+    "order_items": 124552,
+    "web_logs": 100000,
+    "clickstream": 100000,
+    "product_events": 20000
+  },
+  "intentional_data_issues": [
+    "customers.csv: 1 ban ghi trung id (CUST00001) de phuc vu bai lam sach du lieu",
+    "products.json: field 'brand' = null cho cac product_id chia het cho 17",
+    "orders.csv: ban ghi cuoi cung co total_amount = -1.0 (du lieu loi co chu y)",
+    "web_logs.jsonl: co status_code 404/500 va customer_id null cho khach vang lai",
+    "orders.csv: status CANCELLED co tuong quan gia lap co chu y voi customer_segment (CHURN_RISK cao hon ~2.6x, VIP thap hon ~0.55x so voi co so) va payment_method (COD cao hon ~1.35x, CREDIT_CARD thap hon ~0.7x) - chi ap dung muc lab, phuc vu bai MLlib Buoi 12; muc sample KHONG co tuong quan nay (giu nguyen ngau nhien, tuong thich nguoc voi Buoi 5 MongoDB)."
+  ],
+  "files": {
+    "customers.csv": {
+      "sha256": "a9f5cae5a5bb56e63aea45db4a3e1ca4ede2e2f05d9ad5cc09ab4fc48c41363c",
+      "bytes": 1038569
+    },
+    "products.json": {
+      "sha256": "a0437de8284fa3262dfcc9cb2000f4b0477103a22a431df54757ce0c25c5524c",
+      "bytes": 1644229
+    },
+    "orders.csv": {
+      "sha256": "5c6805659616e7532f0ccbd852ee4667c4c80745e48c3068aa97c07793a88e99",
+      "bytes": 3755153
+    },
+    "order_items.csv": {
+      "sha256": "24a37bdd7753b9d221c6974e5bf5a70aa6442fe0bc0184fc6a8df811cc5bc619",
+      "bytes": 4180230
+    },
+    "web_logs.jsonl": {
+      "sha256": "27d378f29db463d643d0be554317f9595afa8b89bb1d5b90caf464304f116e72",
+      "bytes": 20869343
+    },
+    "clickstream.jsonl": {
+      "sha256": "a1978546fe8a2332e3736033ff6b69f3215c3025fa87907207c8025269f034ea",
+      "bytes": 17474778
+    },
+    "product_events.jsonl": {
+      "sha256": "2a09dde990d4bedcd65df328551bc2a7eb821b5ecbc397b66a71ba3b29d36db8",
+      "bytes": 3826995
+    },
+    "orders.parquet": {
+      "sha256": "8af1ca9e1822959d8223019592449d648fb2afee28def1e3074edbaa13371069",
+      "bytes": 1432593
+    },
+    "order_items.parquet": {
+      "sha256": "6ae507ef71b407e23f89c84d270d428971f4c8661d72b7ed1e9d6624021bfbd8",
+      "bytes": 944541
+    }
+  }
+}

@@ -1,0 +1,1002 @@
+[
+  {
+    "customer_id": "CUST0001",
+    "full_name": "Tran Thi Phuong",
+    "email": "cust0001@example.com",
+    "phone": "0986848884",
+    "customer_segment": "CHURN_RISK",
+    "city": "Ho Chi Minh",
+    "address": "So 281 duong Yen, Ho Chi Minh",
+    "created_at": "2026-02-25T01:19:08.789056+00:00"
+  },
+  {
+    "customer_id": "CUST0002",
+    "full_name": "Ngo Thi Uyen",
+    "email": "cust0002@example.com",
+    "phone": "0911542004",
+    "customer_segment": "NEW",
+    "city": "Hai Phong",
+    "address": "So 252 duong Phuong, Hai Phong",
+    "created_at": "2025-06-25T11:54:48.027543+00:00"
+  },
+  {
+    "customer_id": "CUST0003",
+    "full_name": "Pham Thi Son",
+    "email": "cust0003@example.com",
+    "phone": "0978932553",
+    "customer_segment": "REGULAR",
+    "city": "Can Tho",
+    "address": "So 40 duong Phuong, Can Tho",
+    "created_at": "2026-03-28T00:43:07.730461+00:00"
+  },
+  {
+    "customer_id": "CUST0004",
+    "full_name": "Tran Thi Ngoc",
+    "email": "cust0004@example.com",
+    "phone": "0913320452",
+    "customer_segment": "REGULAR",
+    "city": "Can Tho",
+    "address": "So 189 duong Quang, Can Tho",
+    "created_at": "2026-02-19T15:22:40.328198+00:00"
+  },
+  {
+    "customer_id": "CUST0005",
+    "full_name": "Bui Thi Thao",
+    "email": "cust0005@example.com",
+    "phone": "0977962320",
+    "customer_segment": "REGULAR",
+    "city": "Ho Chi Minh",
+    "address": "So 252 duong Son, Ho Chi Minh",
+    "created_at": "2025-11-24T04:44:50.105459+00:00"
+  },
+  {
+    "customer_id": "CUST0006",
+    "full_name": "Do Van Minh",
+    "email": "cust0006@example.com",
+    "phone": "0987244482",
+    "customer_segment": "REGULAR",
+    "city": "Nha Trang",
+    "address": "So 115 duong Giang, Nha Trang",
+    "created_at": "2026-03-23T04:53:11.133855+00:00"
+  },
+  {
+    "customer_id": "CUST0007",
+    "full_name": "Nguyen Van Dung",
+    "email": "cust0007@example.com",
+    "phone": "0994110291",
+    "customer_segment": "REGULAR",
+    "city": "Nha Trang",
+    "address": "So 234 duong Yen, Nha Trang",
+    "created_at": "2025-10-23T21:21:03.270060+00:00"
+  },
+  {
+    "customer_id": "CUST0008",
+    "full_name": "Ly Thi Minh",
+    "email": "cust0008@example.com",
+    "phone": "0974275917",
+    "customer_segment": "REGULAR",
+    "city": "Nha Trang",
+    "address": "So 206 duong Thao, Nha Trang",
+    "created_at": "2025-09-02T01:48:19.419500+00:00"
+  },
+  {
+    "customer_id": "CUST0009",
+    "full_name": "Pham Thi Ngoc",
+    "email": "cust0009@example.com",
+    "phone": "0980180947",
+    "customer_segment": "NEW",
+    "city": "Can Tho",
+    "address": "So 251 duong Quang, Can Tho",
+    "created_at": "2025-07-16T20:06:23.823297+00:00"
+  },
+  {
+    "customer_id": "CUST0010",
+    "full_name": "Pham Thi Minh",
+    "email": "cust0010@example.com",
+    "phone": "0999106819",
+    "customer_segment": "REGULAR",
+    "city": "Vinh",
+    "address": "So 18 duong Ngoc, Vinh",
+    "created_at": "2026-01-17T12:07:32.448741+00:00"
+  },
+  {
+    "customer_id": "CUST0011",
+    "full_name": "Vu Thi Uyen",
+    "email": "cust0011@example.com",
+    "phone": "0934568398",
+    "customer_segment": "REGULAR",
+    "city": "Ho Chi Minh",
+    "address": "So 218 duong Yen, Ho Chi Minh",
+    "created_at": "2026-01-02T21:19:06.337896+00:00"
+  },
+  {
+    "customer_id": "CUST0012",
+    "full_name": "Tran Thi Minh",
+    "email": "cust0012@example.com",
+    "phone": "0911883416",
+    "customer_segment": "REGULAR",
+    "city": "Vinh",
+    "address": "So 48 duong An, Vinh",
+    "created_at": "2025-07-30T04:52:12.617528+00:00"
+  },
+  {
+    "customer_id": "CUST0013",
+    "full_name": "Bui Thi Chi",
+    "email": "cust0013@example.com",
+    "phone": "0999721481",
+    "customer_segment": "NEW",
+    "city": "Hai Phong",
+    "address": "So 183 duong Giang, Hai Phong",
+    "created_at": "2025-12-05T01:58:14.370823+00:00"
+  },
+  {
+    "customer_id": "CUST0014",
+    "full_name": "Nguyen Van Phuong",
+    "email": "cust0014@example.com",
+    "phone": "0927611550",
+    "customer_segment": "REGULAR",
+    "city": "Vinh",
+    "address": "So 259 duong Ngoc, Vinh",
+    "created_at": "2026-03-09T19:06:58.403162+00:00"
+  },
+  {
+    "customer_id": "CUST0015",
+    "full_name": "Tran Thi Thao",
+    "email": "cust0015@example.com",
+    "phone": "0965302958",
+    "customer_segment": "CHURN_RISK",
+    "city": "Da Nang",
+    "address": "So 200 duong Giang, Da Nang",
+    "created_at": "2026-01-22T22:05:58.469115+00:00"
+  },
+  {
+    "customer_id": "CUST0016",
+    "full_name": "Do Van Khanh",
+    "email": "cust0016@example.com",
+    "phone": "0956575946",
+    "customer_segment": "NEW",
+    "city": "Nha Trang",
+    "address": "So 181 duong An, Nha Trang",
+    "created_at": "2025-07-03T16:38:01.031443+00:00"
+  },
+  {
+    "customer_id": "CUST0017",
+    "full_name": "Nguyen Van Yen",
+    "email": "cust0017@example.com",
+    "phone": "0972623684",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 293 duong Hoa, Hue",
+    "created_at": "2025-10-14T22:31:15.725137+00:00"
+  },
+  {
+    "customer_id": "CUST0018",
+    "full_name": "Le Van Khanh",
+    "email": "cust0018@example.com",
+    "phone": "0983464604",
+    "customer_segment": "REGULAR",
+    "city": "Nha Trang",
+    "address": "So 205 duong Binh, Nha Trang",
+    "created_at": "2025-10-16T21:32:59.221618+00:00"
+  },
+  {
+    "customer_id": "CUST0019",
+    "full_name": "Pham Thi Hoa",
+    "email": "cust0019@example.com",
+    "phone": "0996013797",
+    "customer_segment": "REGULAR",
+    "city": "Ha Noi",
+    "address": "So 97 duong Yen, Ha Noi",
+    "created_at": "2026-03-07T08:51:02.902197+00:00"
+  },
+  {
+    "customer_id": "CUST0020",
+    "full_name": "Ly Thi An",
+    "email": "cust0020@example.com",
+    "phone": "0928484701",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 83 duong Hoa, Da Nang",
+    "created_at": "2025-08-06T11:59:25.713922+00:00"
+  },
+  {
+    "customer_id": "CUST0021",
+    "full_name": "Dang Van Minh",
+    "email": "cust0021@example.com",
+    "phone": "0933447159",
+    "customer_segment": "REGULAR",
+    "city": "Nha Trang",
+    "address": "So 135 duong Uyen, Nha Trang",
+    "created_at": "2026-02-16T18:55:41.429099+00:00"
+  },
+  {
+    "customer_id": "CUST0022",
+    "full_name": "Bui Thi Thao",
+    "email": "cust0022@example.com",
+    "phone": "0980423899",
+    "customer_segment": "REGULAR",
+    "city": "Can Tho",
+    "address": "So 141 duong Dung, Can Tho",
+    "created_at": "2025-09-07T04:53:17.002179+00:00"
+  },
+  {
+    "customer_id": "CUST0023",
+    "full_name": "Pham Thi Linh",
+    "email": "cust0023@example.com",
+    "phone": "0999979425",
+    "customer_segment": "CHURN_RISK",
+    "city": "Ha Noi",
+    "address": "So 94 duong An, Ha Noi",
+    "created_at": "2026-02-20T05:19:16.912244+00:00"
+  },
+  {
+    "customer_id": "CUST0024",
+    "full_name": "Vu Thi Hoa",
+    "email": "cust0024@example.com",
+    "phone": "0947644351",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 285 duong Khanh, Hue",
+    "created_at": "2025-11-20T05:16:57.904956+00:00"
+  },
+  {
+    "customer_id": "CUST0025",
+    "full_name": "Ngo Thi Ngoc",
+    "email": "cust0025@example.com",
+    "phone": "0968526026",
+    "customer_segment": "REGULAR",
+    "city": "Can Tho",
+    "address": "So 88 duong Dung, Can Tho",
+    "created_at": "2025-07-11T12:55:15.602658+00:00"
+  },
+  {
+    "customer_id": "CUST0026",
+    "full_name": "Duong Van Binh",
+    "email": "cust0026@example.com",
+    "phone": "0947149597",
+    "customer_segment": "VIP",
+    "city": "Hue",
+    "address": "So 33 duong Ngoc, Hue",
+    "created_at": "2025-07-27T06:33:19.888350+00:00"
+  },
+  {
+    "customer_id": "CUST0027",
+    "full_name": "Vu Thi Hoa",
+    "email": "cust0027@example.com",
+    "phone": "0944499597",
+    "customer_segment": "NEW",
+    "city": "Can Tho",
+    "address": "So 213 duong An, Can Tho",
+    "created_at": "2025-06-06T00:41:13.257266+00:00"
+  },
+  {
+    "customer_id": "CUST0028",
+    "full_name": "Nguyen Van Dung",
+    "email": "cust0028@example.com",
+    "phone": "0957017385",
+    "customer_segment": "NEW",
+    "city": "Hai Phong",
+    "address": "So 162 duong Uyen, Hai Phong",
+    "created_at": "2025-07-08T14:05:13.727031+00:00"
+  },
+  {
+    "customer_id": "CUST0029",
+    "full_name": "Ngo Thi Binh",
+    "email": "cust0029@example.com",
+    "phone": "0926030999",
+    "customer_segment": "REGULAR",
+    "city": "Nha Trang",
+    "address": "So 192 duong Minh, Nha Trang",
+    "created_at": "2025-08-05T04:11:06.149326+00:00"
+  },
+  {
+    "customer_id": "CUST0030",
+    "full_name": "Dang Van Ngoc",
+    "email": "cust0030@example.com",
+    "phone": "0954365408",
+    "customer_segment": "NEW",
+    "city": "Hue",
+    "address": "So 149 duong Dung, Hue",
+    "created_at": "2026-01-02T09:43:25.133041+00:00"
+  },
+  {
+    "customer_id": "CUST0031",
+    "full_name": "Hoang Van Thao",
+    "email": "cust0031@example.com",
+    "phone": "0917535674",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 58 duong Hoa, Hue",
+    "created_at": "2025-06-08T00:08:41.941180+00:00"
+  },
+  {
+    "customer_id": "CUST0032",
+    "full_name": "Ngo Thi Dung",
+    "email": "cust0032@example.com",
+    "phone": "0950566123",
+    "customer_segment": "NEW",
+    "city": "Ho Chi Minh",
+    "address": "So 15 duong Thao, Ho Chi Minh",
+    "created_at": "2025-11-05T09:17:27.619588+00:00"
+  },
+  {
+    "customer_id": "CUST0033",
+    "full_name": "Ngo Thi Giang",
+    "email": "cust0033@example.com",
+    "phone": "0926805141",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 94 duong An, Hue",
+    "created_at": "2025-09-22T22:13:29.729408+00:00"
+  },
+  {
+    "customer_id": "CUST0034",
+    "full_name": "Duong Van Son",
+    "email": "cust0034@example.com",
+    "phone": "0966086873",
+    "customer_segment": "VIP",
+    "city": "Can Tho",
+    "address": "So 136 duong Phuong, Can Tho",
+    "created_at": "2025-08-08T12:21:19.973773+00:00"
+  },
+  {
+    "customer_id": "CUST0035",
+    "full_name": "Le Van Chi",
+    "email": "cust0035@example.com",
+    "phone": "0945597600",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 175 duong Phuong, Da Nang",
+    "created_at": "2025-12-14T00:09:02.825778+00:00"
+  },
+  {
+    "customer_id": "CUST0036",
+    "full_name": "Nguyen Van An",
+    "email": "cust0036@example.com",
+    "phone": "0963562849",
+    "customer_segment": "REGULAR",
+    "city": "Hai Phong",
+    "address": "So 185 duong Linh, Hai Phong",
+    "created_at": "2026-03-19T17:51:43.512358+00:00"
+  },
+  {
+    "customer_id": "CUST0037",
+    "full_name": "Do Van Minh",
+    "email": "cust0037@example.com",
+    "phone": "0973627612",
+    "customer_segment": "CHURN_RISK",
+    "city": "Hue",
+    "address": "So 298 duong Ngoc, Hue",
+    "created_at": "2025-09-21T21:02:38.572329+00:00"
+  },
+  {
+    "customer_id": "CUST0038",
+    "full_name": "Pham Thi Hoa",
+    "email": "cust0038@example.com",
+    "phone": "0980226429",
+    "customer_segment": "NEW",
+    "city": "Nha Trang",
+    "address": "So 210 duong Binh, Nha Trang",
+    "created_at": "2026-02-25T02:00:13.593845+00:00"
+  },
+  {
+    "customer_id": "CUST0039",
+    "full_name": "Duong Van Hoa",
+    "email": "cust0039@example.com",
+    "phone": "0923522643",
+    "customer_segment": "NEW",
+    "city": "Ho Chi Minh",
+    "address": "So 10 duong Khanh, Ho Chi Minh",
+    "created_at": "2025-11-12T07:12:53.045280+00:00"
+  },
+  {
+    "customer_id": "CUST0040",
+    "full_name": "Ly Thi Ngoc",
+    "email": "cust0040@example.com",
+    "phone": "0996442492",
+    "customer_segment": "CHURN_RISK",
+    "city": "Ha Noi",
+    "address": "So 81 duong Dung, Ha Noi",
+    "created_at": "2025-09-24T02:50:59.014032+00:00"
+  },
+  {
+    "customer_id": "CUST0041",
+    "full_name": "Tran Thi Giang",
+    "email": "cust0041@example.com",
+    "phone": "0935471405",
+    "customer_segment": "REGULAR",
+    "city": "Nha Trang",
+    "address": "So 84 duong Ngoc, Nha Trang",
+    "created_at": "2025-08-18T11:56:12.111133+00:00"
+  },
+  {
+    "customer_id": "CUST0042",
+    "full_name": "Hoang Van Ngoc",
+    "email": "cust0042@example.com",
+    "phone": "0991329384",
+    "customer_segment": "NEW",
+    "city": "Hue",
+    "address": "So 246 duong Thao, Hue",
+    "created_at": "2025-09-26T13:04:32.212213+00:00"
+  },
+  {
+    "customer_id": "CUST0043",
+    "full_name": "Vu Thi Hoa",
+    "email": "cust0043@example.com",
+    "phone": "0979121083",
+    "customer_segment": "NEW",
+    "city": "Ha Noi",
+    "address": "So 2 duong Quang, Ha Noi",
+    "created_at": "2025-11-09T22:08:13.832983+00:00"
+  },
+  {
+    "customer_id": "CUST0044",
+    "full_name": "Tran Thi Quang",
+    "email": "cust0044@example.com",
+    "phone": "0953794068",
+    "customer_segment": "NEW",
+    "city": "Can Tho",
+    "address": "So 249 duong Dung, Can Tho",
+    "created_at": "2025-07-17T20:34:56.955722+00:00"
+  },
+  {
+    "customer_id": "CUST0045",
+    "full_name": "Ly Thi Chi",
+    "email": "cust0045@example.com",
+    "phone": "0976941011",
+    "customer_segment": "NEW",
+    "city": "Nha Trang",
+    "address": "So 62 duong Linh, Nha Trang",
+    "created_at": "2025-08-30T13:56:10.052958+00:00"
+  },
+  {
+    "customer_id": "CUST0046",
+    "full_name": "Vu Thi Uyen",
+    "email": "cust0046@example.com",
+    "phone": "0951879451",
+    "customer_segment": "NEW",
+    "city": "Hue",
+    "address": "So 136 duong Linh, Hue",
+    "created_at": "2026-01-20T19:38:22.589781+00:00"
+  },
+  {
+    "customer_id": "CUST0047",
+    "full_name": "Le Van Phuong",
+    "email": "cust0047@example.com",
+    "phone": "0976195414",
+    "customer_segment": "REGULAR",
+    "city": "Nha Trang",
+    "address": "So 207 duong Phuong, Nha Trang",
+    "created_at": "2025-09-09T09:54:22.283971+00:00"
+  },
+  {
+    "customer_id": "CUST0048",
+    "full_name": "Le Van Khanh",
+    "email": "cust0048@example.com",
+    "phone": "0964988991",
+    "customer_segment": "NEW",
+    "city": "Vinh",
+    "address": "So 196 duong Khanh, Vinh",
+    "created_at": "2025-12-25T02:45:01.778202+00:00"
+  },
+  {
+    "customer_id": "CUST0049",
+    "full_name": "Le Van Uyen",
+    "email": "cust0049@example.com",
+    "phone": "0969652955",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 135 duong Giang, Da Nang",
+    "created_at": "2025-09-07T19:34:54.047308+00:00"
+  },
+  {
+    "customer_id": "CUST0050",
+    "full_name": "Do Van Minh",
+    "email": "cust0050@example.com",
+    "phone": "0987093109",
+    "customer_segment": "REGULAR",
+    "city": "Hai Phong",
+    "address": "So 235 duong Son, Hai Phong",
+    "created_at": "2025-07-14T18:58:34.125106+00:00"
+  },
+  {
+    "customer_id": "CUST0051",
+    "full_name": "Dang Van An",
+    "email": "cust0051@example.com",
+    "phone": "0994957985",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 280 duong Khanh, Hue",
+    "created_at": "2025-09-10T17:45:19.750179+00:00"
+  },
+  {
+    "customer_id": "CUST0052",
+    "full_name": "Dang Van Quang",
+    "email": "cust0052@example.com",
+    "phone": "0943846223",
+    "customer_segment": "NEW",
+    "city": "Hue",
+    "address": "So 67 duong Phuong, Hue",
+    "created_at": "2025-09-29T02:32:16.591337+00:00"
+  },
+  {
+    "customer_id": "CUST0053",
+    "full_name": "Ngo Thi Thao",
+    "email": "cust0053@example.com",
+    "phone": "0995398731",
+    "customer_segment": "CHURN_RISK",
+    "city": "Vinh",
+    "address": "So 62 duong Minh, Vinh",
+    "created_at": "2025-10-23T22:01:21.106582+00:00"
+  },
+  {
+    "customer_id": "CUST0054",
+    "full_name": "Vu Thi An",
+    "email": "cust0054@example.com",
+    "phone": "0984593523",
+    "customer_segment": "VIP",
+    "city": "Hai Phong",
+    "address": "So 97 duong An, Hai Phong",
+    "created_at": "2025-11-03T02:16:02.814377+00:00"
+  },
+  {
+    "customer_id": "CUST0055",
+    "full_name": "Tran Thi Giang",
+    "email": "cust0055@example.com",
+    "phone": "0951533423",
+    "customer_segment": "CHURN_RISK",
+    "city": "Hue",
+    "address": "So 44 duong Thao, Hue",
+    "created_at": "2026-03-11T03:39:00.134502+00:00"
+  },
+  {
+    "customer_id": "CUST0056",
+    "full_name": "Ly Thi Giang",
+    "email": "cust0056@example.com",
+    "phone": "0978910905",
+    "customer_segment": "NEW",
+    "city": "Ho Chi Minh",
+    "address": "So 119 duong Yen, Ho Chi Minh",
+    "created_at": "2026-03-09T18:34:27.103808+00:00"
+  },
+  {
+    "customer_id": "CUST0057",
+    "full_name": "Duong Van Phuong",
+    "email": "cust0057@example.com",
+    "phone": "0943568149",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 19 duong Yen, Hue",
+    "created_at": "2025-11-30T06:18:25.196537+00:00"
+  },
+  {
+    "customer_id": "CUST0058",
+    "full_name": "Le Van An",
+    "email": "cust0058@example.com",
+    "phone": "0946726640",
+    "customer_segment": "VIP",
+    "city": "Vinh",
+    "address": "So 263 duong Son, Vinh",
+    "created_at": "2025-08-16T21:17:58.776402+00:00"
+  },
+  {
+    "customer_id": "CUST0059",
+    "full_name": "Hoang Van Khanh",
+    "email": "cust0059@example.com",
+    "phone": "0978311606",
+    "customer_segment": "VIP",
+    "city": "Ha Noi",
+    "address": "So 273 duong Ngoc, Ha Noi",
+    "created_at": "2026-02-15T14:27:08.333719+00:00"
+  },
+  {
+    "customer_id": "CUST0060",
+    "full_name": "Bui Thi Chi",
+    "email": "cust0060@example.com",
+    "phone": "0985436113",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 90 duong Minh, Hue",
+    "created_at": "2025-12-16T12:22:37.254122+00:00"
+  },
+  {
+    "customer_id": "CUST0061",
+    "full_name": "Do Van Son",
+    "email": "cust0061@example.com",
+    "phone": "0967577805",
+    "customer_segment": "CHURN_RISK",
+    "city": "Ho Chi Minh",
+    "address": "So 261 duong Giang, Ho Chi Minh",
+    "created_at": "2026-03-21T21:40:43.175967+00:00"
+  },
+  {
+    "customer_id": "CUST0062",
+    "full_name": "Do Van Khanh",
+    "email": "cust0062@example.com",
+    "phone": "0953722847",
+    "customer_segment": "VIP",
+    "city": "Can Tho",
+    "address": "So 187 duong Son, Can Tho",
+    "created_at": "2026-01-02T01:48:31.760170+00:00"
+  },
+  {
+    "customer_id": "CUST0063",
+    "full_name": "Do Van Khanh",
+    "email": "cust0063@example.com",
+    "phone": "0998178629",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 294 duong Binh, Da Nang",
+    "created_at": "2025-12-29T14:21:04.608943+00:00"
+  },
+  {
+    "customer_id": "CUST0064",
+    "full_name": "Duong Van Binh",
+    "email": "cust0064@example.com",
+    "phone": "0982520415",
+    "customer_segment": "VIP",
+    "city": "Can Tho",
+    "address": "So 183 duong Giang, Can Tho",
+    "created_at": "2026-03-10T11:22:58.240371+00:00"
+  },
+  {
+    "customer_id": "CUST0065",
+    "full_name": "Bui Thi Hoa",
+    "email": "cust0065@example.com",
+    "phone": "0993590697",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 251 duong An, Da Nang",
+    "created_at": "2026-01-13T01:49:36.144673+00:00"
+  },
+  {
+    "customer_id": "CUST0066",
+    "full_name": "Hoang Van Linh",
+    "email": "cust0066@example.com",
+    "phone": "0953554102",
+    "customer_segment": "CHURN_RISK",
+    "city": "Hue",
+    "address": "So 75 duong Binh, Hue",
+    "created_at": "2025-06-29T06:22:14.070087+00:00"
+  },
+  {
+    "customer_id": "CUST0067",
+    "full_name": "Bui Thi An",
+    "email": "cust0067@example.com",
+    "phone": "0944524517",
+    "customer_segment": "NEW",
+    "city": "Ha Noi",
+    "address": "So 169 duong An, Ha Noi",
+    "created_at": "2025-11-24T12:16:41.490612+00:00"
+  },
+  {
+    "customer_id": "CUST0068",
+    "full_name": "Le Van Khanh",
+    "email": "cust0068@example.com",
+    "phone": "0940152415",
+    "customer_segment": "REGULAR",
+    "city": "Ho Chi Minh",
+    "address": "So 254 duong Khanh, Ho Chi Minh",
+    "created_at": "2025-10-09T17:52:46.755819+00:00"
+  },
+  {
+    "customer_id": "CUST0069",
+    "full_name": "Vu Thi Hoa",
+    "email": "cust0069@example.com",
+    "phone": "0951433992",
+    "customer_segment": "VIP",
+    "city": "Nha Trang",
+    "address": "So 226 duong Yen, Nha Trang",
+    "created_at": "2025-10-17T04:08:37.288268+00:00"
+  },
+  {
+    "customer_id": "CUST0070",
+    "full_name": "Tran Thi Khanh",
+    "email": "cust0070@example.com",
+    "phone": "0931215328",
+    "customer_segment": "NEW",
+    "city": "Hai Phong",
+    "address": "So 59 duong Hoa, Hai Phong",
+    "created_at": "2025-06-25T08:32:50.472399+00:00"
+  },
+  {
+    "customer_id": "CUST0071",
+    "full_name": "Pham Thi Thao",
+    "email": "cust0071@example.com",
+    "phone": "0929445705",
+    "customer_segment": "CHURN_RISK",
+    "city": "Hai Phong",
+    "address": "So 138 duong Ngoc, Hai Phong",
+    "created_at": "2026-03-18T04:13:45.238393+00:00"
+  },
+  {
+    "customer_id": "CUST0072",
+    "full_name": "Ly Thi Quang",
+    "email": "cust0072@example.com",
+    "phone": "0975521258",
+    "customer_segment": "NEW",
+    "city": "Nha Trang",
+    "address": "So 71 duong Dung, Nha Trang",
+    "created_at": "2025-11-05T04:32:50.540138+00:00"
+  },
+  {
+    "customer_id": "CUST0073",
+    "full_name": "Le Van Linh",
+    "email": "cust0073@example.com",
+    "phone": "0999928734",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 287 duong Phuong, Hue",
+    "created_at": "2025-12-01T04:03:04.750903+00:00"
+  },
+  {
+    "customer_id": "CUST0074",
+    "full_name": "Hoang Van Chi",
+    "email": "cust0074@example.com",
+    "phone": "0923195130",
+    "customer_segment": "REGULAR",
+    "city": "Vinh",
+    "address": "So 142 duong Ngoc, Vinh",
+    "created_at": "2025-11-12T15:01:38.123860+00:00"
+  },
+  {
+    "customer_id": "CUST0075",
+    "full_name": "Nguyen Van Chi",
+    "email": "cust0075@example.com",
+    "phone": "0996633393",
+    "customer_segment": "NEW",
+    "city": "Ha Noi",
+    "address": "So 295 duong Uyen, Ha Noi",
+    "created_at": "2026-03-05T07:48:09.521635+00:00"
+  },
+  {
+    "customer_id": "CUST0076",
+    "full_name": "Ngo Thi Yen",
+    "email": "cust0076@example.com",
+    "phone": "0932572086",
+    "customer_segment": "NEW",
+    "city": "Ha Noi",
+    "address": "So 274 duong Minh, Ha Noi",
+    "created_at": "2025-09-04T13:34:13.690339+00:00"
+  },
+  {
+    "customer_id": "CUST0077",
+    "full_name": "Nguyen Van Binh",
+    "email": "cust0077@example.com",
+    "phone": "0954951322",
+    "customer_segment": "VIP",
+    "city": "Ho Chi Minh",
+    "address": "So 79 duong Ngoc, Ho Chi Minh",
+    "created_at": "2025-11-04T23:32:32.754064+00:00"
+  },
+  {
+    "customer_id": "CUST0078",
+    "full_name": "Bui Thi Linh",
+    "email": "cust0078@example.com",
+    "phone": "0951958816",
+    "customer_segment": "VIP",
+    "city": "Hue",
+    "address": "So 215 duong Binh, Hue",
+    "created_at": "2025-10-19T20:13:26.456548+00:00"
+  },
+  {
+    "customer_id": "CUST0079",
+    "full_name": "Bui Thi Linh",
+    "email": "cust0079@example.com",
+    "phone": "0974805280",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 272 duong An, Da Nang",
+    "created_at": "2026-01-18T05:23:01.901702+00:00"
+  },
+  {
+    "customer_id": "CUST0080",
+    "full_name": "Bui Thi Khanh",
+    "email": "cust0080@example.com",
+    "phone": "0979974347",
+    "customer_segment": "VIP",
+    "city": "Nha Trang",
+    "address": "So 161 duong Minh, Nha Trang",
+    "created_at": "2025-11-07T15:00:15.241643+00:00"
+  },
+  {
+    "customer_id": "CUST0081",
+    "full_name": "Dang Van An",
+    "email": "cust0081@example.com",
+    "phone": "0959457476",
+    "customer_segment": "REGULAR",
+    "city": "Hue",
+    "address": "So 112 duong Chi, Hue",
+    "created_at": "2025-11-04T22:05:47.864541+00:00"
+  },
+  {
+    "customer_id": "CUST0082",
+    "full_name": "Do Van Hoa",
+    "email": "cust0082@example.com",
+    "phone": "0963810144",
+    "customer_segment": "REGULAR",
+    "city": "Vinh",
+    "address": "So 3 duong Linh, Vinh",
+    "created_at": "2025-07-04T11:01:44.712048+00:00"
+  },
+  {
+    "customer_id": "CUST0083",
+    "full_name": "Pham Thi Binh",
+    "email": "cust0083@example.com",
+    "phone": "0944272500",
+    "customer_segment": "VIP",
+    "city": "Can Tho",
+    "address": "So 86 duong Binh, Can Tho",
+    "created_at": "2025-07-21T23:16:29.503748+00:00"
+  },
+  {
+    "customer_id": "CUST0084",
+    "full_name": "Pham Thi Dung",
+    "email": "cust0084@example.com",
+    "phone": "0972676586",
+    "customer_segment": "REGULAR",
+    "city": "Vinh",
+    "address": "So 264 duong Binh, Vinh",
+    "created_at": "2025-06-12T15:10:13.922615+00:00"
+  },
+  {
+    "customer_id": "CUST0085",
+    "full_name": "Pham Thi Yen",
+    "email": "cust0085@example.com",
+    "phone": "0948507174",
+    "customer_segment": "NEW",
+    "city": "Ha Noi",
+    "address": "So 23 duong Yen, Ha Noi",
+    "created_at": "2025-07-21T13:46:08.000603+00:00"
+  },
+  {
+    "customer_id": "CUST0086",
+    "full_name": "Hoang Van Chi",
+    "email": "cust0086@example.com",
+    "phone": "0917143479",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 278 duong Quang, Da Nang",
+    "created_at": "2025-11-03T13:06:10.177252+00:00"
+  },
+  {
+    "customer_id": "CUST0087",
+    "full_name": "Pham Thi Son",
+    "email": "cust0087@example.com",
+    "phone": "0969207871",
+    "customer_segment": "NEW",
+    "city": "Vinh",
+    "address": "So 92 duong Hoa, Vinh",
+    "created_at": "2025-06-10T20:27:06.245891+00:00"
+  },
+  {
+    "customer_id": "CUST0088",
+    "full_name": "Pham Thi Hoa",
+    "email": "cust0088@example.com",
+    "phone": "0932671510",
+    "customer_segment": "REGULAR",
+    "city": "Hai Phong",
+    "address": "So 240 duong Chi, Hai Phong",
+    "created_at": "2025-09-10T10:06:46.258603+00:00"
+  },
+  {
+    "customer_id": "CUST0089",
+    "full_name": "Nguyen Van Quang",
+    "email": "cust0089@example.com",
+    "phone": "0942642841",
+    "customer_segment": "VIP",
+    "city": "Ho Chi Minh",
+    "address": "So 243 duong Giang, Ho Chi Minh",
+    "created_at": "2025-07-11T00:34:20.422901+00:00"
+  },
+  {
+    "customer_id": "CUST0090",
+    "full_name": "Duong Van Phuong",
+    "email": "cust0090@example.com",
+    "phone": "0976842956",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 215 duong Phuong, Da Nang",
+    "created_at": "2025-07-05T15:04:23.187325+00:00"
+  },
+  {
+    "customer_id": "CUST0091",
+    "full_name": "Do Van Quang",
+    "email": "cust0091@example.com",
+    "phone": "0960632340",
+    "customer_segment": "VIP",
+    "city": "Ho Chi Minh",
+    "address": "So 126 duong Ngoc, Ho Chi Minh",
+    "created_at": "2025-11-26T00:15:54.683147+00:00"
+  },
+  {
+    "customer_id": "CUST0092",
+    "full_name": "Ngo Thi Hoa",
+    "email": "cust0092@example.com",
+    "phone": "0933557996",
+    "customer_segment": "VIP",
+    "city": "Can Tho",
+    "address": "So 235 duong Dung, Can Tho",
+    "created_at": "2025-06-04T05:03:28.253545+00:00"
+  },
+  {
+    "customer_id": "CUST0093",
+    "full_name": "Pham Thi Yen",
+    "email": "cust0093@example.com",
+    "phone": "0927069024",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 3 duong Ngoc, Da Nang",
+    "created_at": "2025-10-30T10:08:48.980217+00:00"
+  },
+  {
+    "customer_id": "CUST0094",
+    "full_name": "Le Van Thao",
+    "email": "cust0094@example.com",
+    "phone": "0993933242",
+    "customer_segment": "NEW",
+    "city": "Can Tho",
+    "address": "So 3 duong Uyen, Can Tho",
+    "created_at": "2025-12-01T11:30:55.648430+00:00"
+  },
+  {
+    "customer_id": "CUST0095",
+    "full_name": "Ngo Thi Dung",
+    "email": "cust0095@example.com",
+    "phone": "0946736978",
+    "customer_segment": "NEW",
+    "city": "Ho Chi Minh",
+    "address": "So 225 duong Uyen, Ho Chi Minh",
+    "created_at": "2025-09-07T05:43:59.589540+00:00"
+  },
+  {
+    "customer_id": "CUST0096",
+    "full_name": "Ly Thi Ngoc",
+    "email": "cust0096@example.com",
+    "phone": "0932568994",
+    "customer_segment": "REGULAR",
+    "city": "Can Tho",
+    "address": "So 53 duong An, Can Tho",
+    "created_at": "2025-12-05T02:26:26.087173+00:00"
+  },
+  {
+    "customer_id": "CUST0097",
+    "full_name": "Pham Thi Khanh",
+    "email": "cust0097@example.com",
+    "phone": "0999213390",
+    "customer_segment": "VIP",
+    "city": "Can Tho",
+    "address": "So 167 duong Hoa, Can Tho",
+    "created_at": "2026-01-15T09:44:10.084255+00:00"
+  },
+  {
+    "customer_id": "CUST0098",
+    "full_name": "Tran Thi Linh",
+    "email": "cust0098@example.com",
+    "phone": "0983696064",
+    "customer_segment": "NEW",
+    "city": "Nha Trang",
+    "address": "So 156 duong Son, Nha Trang",
+    "created_at": "2025-09-10T02:15:39.693566+00:00"
+  },
+  {
+    "customer_id": "CUST0099",
+    "full_name": "Ly Thi Minh",
+    "email": "cust0099@example.com",
+    "phone": "0993375073",
+    "customer_segment": "CHURN_RISK",
+    "city": "Hue",
+    "address": "So 101 duong Ngoc, Hue",
+    "created_at": "2025-10-14T19:50:33.639324+00:00"
+  },
+  {
+    "customer_id": "CUST0100",
+    "full_name": "Le Van Thao",
+    "email": "cust0100@example.com",
+    "phone": "0951221953",
+    "customer_segment": "REGULAR",
+    "city": "Da Nang",
+    "address": "So 19 duong Phuong, Da Nang",
+    "created_at": "2025-09-22T00:35:28.900615+00:00"
+  }
+]

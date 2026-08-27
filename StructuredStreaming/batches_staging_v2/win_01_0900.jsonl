@@ -1,0 +1,11 @@
+{"event_id": "CEV000155", "event_time": "2026-08-20T09:00:00+00:00", "customer_id": "CUST00018", "session_id": "SESS00012", "product_id": "PROD00034", "event_type": "VIEW"}
+{"event_id": "CEV000026", "event_time": "2026-08-20T09:01:55.221087+00:00", "customer_id": "CUST00016", "session_id": "SESS00032", "product_id": "PROD00002", "event_type": "VIEW"}
+{"event_id": "CEV000185", "event_time": "2026-08-20T09:02:05.585620+00:00", "customer_id": "CUST00064", "session_id": "SESS00020", "product_id": "PROD00051", "event_type": "VIEW"}
+{"event_id": "CEV000145", "event_time": "2026-08-20T09:03:17.073219+00:00", "customer_id": "CUST00070", "session_id": "SESS00001", "product_id": "PROD00024", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000020", "event_time": "2026-08-20T09:03:19.746542+00:00", "customer_id": null, "session_id": "SESS00037", "product_id": "PROD00034", "event_type": "VIEW"}
+{"event_id": "CEV000106", "event_time": "2026-08-20T09:03:33.558711+00:00", "customer_id": "CUST00077", "session_id": "SESS00034", "product_id": "PROD00057", "event_type": "ADD_TO_CART"}
+{"event_id": "CEV000055", "event_time": "2026-08-20T09:03:34.069151+00:00", "customer_id": null, "session_id": "SESS00044", "product_id": "PROD00008", "event_type": "VIEW"}
+{"event_id": "CEV000171", "event_time": "2026-08-20T09:03:38.291098+00:00", "customer_id": "CUST00060", "session_id": "SESS00021", "product_id": "PROD00018", "event_type": "VIEW"}
+{"event_id": "CEV000168", "event_time": "2026-08-20T09:04:24.641675+00:00", "customer_id": "CUST00098", "session_id": "SESS00050", "product_id": "PROD00040", "event_type": "VIEW"}
+{"event_id": "CEV000040", "event_time": "2026-08-20T09:04:33.211016+00:00", "customer_id": "CUST00044", "session_id": "SESS00018", "product_id": "PROD00009", "event_type": "VIEW"}
+{"event_id": "CEV000195", "event_time": "2026-08-20T09:04:45.747084+00:00", "customer_id": "CUST00044", "session_id": "SESS00006", "product_id": "PROD00041", "event_type": "VIEW"}

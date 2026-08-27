@@ -1,0 +1,1435 @@
+[
+  {
+    "product_id": "PROD0001",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Solace #1",
+    "brand": "Solace",
+    "price": 17450000,
+    "stock_quantity": 57,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 24
+    },
+    "tags": [
+      "pho_thong",
+      "giam_gia",
+      "moi_ve"
+    ],
+    "created_at": "2026-01-12T21:01:15.221183+00:00"
+  },
+  {
+    "product_id": "PROD0002",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Halcyon #2",
+    "brand": "Halcyon",
+    "price": 16360000,
+    "stock_quantity": 159,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "tags": [
+      "pho_thong",
+      "cao_cap",
+      "moi_ve"
+    ],
+    "created_at": "2026-02-15T21:47:19.929691+00:00"
+  },
+  {
+    "product_id": "PROD0003",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Vertex #3",
+    "brand": "Vertex",
+    "price": 7660000,
+    "stock_quantity": 125,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "moi_ve",
+      "cao_cap"
+    ],
+    "created_at": "2025-11-02T07:05:26.381657+00:00"
+  },
+  {
+    "product_id": "PROD0004",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Kestrel #4",
+    "brand": "Kestrel",
+    "price": 9400000,
+    "stock_quantity": 101,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 36
+    },
+    "tags": [
+      "giam_gia",
+      "ban_chay",
+      "moi_ve"
+    ],
+    "created_at": "2025-08-10T19:11:29.882717+00:00"
+  },
+  {
+    "product_id": "PROD0005",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Marlow #5",
+    "brand": "Marlow",
+    "price": 6670000,
+    "stock_quantity": 117,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2026-02-04T05:38:31.064279+00:00"
+  },
+  {
+    "product_id": "PROD0006",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Marlow #6",
+    "brand": "Marlow",
+    "price": 24840000,
+    "stock_quantity": 46,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 6
+    },
+    "tags": [
+      "moi_ve",
+      "pho_thong"
+    ],
+    "created_at": "2025-10-12T22:57:28.118377+00:00"
+  },
+  {
+    "product_id": "PROD0007",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Halcyon #7",
+    "brand": "Halcyon",
+    "price": 5860000,
+    "stock_quantity": 23,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay",
+      "cao_cap"
+    ],
+    "created_at": "2025-10-28T19:21:24.640237+00:00"
+  },
+  {
+    "product_id": "PROD0008",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Aurora #8",
+    "brand": "Aurora",
+    "price": 17190000,
+    "stock_quantity": 46,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "tags": [
+      "pho_thong",
+      "moi_ve"
+    ],
+    "created_at": "2025-10-06T17:25:01.178893+00:00"
+  },
+  {
+    "product_id": "PROD0009",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Solace #9",
+    "brand": "Solace",
+    "price": 11070000,
+    "stock_quantity": 198,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "tags": [
+      "moi_ve",
+      "giam_gia",
+      "ban_chay"
+    ],
+    "created_at": "2025-10-02T18:40:58.663409+00:00"
+  },
+  {
+    "product_id": "PROD0010",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Solace #10",
+    "brand": "Solace",
+    "price": 13570000,
+    "stock_quantity": 109,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 24
+    },
+    "tags": [
+      "pho_thong"
+    ],
+    "created_at": "2025-11-05T15:23:44.551231+00:00"
+  },
+  {
+    "product_id": "PROD0011",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Solace #11",
+    "brand": "Solace",
+    "price": 22090000,
+    "stock_quantity": 117,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 36
+    },
+    "tags": [
+      "giam_gia",
+      "moi_ve",
+      "pho_thong"
+    ],
+    "created_at": "2026-03-08T10:25:52.268975+00:00"
+  },
+  {
+    "product_id": "PROD0012",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Solace #12",
+    "brand": "Solace",
+    "price": 11370000,
+    "stock_quantity": 79,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 12
+    },
+    "tags": [
+      "moi_ve"
+    ],
+    "created_at": "2025-11-28T14:20:28.569093+00:00"
+  },
+  {
+    "product_id": "PROD0013",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Kestrel #13",
+    "brand": "Kestrel",
+    "price": 14280000,
+    "stock_quantity": 103,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 36
+    },
+    "tags": [
+      "cao_cap",
+      "pho_thong",
+      "giam_gia"
+    ],
+    "created_at": "2025-07-03T08:12:45.035387+00:00"
+  },
+  {
+    "product_id": "PROD0014",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Orion #14",
+    "brand": "Orion",
+    "price": 24430000,
+    "stock_quantity": 83,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay",
+      "giam_gia"
+    ],
+    "created_at": "2025-09-25T05:59:51.633754+00:00"
+  },
+  {
+    "product_id": "PROD0015",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Aurora #15",
+    "brand": "Aurora",
+    "price": 15250000,
+    "stock_quantity": 105,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "tags": [
+      "ban_chay",
+      "giam_gia",
+      "cao_cap"
+    ],
+    "created_at": "2026-03-21T10:57:03.263496+00:00"
+  },
+  {
+    "product_id": "PROD0016",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Halcyon #16",
+    "brand": "Halcyon",
+    "price": 11210000,
+    "stock_quantity": 98,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 24
+    },
+    "tags": [
+      "moi_ve"
+    ],
+    "created_at": "2025-08-05T13:36:15.749301+00:00"
+  },
+  {
+    "product_id": "PROD0017",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Marlow #17",
+    "brand": "Marlow",
+    "price": 22600000,
+    "stock_quantity": 116,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 6
+    },
+    "tags": [
+      "moi_ve",
+      "ban_chay"
+    ],
+    "created_at": "2026-02-18T12:01:18.278926+00:00"
+  },
+  {
+    "product_id": "PROD0018",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Kestrel #18",
+    "brand": "Kestrel",
+    "price": 3440000,
+    "stock_quantity": 150,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 36
+    },
+    "tags": [
+      "moi_ve"
+    ],
+    "created_at": "2025-10-12T01:43:28.249969+00:00"
+  },
+  {
+    "product_id": "PROD0019",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Halcyon #19",
+    "brand": "Halcyon",
+    "price": 15690000,
+    "stock_quantity": 142,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2025-10-03T13:34:22.567270+00:00"
+  },
+  {
+    "product_id": "PROD0020",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Nimbus #20",
+    "brand": "Nimbus",
+    "price": 16760000,
+    "stock_quantity": 183,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 6
+    },
+    "tags": [
+      "pho_thong",
+      "cao_cap"
+    ],
+    "created_at": "2026-02-02T20:20:34.864316+00:00"
+  },
+  {
+    "product_id": "PROD0021",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Solace #21",
+    "brand": "Solace",
+    "price": 4370000,
+    "stock_quantity": 32,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 12
+    },
+    "tags": [
+      "cao_cap",
+      "moi_ve"
+    ],
+    "created_at": "2025-08-01T20:27:26.272888+00:00"
+  },
+  {
+    "product_id": "PROD0022",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Aurora #22",
+    "brand": "Aurora",
+    "price": 4720000,
+    "stock_quantity": 49,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 36
+    },
+    "tags": [
+      "giam_gia"
+    ],
+    "created_at": "2025-09-26T09:16:18.487203+00:00"
+  },
+  {
+    "product_id": "PROD0023",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Kestrel #23",
+    "brand": "Kestrel",
+    "price": 11820000,
+    "stock_quantity": 141,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 12
+    },
+    "tags": [
+      "giam_gia",
+      "ban_chay"
+    ],
+    "created_at": "2025-08-31T15:54:55.890994+00:00"
+  },
+  {
+    "product_id": "PROD0024",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Vertex #24",
+    "brand": "Vertex",
+    "price": 19500000,
+    "stock_quantity": 142,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "tags": [
+      "moi_ve"
+    ],
+    "created_at": "2025-07-29T12:02:34.425748+00:00"
+  },
+  {
+    "product_id": "PROD0025",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Orion #25",
+    "brand": "Orion",
+    "price": 15370000,
+    "stock_quantity": 48,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 12
+    },
+    "tags": [
+      "cao_cap",
+      "ban_chay"
+    ],
+    "created_at": "2026-03-01T10:27:34.908486+00:00"
+  },
+  {
+    "product_id": "PROD0026",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Aurora #26",
+    "brand": "Aurora",
+    "price": 23240000,
+    "stock_quantity": 88,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 24
+    },
+    "tags": [
+      "ban_chay",
+      "giam_gia"
+    ],
+    "created_at": "2025-07-17T00:37:57.560767+00:00"
+  },
+  {
+    "product_id": "PROD0027",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Kestrel #27",
+    "brand": "Kestrel",
+    "price": 9010000,
+    "stock_quantity": 78,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 24
+    },
+    "tags": [
+      "cao_cap",
+      "ban_chay",
+      "moi_ve"
+    ],
+    "created_at": "2025-09-04T04:31:41.004151+00:00"
+  },
+  {
+    "product_id": "PROD0028",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Aurora #28",
+    "brand": "Aurora",
+    "price": 3280000,
+    "stock_quantity": 74,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "tags": [
+      "moi_ve"
+    ],
+    "created_at": "2026-03-09T04:38:14.927354+00:00"
+  },
+  {
+    "product_id": "PROD0029",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Aurora #29",
+    "brand": "Aurora",
+    "price": 13540000,
+    "stock_quantity": 24,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 36
+    },
+    "tags": [
+      "cao_cap",
+      "giam_gia",
+      "pho_thong"
+    ],
+    "created_at": "2026-01-10T23:52:39.627502+00:00"
+  },
+  {
+    "product_id": "PROD0030",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Orion #30",
+    "brand": "Orion",
+    "price": 20510000,
+    "stock_quantity": 176,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "tags": [
+      "giam_gia",
+      "pho_thong",
+      "ban_chay"
+    ],
+    "created_at": "2025-11-10T18:12:05.180546+00:00"
+  },
+  {
+    "product_id": "PROD0031",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Halcyon #31",
+    "brand": "Halcyon",
+    "price": 22500000,
+    "stock_quantity": 195,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 6
+    },
+    "tags": [
+      "cao_cap",
+      "ban_chay"
+    ],
+    "created_at": "2025-12-10T22:04:16.433876+00:00"
+  },
+  {
+    "product_id": "PROD0032",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Orion #32",
+    "brand": "Orion",
+    "price": 17020000,
+    "stock_quantity": 30,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 24
+    },
+    "tags": [
+      "giam_gia"
+    ],
+    "created_at": "2025-07-06T18:47:20.249270+00:00"
+  },
+  {
+    "product_id": "PROD0033",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Vertex #33",
+    "brand": "Vertex",
+    "price": 19340000,
+    "stock_quantity": 175,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 6
+    },
+    "tags": [
+      "pho_thong"
+    ],
+    "created_at": "2025-10-21T14:09:08.673774+00:00"
+  },
+  {
+    "product_id": "PROD0034",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Nimbus #34",
+    "brand": "Nimbus",
+    "price": 8640000,
+    "stock_quantity": 179,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 24
+    },
+    "tags": [
+      "giam_gia"
+    ],
+    "created_at": "2026-01-12T14:08:32.817279+00:00"
+  },
+  {
+    "product_id": "PROD0035",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Halcyon #35",
+    "brand": "Halcyon",
+    "price": 8730000,
+    "stock_quantity": 22,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 36
+    },
+    "tags": [
+      "moi_ve",
+      "cao_cap"
+    ],
+    "created_at": "2025-08-18T20:54:13.052001+00:00"
+  },
+  {
+    "product_id": "PROD0036",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Marlow #36",
+    "brand": "Marlow",
+    "price": 23020000,
+    "stock_quantity": 22,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 24
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2025-10-17T05:40:57.330601+00:00"
+  },
+  {
+    "product_id": "PROD0037",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Halcyon #37",
+    "brand": "Halcyon",
+    "price": 19600000,
+    "stock_quantity": 116,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 24
+    },
+    "tags": [
+      "giam_gia",
+      "ban_chay",
+      "pho_thong"
+    ],
+    "created_at": "2025-06-15T17:01:40.065124+00:00"
+  },
+  {
+    "product_id": "PROD0038",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Kestrel #38",
+    "brand": "Kestrel",
+    "price": 16370000,
+    "stock_quantity": 134,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "giam_gia",
+      "cao_cap",
+      "ban_chay"
+    ],
+    "created_at": "2025-07-07T13:29:09.055201+00:00"
+  },
+  {
+    "product_id": "PROD0039",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Nimbus #39",
+    "brand": "Nimbus",
+    "price": 10620000,
+    "stock_quantity": 83,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 24
+    },
+    "tags": [
+      "giam_gia"
+    ],
+    "created_at": "2025-12-02T12:46:17.000171+00:00"
+  },
+  {
+    "product_id": "PROD0040",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Solace #40",
+    "brand": "Solace",
+    "price": 20200000,
+    "stock_quantity": 71,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "tags": [
+      "moi_ve",
+      "giam_gia",
+      "pho_thong"
+    ],
+    "created_at": "2025-09-28T12:06:14.779762+00:00"
+  },
+  {
+    "product_id": "PROD0041",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Marlow #41",
+    "brand": "Marlow",
+    "price": 17040000,
+    "stock_quantity": 193,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 6
+    },
+    "tags": [
+      "pho_thong",
+      "ban_chay",
+      "cao_cap"
+    ],
+    "created_at": "2025-06-17T11:04:15.126138+00:00"
+  },
+  {
+    "product_id": "PROD0042",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Marlow #42",
+    "brand": "Marlow",
+    "price": 5860000,
+    "stock_quantity": 4,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2025-11-26T03:24:13.779908+00:00"
+  },
+  {
+    "product_id": "PROD0043",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Nimbus #43",
+    "brand": "Nimbus",
+    "price": 20680000,
+    "stock_quantity": 51,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "tags": [
+      "cao_cap",
+      "ban_chay"
+    ],
+    "created_at": "2025-07-31T03:59:54.640090+00:00"
+  },
+  {
+    "product_id": "PROD0044",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Orion #44",
+    "brand": "Orion",
+    "price": 22170000,
+    "stock_quantity": 177,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 36
+    },
+    "tags": [
+      "cao_cap",
+      "ban_chay",
+      "pho_thong"
+    ],
+    "created_at": "2025-08-31T22:05:32.327628+00:00"
+  },
+  {
+    "product_id": "PROD0045",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Nimbus #45",
+    "brand": "Nimbus",
+    "price": 1660000,
+    "stock_quantity": 62,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 12
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2026-02-10T21:37:34.475048+00:00"
+  },
+  {
+    "product_id": "PROD0046",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Solace #46",
+    "brand": "Solace",
+    "price": 7320000,
+    "stock_quantity": 99,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "cao_cap"
+    ],
+    "created_at": "2025-10-27T02:25:29.924789+00:00"
+  },
+  {
+    "product_id": "PROD0047",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Vertex #47",
+    "brand": "Vertex",
+    "price": 2330000,
+    "stock_quantity": 20,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay",
+      "pho_thong"
+    ],
+    "created_at": "2026-01-22T11:36:57.745820+00:00"
+  },
+  {
+    "product_id": "PROD0048",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Orion #48",
+    "brand": "Orion",
+    "price": 1330000,
+    "stock_quantity": 86,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 12
+    },
+    "tags": [
+      "pho_thong",
+      "moi_ve",
+      "ban_chay"
+    ],
+    "created_at": "2025-11-26T21:51:42.438203+00:00"
+  },
+  {
+    "product_id": "PROD0049",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Vertex #49",
+    "brand": "Vertex",
+    "price": 20620000,
+    "stock_quantity": 15,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay",
+      "cao_cap",
+      "pho_thong"
+    ],
+    "created_at": "2025-09-20T04:27:16.877651+00:00"
+  },
+  {
+    "product_id": "PROD0050",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Kestrel #50",
+    "brand": "Kestrel",
+    "price": 12460000,
+    "stock_quantity": 125,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 36
+    },
+    "tags": [
+      "giam_gia",
+      "pho_thong"
+    ],
+    "created_at": "2025-08-18T19:18:00.651845+00:00"
+  },
+  {
+    "product_id": "PROD0051",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Vertex #51",
+    "brand": "Vertex",
+    "price": 14000000,
+    "stock_quantity": 24,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 36
+    },
+    "tags": [
+      "pho_thong",
+      "moi_ve"
+    ],
+    "created_at": "2026-03-25T00:45:33.855405+00:00"
+  },
+  {
+    "product_id": "PROD0052",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Solace #52",
+    "brand": "Solace",
+    "price": 22970000,
+    "stock_quantity": 185,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 12
+    },
+    "tags": [
+      "ban_chay",
+      "cao_cap"
+    ],
+    "created_at": "2026-02-25T03:30:03.900906+00:00"
+  },
+  {
+    "product_id": "PROD0053",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Nimbus #53",
+    "brand": "Nimbus",
+    "price": 15900000,
+    "stock_quantity": 67,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "moi_ve",
+      "pho_thong"
+    ],
+    "created_at": "2025-11-20T18:06:14.078550+00:00"
+  },
+  {
+    "product_id": "PROD0054",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Aurora #54",
+    "brand": "Aurora",
+    "price": 22100000,
+    "stock_quantity": 187,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 12
+    },
+    "tags": [
+      "giam_gia",
+      "moi_ve",
+      "pho_thong"
+    ],
+    "created_at": "2025-07-18T03:34:44.402218+00:00"
+  },
+  {
+    "product_id": "PROD0055",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Vertex #55",
+    "brand": "Vertex",
+    "price": 19630000,
+    "stock_quantity": 177,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 24
+    },
+    "tags": [
+      "cao_cap"
+    ],
+    "created_at": "2025-06-20T00:39:59.441339+00:00"
+  },
+  {
+    "product_id": "PROD0056",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Orion #56",
+    "brand": "Orion",
+    "price": 940000,
+    "stock_quantity": 76,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 24
+    },
+    "tags": [
+      "cao_cap"
+    ],
+    "created_at": "2026-03-01T01:31:43.511128+00:00"
+  },
+  {
+    "product_id": "PROD0057",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Nimbus #57",
+    "brand": "Nimbus",
+    "price": 14540000,
+    "stock_quantity": 45,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 24
+    },
+    "tags": [
+      "cao_cap",
+      "moi_ve",
+      "giam_gia"
+    ],
+    "created_at": "2025-10-21T02:49:40.257750+00:00"
+  },
+  {
+    "product_id": "PROD0058",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Halcyon #58",
+    "brand": "Halcyon",
+    "price": 1840000,
+    "stock_quantity": 164,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 12
+    },
+    "tags": [
+      "pho_thong"
+    ],
+    "created_at": "2025-09-29T22:50:50.411222+00:00"
+  },
+  {
+    "product_id": "PROD0059",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Marlow #59",
+    "brand": "Marlow",
+    "price": 16940000,
+    "stock_quantity": 15,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "tags": [
+      "moi_ve"
+    ],
+    "created_at": "2025-07-09T23:52:20.154977+00:00"
+  },
+  {
+    "product_id": "PROD0060",
+    "category_id": "CAT06",
+    "category_name": "Van phong pham",
+    "product_name": "Van phong pham Halcyon #60",
+    "brand": "Halcyon",
+    "price": 14190000,
+    "stock_quantity": 52,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "tags": [
+      "cao_cap"
+    ],
+    "created_at": "2025-08-29T01:52:58.407022+00:00"
+  },
+  {
+    "product_id": "PROD0061",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Aurora #61",
+    "brand": "Aurora",
+    "price": 3190000,
+    "stock_quantity": 51,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 24
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2026-01-07T02:29:50.641969+00:00"
+  },
+  {
+    "product_id": "PROD0062",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Orion #62",
+    "brand": "Orion",
+    "price": 3400000,
+    "stock_quantity": 185,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2025-07-22T14:17:32.857061+00:00"
+  },
+  {
+    "product_id": "PROD0063",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Marlow #63",
+    "brand": "Marlow",
+    "price": 3470000,
+    "stock_quantity": 106,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 24
+    },
+    "tags": [
+      "pho_thong"
+    ],
+    "created_at": "2026-02-16T05:05:22.745642+00:00"
+  },
+  {
+    "product_id": "PROD0064",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Kestrel #64",
+    "brand": "Kestrel",
+    "price": 13800000,
+    "stock_quantity": 64,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "tags": [
+      "ban_chay",
+      "pho_thong"
+    ],
+    "created_at": "2025-07-29T22:29:34.256198+00:00"
+  },
+  {
+    "product_id": "PROD0065",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Marlow #65",
+    "brand": "Marlow",
+    "price": 570000,
+    "stock_quantity": 40,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 24
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2025-09-20T01:20:15.750530+00:00"
+  },
+  {
+    "product_id": "PROD0066",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Nimbus #66",
+    "brand": "Nimbus",
+    "price": 10760000,
+    "stock_quantity": 29,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 12
+    },
+    "tags": [
+      "ban_chay",
+      "pho_thong"
+    ],
+    "created_at": "2026-02-14T10:27:34.616002+00:00"
+  },
+  {
+    "product_id": "PROD0067",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Halcyon #67",
+    "brand": "Halcyon",
+    "price": 3190000,
+    "stock_quantity": 58,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "tags": [
+      "ban_chay",
+      "moi_ve",
+      "pho_thong"
+    ],
+    "created_at": "2025-07-23T17:35:44.213602+00:00"
+  },
+  {
+    "product_id": "PROD0068",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Halcyon #68",
+    "brand": "Halcyon",
+    "price": 8880000,
+    "stock_quantity": 125,
+    "attributes": {
+      "color": "vang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "cao_cap",
+      "ban_chay"
+    ],
+    "created_at": "2025-08-26T18:11:53.478717+00:00"
+  },
+  {
+    "product_id": "PROD0069",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Solace #69",
+    "brand": "Solace",
+    "price": 16370000,
+    "stock_quantity": 133,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 24
+    },
+    "tags": [
+      "moi_ve",
+      "giam_gia"
+    ],
+    "created_at": "2025-07-13T12:58:42.685831+00:00"
+  },
+  {
+    "product_id": "PROD0070",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Nimbus #70",
+    "brand": "Nimbus",
+    "price": 20570000,
+    "stock_quantity": 79,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 36
+    },
+    "tags": [
+      "cao_cap",
+      "ban_chay"
+    ],
+    "created_at": "2025-08-23T18:12:23.797956+00:00"
+  },
+  {
+    "product_id": "PROD0071",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Vertex #71",
+    "brand": "Vertex",
+    "price": 9820000,
+    "stock_quantity": 100,
+    "attributes": {
+      "color": "bac",
+      "warranty_months": 6
+    },
+    "tags": [
+      "giam_gia",
+      "pho_thong",
+      "ban_chay"
+    ],
+    "created_at": "2025-08-25T19:26:31.016266+00:00"
+  },
+  {
+    "product_id": "PROD0072",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Halcyon #72",
+    "brand": "Halcyon",
+    "price": 2460000,
+    "stock_quantity": 86,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 24
+    },
+    "tags": [
+      "moi_ve",
+      "pho_thong",
+      "ban_chay"
+    ],
+    "created_at": "2025-11-01T13:48:49.464011+00:00"
+  },
+  {
+    "product_id": "PROD0073",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Nimbus #73",
+    "brand": "Nimbus",
+    "price": 16420000,
+    "stock_quantity": 139,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2025-12-06T01:20:32.706926+00:00"
+  },
+  {
+    "product_id": "PROD0074",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Solace #74",
+    "brand": "Solace",
+    "price": 16860000,
+    "stock_quantity": 153,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 6
+    },
+    "tags": [
+      "cao_cap"
+    ],
+    "created_at": "2025-07-24T21:15:02.751546+00:00"
+  },
+  {
+    "product_id": "PROD0075",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Halcyon #75",
+    "brand": "Halcyon",
+    "price": 16430000,
+    "stock_quantity": 173,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 36
+    },
+    "tags": [
+      "cao_cap",
+      "pho_thong"
+    ],
+    "created_at": "2025-09-15T13:56:54.937688+00:00"
+  },
+  {
+    "product_id": "PROD0076",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Orion #76",
+    "brand": "Orion",
+    "price": 23520000,
+    "stock_quantity": 134,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "tags": [
+      "moi_ve",
+      "cao_cap",
+      "ban_chay"
+    ],
+    "created_at": "2026-01-28T20:15:20.677957+00:00"
+  },
+  {
+    "product_id": "PROD0077",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Halcyon #77",
+    "brand": "Halcyon",
+    "price": 23990000,
+    "stock_quantity": 85,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 36
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2025-06-03T18:40:36.440246+00:00"
+  },
+  {
+    "product_id": "PROD0078",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Halcyon #78",
+    "brand": "Halcyon",
+    "price": 1410000,
+    "stock_quantity": 7,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 12
+    },
+    "tags": [
+      "ban_chay"
+    ],
+    "created_at": "2026-02-11T20:43:46.823371+00:00"
+  },
+  {
+    "product_id": "PROD0079",
+    "category_id": "CAT04",
+    "category_name": "My pham",
+    "product_name": "My pham Nimbus #79",
+    "brand": "Nimbus",
+    "price": 21850000,
+    "stock_quantity": 66,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "tags": [
+      "pho_thong",
+      "moi_ve"
+    ],
+    "created_at": "2025-06-16T18:14:06.475970+00:00"
+  },
+  {
+    "product_id": "PROD0080",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Solace #80",
+    "brand": "Solace",
+    "price": 11410000,
+    "stock_quantity": 55,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 36
+    },
+    "tags": [
+      "giam_gia",
+      "cao_cap"
+    ],
+    "created_at": "2026-03-08T18:28:00.311680+00:00"
+  }
+]

@@ -1,0 +1,10 @@
+services:
+  mongodb:
+    image: mongo:8.0
+    container_name: mongodb_lab
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data_db:/data/db
+    mem_limit: 512m
+    restart: "no"

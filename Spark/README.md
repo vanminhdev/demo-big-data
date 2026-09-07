@@ -40,11 +40,15 @@ Spark/
 ├── docker-compose.yml
 ├── jobs/
 │   └── demo_job.py          # job PySpark demo trên orders/order_items/web_logs
-└── data/
-    ├── orders_sample.csv        # 150 bản ghi
-    ├── order_items_sample.csv
-    ├── web_logs_sample.jsonl    # 200 dòng
-    └── output/                  # sinh ra sau khi chạy demo_job.py
+├── data/
+│   ├── orders_sample.csv        # 150 bản ghi
+│   ├── order_items_sample.csv
+│   ├── web_logs_sample.jsonl    # 200 dòng
+│   └── output/                  # sinh ra sau khi chạy demo_job.py
+└── scripts/
+    ├── start-cluster.sh     # khởi động cụm Spark Standalone và chờ healthy
+    ├── run-demo-job.sh      # nộp job demo với thông số RAM tối ưu
+    └── stop-cluster.sh      # dừng cụm an toàn (kiểm tra liên kết Kafka)
 ```
 
 `./data` và `./jobs` được mount vào cả 3 container tại `/opt/spark-data` và
@@ -268,12 +272,52 @@ giải phóng bộ nhớ nếu cần.
   `SparkContext.stop()` tắt UI này — xem lại job đã chạy tại
   `http://localhost:8080` (mục "Completed Applications" của Spark Master).
 
-## 12. Script tiện dụng
+## 12. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
 
-Thư mục `scripts/` (nếu có trong dự án) cung cấp các script bọc sẵn các lệnh
-ở trên: khởi động cụm và chờ đến khi healthy, dừng cụm, chạy job demo với
-tham số bộ nhớ đã kiểm thử. Dùng các lệnh ở mục 3–9 trực tiếp nếu muốn hiểu
-rõ từng bước, hoặc dùng script trong `scripts/` để lặp lại nhanh.
+Toàn bộ quy trình khởi động cụm, kiểm thử cấu hình bộ nhớ và nộp job đã được đóng gói sẵn trong thư mục `scripts/` (định dạng Bash `.sh`).
+
+### Môi trường khuyến nghị:
+- **Git Bash** (trên Windows) hoặc Terminal Linux/macOS.
+- Nếu dùng **PowerShell**: gọi qua Git Bash bằng `bash scripts/<tên_script>.sh`.
+
+### Thư mục làm việc (Working Directory):
+Mở terminal và chuyển vào thư mục `Spark`:
+```bash
+cd "d:/school/Big Data/Spark"
+```
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Khởi động cụm Spark Standalone (1 Master + 2 Worker)
+```bash
+bash scripts/start-cluster.sh
+```
+*Lệnh này làm gì:*
+1. Kích hoạt `docker compose up -d` khởi động `spark-master`, `spark-worker-1`, `spark-worker-2`.
+2. Lặp kiểm tra healthcheck của container `spark-master` cho đến khi `healthy` (tối đa 100s).
+3. In ra trạng thái các container và hiển thị liên kết Web UI của Master.
+
+#### Bước 2: Nộp và thực thi job demo
+```bash
+bash scripts/run-demo-job.sh
+```
+*Lệnh này làm gì:*
+1. Dùng `docker exec spark-master` nộp job PySpark `demo_job.py` lên cụm Standalone (`spark://spark-master:7077`).
+2. Thiết lập sẵn các tham số tối ưu bộ nhớ đã qua kiểm thử thực tế (`--executor-memory 512m`, `--executor-cores 1`, `--total-executor-cores 2`, `--conf spark.sql.shuffle.partitions=6`) để tránh lỗi thiếu RAM làm job bị treo vĩnh viễn ở trạng thái WAITING.
+3. Đọc dữ liệu từ `data/`, thực hiện các phép biến đổi, in mẫu kết quả ra terminal và lưu kết quả CSV vào `data/output/`.
+
+#### Bước 3: Quan sát trên Spark Web UI
+Trong và sau khi chạy job:
+- Mở trình duyệt: [http://localhost:8080](http://localhost:8080) (Spark Master UI: quan sát 2 Worker đang hoạt động và danh sách job trong mục *Completed Applications*).
+
+#### Bước 4: Dừng cụm an toàn
+Khi hoàn tất buổi thực hành:
+```bash
+bash scripts/stop-cluster.sh
+```
+*Lệnh này làm gì:*
+1. Tự động kiểm tra xem container `kafka` (của Buổi 13) có đang chạy gắn vào network `spark_spark-net` hay không. Nếu có, script sẽ cảnh báo và hỏi xác nhận để tránh làm gián đoạn Kafka.
+2. Thực thi `docker compose down` hạ cụm an toàn mà không làm mất dữ liệu trong thư mục `data/`.
 
 ## Phụ lục: Bảng thuật ngữ
 

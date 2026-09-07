@@ -30,6 +30,9 @@ PySpark/
 ├── output/
 │   ├── local_mode/revenue_by_month_category/     # kết quả chạy local[*]
 │   └── cluster_mode/revenue_by_month_category/    # kết quả chạy trên cluster thật
+├── scripts/
+│   ├── run-local.sh              # chạy tự động chế độ local[*] trong container
+│   └── run-cluster.sh            # khởi động cụm Spark và chạy trên Cluster thật
 ├── local_run_stage1.log          # log đầy đủ lần chạy local[*]
 └── cluster_run_stage2.log        # log đầy đủ lần chạy trên Spark Standalone cluster
 ```
@@ -217,11 +220,55 @@ và `Spark/jobs/process_retailstream.py` chỉ là bản thực thi giúp cả b
 container cùng đọc được. Không có file nào trong `Spark/` bị ghi đè, không
 sửa `Spark/docker-compose.yml`.
 
-## 12. Script tiện dụng
+## 12. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
 
-Thư mục `scripts/` (nếu có trong repo tổng) chứa các script tiện dụng để lặp
-lại quy trình khởi động cụm và chạy cả hai giai đoạn; các lệnh ở trên tự
-đứng được và không phụ thuộc các script đó.
+Thư mục `PySpark/scripts/` cung cấp sẵn 2 script tự động hóa cho cả hai giai đoạn thực thi (local và cluster).
+
+### Môi trường khuyến nghị:
+- **Git Bash** (trên Windows) hoặc Terminal Linux/macOS.
+- Nếu dùng **PowerShell**: hãy gọi qua Git Bash bằng `bash scripts/<tên_script>.sh`.
+
+### Thư mục làm việc (Working Directory):
+Mở terminal và chuyển vào thư mục `PySpark`:
+```bash
+cd "d:/school/Big Data/PySpark"
+```
+
+> [!NOTE]
+> **Về đường dẫn dữ liệu & code khi chạy Docker:**
+> Khi chạy trong container Spark, các script sẽ tự động đồng bộ file mã nguồn `process_retailstream.py` sang thư mục mount `../Spark/jobs/`. Dữ liệu được đọc từ thư mục mount `../Spark/data/session10_pyspark/` đã được chuẩn bị sẵn.
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Chạy thử nghiệm chế độ Local (`local[*]`)
+Chạy job PySpark ngay trong container `spark-master` để kiểm tra logic tính toán:
+```bash
+bash scripts/run-local.sh
+```
+*Lệnh này làm gì:*
+1. Copy `process_retailstream.py` sang `../Spark/jobs/`.
+2. Dùng `docker exec` gọi `spark-submit` với cờ `--master "local[*]"` chạy trong container `spark-master`.
+3. In kết quả tính toán doanh thu theo tháng và danh mục ra màn hình terminal.
+
+#### Bước 2: Chạy trên cụm Spark Standalone thật (Cluster Mode)
+Chạy job phân tán trên cụm gồm Master và 2 Worker:
+```bash
+bash scripts/run-cluster.sh
+```
+*Lệnh này làm gì:*
+1. Tự động kiểm tra và khởi động cụm Spark (`cd ../Spark && docker compose up -d`) nếu cụm chưa chạy.
+2. Đồng bộ `process_retailstream.py` vào `../Spark/jobs/`.
+3. Nộp job lên cụm với Master URL `spark://spark-master:7077`, tự động cấu hình các tham số RAM và Cores tối ưu (`--executor-memory 512m`, `--executor-cores 1`, `--total-executor-cores 2`, `--driver-memory 512m`).
+4. In kết quả ra terminal và ghi dữ liệu kết quả phân tán vào thư mục output.
+
+#### Bước 3: Đối chiếu kết quả 2 chế độ
+Kết quả của cả 2 lần chạy cho ra 41 dòng dữ liệu hoàn toàn trùng khớp từng ô (xem so sánh chi tiết ở mục 6).
+
+#### Bước 4: Dừng cụm khi kết thúc
+Khi không còn sử dụng cụm Spark:
+```bash
+cd ../Spark && bash scripts/stop-cluster.sh
+```
 
 ## Phụ lục: Bảng thuật ngữ
 

@@ -47,7 +47,7 @@ Kafka/
 ├── data/                      (volume bền vững của Kafka - log.dirs, sinh ra khi chạy)
 ├── checkpoint/                (checkpoint Structured Streaming của lần chạy thật)
 ├── logs/                      (log console đầy đủ của các lần chạy thật)
-└── scripts/                   (script tiện dụng, xem mục 10)
+└── scripts/                   (script tiện dụng, xem mục 12)
 ```
 
 ## 3. Kiến trúc mạng: Kafka nối vào cụm Spark đã có sẵn
@@ -359,14 +359,64 @@ message, `down`/`up`, `kafka-get-offsets.sh` vẫn trả đúng 200 message trê
   Spark) trên máy có khoảng 3.8 GiB cấp cho Docker — không cần tắt
   container nào.
 
-## 12. Script tiện dụng
+## 12. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
 
-Thư mục `Kafka/scripts/` có các script đóng gói sẵn các bước ở trên:
-`start-cluster.sh` (khởi động Spark rồi Kafka), `reset-topics.sh` (reset an
-toàn theo đúng mục 9), `demo-produce-consume.sh` (kịch bản demo trọn gói:
-reset → gửi 200 sự kiện → 1 consumer đọc lại → 2 consumer chia group), và
-`run-spark-kafka-job.sh` (chạy job Spark ở mục 8). Các lệnh trong tài liệu
-này tự đứng được mà không cần các script này.
+Thư mục `Kafka/scripts/` cung cấp 4 script tự động hóa trọn gói toàn bộ các kịch bản demo: từ khởi động 2 cụm mạng, tạo topic, chạy mô phỏng producer/consumer đa luồng, đến tích hợp Spark Structured Streaming.
+
+### Môi trường khuyến nghị:
+- **Git Bash** (trên Windows) hoặc Terminal Linux/macOS.
+- Nếu dùng **PowerShell**: hãy gọi qua Git Bash bằng `bash scripts/<tên_script>.sh`.
+
+### Thư mục làm việc (Working Directory):
+Mở terminal và chuyển vào thư mục `Kafka`:
+```bash
+cd "d:/school/Big Data/Kafka"
+```
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Khởi động cụm Spark và Kafka KRaft
+```bash
+bash scripts/start-cluster.sh
+```
+*Lệnh này làm gì:*
+1. Tự động kiểm tra và khởi động cụm Spark (`../Spark/docker-compose.yml`) trước để tạo Docker network chia sẻ `spark_spark-net`.
+2. Kích hoạt `docker compose up -d` cho Kafka broker (chạy chế độ KRaft không cần Zookeeper).
+3. Thăm dò healthcheck chờ container `kafka` đạt trạng thái `healthy`.
+4. Tự động khởi tạo 2 topic chuẩn nếu chưa có: `clickstream` (4 partitions, rf 1) và `product_events` (2 partitions, rf 1).
+
+#### Bước 2: Chạy demo Producer & Consumer (Offset & Chia Partition)
+```bash
+bash scripts/demo-produce-consume.sh
+```
+*Lệnh này làm gì:*
+1. Gọi `reset-topics.sh` để đưa topic về trạng thái trống 0 message.
+2. Chạy `producer.py` gửi 200 bản ghi clickstream từ `00_shared_data/sample/clickstream_sample.jsonl` vào 4 partition của topic `clickstream`.
+3. Chạy 1 consumer độc lập đọc tuần tự 200 bản ghi từ đầu để quan sát offset tăng dần.
+4. Chạy đồng thời 2 consumer (C1 và C2 chạy nền song song) trong cùng một consumer group `demo-shared` để minh họa Kafka tự động gán partition (mỗi consumer nhận 2 partition, đọc song song không trùng lặp).
+
+#### Bước 3: Chạy Spark Structured Streaming đọc dữ liệu từ Kafka
+```bash
+bash scripts/run-spark-kafka-job.sh
+```
+*Lệnh này làm gì:*
+1. Tự động copy `spark_kafka_job.py` vào thư mục chia sẻ của Spark (`../Spark/jobs/`) và cấu hình thư mục cache Ivy.
+2. Dọn sạch checkpoint cũ để Spark đọc lại từ `earliest`.
+3. Dùng `docker exec spark-master` nộp job lên cụm Spark Standalone thật, tự động tải package `spark-sql-kafka-0-10_2.12:3.5.9`, xử lý luồng sự kiện theo cửa sổ thời gian (window/watermark) với `Trigger.availableNow=True` và in tổng số message đã đọc (đúng 200 message).
+
+#### Bước 4: Đặt lại topic về trạng thái sạch (Reset khi cần)
+Nếu muốn dọn dẹp các message cũ để chạy lại demo từ đầu:
+```bash
+bash scripts/reset-topics.sh
+```
+*Lệnh này làm gì:* Hạ container, xóa dữ liệu nhị phân trên đĩa `./data/*`, và gọi lại `start-cluster.sh` để tái tạo 2 topic trắng. *(Cách này an toàn tuyệt đối trên Windows NTFS, tránh lỗi crash do lệnh delete topic của Kafka).*
+
+#### Bước 5: Dừng cụm khi kết thúc
+Khi hoàn tất buổi thực hành:
+```bash
+docker compose down
+cd ../Spark && bash scripts/stop-cluster.sh
+```
 
 ## Phụ lục: Bảng thuật ngữ
 

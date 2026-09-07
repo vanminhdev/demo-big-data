@@ -272,6 +272,10 @@ MLlib/
 │   ├── orders.csv
 │   ├── customers.csv
 │   └── manifest.json
+├── scripts/
+│   ├── prepare-data.sh                  (chuẩn bị dữ liệu từ 00_shared_data và cài numpy)
+│   ├── train-local.sh                   (huấn luyện mô hình local[*] và xuất metrics)
+│   └── train-cluster.sh                 (huấn luyện trên cụm Standalone thật)
 ├── models/
 │   ├── local_mode_v2/pipeline_model/    (PipelineModel local[*], số liệu hiện tại)
 │   └── cluster_mode_v2/pipeline_model/  (PipelineModel cluster, số liệu hiện tại)
@@ -280,9 +284,56 @@ MLlib/
     └── cluster_mode_v2/metrics.json
 ```
 
-Ngoài ra còn `scripts/prepare-data.sh`, `scripts/train-local.sh`,
-`scripts/train-cluster.sh` — script tiện dụng để chạy lại nhanh các lệnh ở
-mục 5 với `RUN_TAG` tùy chỉnh.
+## 9. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
+
+Toàn bộ quy trình sao chép dữ liệu từ `00_shared_data/lab/`, cài đặt thư viện phụ thuộc (`numpy`) vào container và nộp job huấn luyện mô hình đã được đóng gói sẵn trong thư mục `MLlib/scripts/`.
+
+### Môi trường khuyến nghị:
+- **Git Bash** (trên Windows) hoặc Terminal Linux/macOS.
+- Nếu dùng **PowerShell**: hãy gọi qua Git Bash bằng `bash scripts/<tên_script>.sh`.
+
+### Thư mục làm việc (Working Directory):
+Mở terminal và chuyển vào thư mục `MLlib`:
+```bash
+cd "d:/school/Big Data/MLlib"
+```
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Chuẩn bị dữ liệu và môi trường Python
+```bash
+bash scripts/prepare-data.sh
+```
+*Lệnh này làm gì:*
+1. Tự động kiểm tra và khởi động cụm Spark (`cd ../Spark && docker compose up -d`) nếu cụm chưa chạy.
+2. Sao chép 2 tệp dữ liệu quy mô lab (`orders.csv` và `customers.csv`) từ nguồn dùng chung `../00_shared_data/lab/` vào thư mục mount của Spark (`Spark/data/mllib_session12/`).
+3. Sao chép mã nguồn `train_pipeline.py` vào thư mục mount.
+4. Tự động kiểm tra và chạy `pip3 install --target=... numpy` ngay trong container để nạp thư viện tính toán mà không bị lỗi quyền ghi hệ thống.
+
+#### Bước 2A: Huấn luyện ở chế độ Local (`local[*]`)
+```bash
+# Chạy với tag mặc định local_mode_v2:
+bash scripts/train-local.sh
+
+# Hoặc truyền tag tùy chỉnh (ví dụ thử nghiệm tham số mới):
+bash scripts/train-local.sh my_local_test
+```
+*Lệnh này làm gì:* Nộp job huấn luyện chạy `local[*]` bên trong container `spark-master`, tự động truyền đường dẫn thư viện `pylibs`, lưu mô hình vào `models/` và in các chỉ số đánh giá (`metrics.json`) ra màn hình.
+
+#### Bước 2B: Huấn luyện trên cụm Spark Standalone thật (Cluster Mode)
+```bash
+# Chạy với tag mặc định cluster_mode_v2:
+bash scripts/train-cluster.sh
+
+# Hoặc truyền tag tùy chỉnh:
+bash scripts/train-cluster.sh my_cluster_test
+```
+*Lệnh này làm gì:* Nộp job phân tán lên `spark://spark-master:7077`, cấu hình sẵn các tham số tối ưu bộ nhớ (`--executor-memory 512m`, `--executor-cores 1`, `--total-executor-cores 2`) tránh lỗi thiếu RAM trên Worker, lưu mô hình phân tán và xuất kết quả `metrics.json`.
+
+#### Bước 3: Dừng cụm khi kết thúc
+```bash
+cd ../Spark && bash scripts/stop-cluster.sh
+```
 
 ## Phụ lục: Bảng thuật ngữ
 

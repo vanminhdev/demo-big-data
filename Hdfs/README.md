@@ -290,13 +290,61 @@ heartbeat, `fsck`), không phải tự cấu hình NameNode/DataNode từ đầu
 cấu hình XML được sinh sẵn từ các biến môi trường (`CORE_CONF_*`,
 `HDFS_CONF_*`) khai báo trong `docker-compose.yml`.
 
-## 11. Chạy nhanh bằng script có sẵn
+## 11. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
 
-Thư mục `scripts/` cung cấp các script tiện dụng thực hiện đúng chuỗi lệnh ở
-mục 3–5 (`start-cluster`, `stop-cluster`, `reset-lab`, `load-sample-data`, có
-cả bản `.sh` và `.ps1`) nếu muốn khởi động nhanh mà không gõ từng lệnh. Toàn
-bộ lệnh HDFS ở các mục trên đều gõ trực tiếp được, không bắt buộc phải dùng
-script.
+Thư mục `scripts/` cung cấp đầy đủ các script tiện dụng cho cả **Git Bash/Linux (`.sh`)** và **Windows PowerShell (`.ps1`)**, bọc sẵn toàn bộ chuỗi lệnh khởi động, nạp dữ liệu và dọn dẹp.
+
+### Thư mục làm việc (Working Directory):
+Mở terminal và chuyển vào thư mục `Hdfs`:
+```bash
+# Trên Git Bash hoặc Terminal:
+cd "d:/school/Big Data/Hdfs"
+
+# Trên PowerShell:
+cd "d:\school\Big Data\Hdfs"
+```
+
+> [!IMPORTANT]
+> **Lưu ý về Docker Image**: File `docker-compose.yml` cấu hình `namenode` sử dụng image tích hợp Python 3 (`retailstream-hadoop-namenode-py3:2.0.0-hadoop3.2.1-java8`). Nếu chạy lần đầu tiên trên máy mới mà chưa có image này, bạn cần build trước bằng lệnh:
+> `docker build -t retailstream-hadoop-namenode-py3:2.0.0-hadoop3.2.1-java8 -f ../MapReduce/Dockerfile.namenode-with-python3 ../MapReduce`
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Khởi động cụm HDFS (1 NameNode + 2 DataNode)
+- **Trên Git Bash:**
+  ```bash
+  bash scripts/start-cluster.sh
+  ```
+- **Trên PowerShell:**
+  ```powershell
+  .\scripts\start-cluster.ps1
+  ```
+*Lệnh này làm gì:* Tự động copy `.env.example` thành `.env` nếu chưa có; chạy `docker compose up -d`; lặp kiểm tra polling cho tới khi NameNode đạt trạng thái `healthy` và in đường link Web UI.
+
+#### Bước 2: Nạp dữ liệu mẫu vào HDFS
+- **Trên Git Bash:**
+  ```bash
+  bash scripts/load-sample-data.sh
+  ```
+- **Trên PowerShell:**
+  ```powershell
+  .\scripts\load-sample-data.ps1
+  ```
+*Lệnh này làm gì:* Kiểm tra file `data/web_logs_sample.jsonl`; copy vào NameNode; tạo thư mục HDFS `/retailstream/web_logs`; đẩy file lên HDFS (`hdfs dfs -put -f`) và in danh sách kiểm tra.
+
+#### Bước 3: Quan sát cụm trên Web UI
+Mở trình duyệt:
+- **NameNode Web UI**: [http://localhost:9870](http://localhost:9870) (kiểm tra 2 Live DataNodes, tổng dung lượng HDFS, và duyệt file tại *Utilities -> Browse the file system*).
+
+#### Bước 4: Dọn dẹp hoặc Đặt lại môi trường (Reset)
+- **Tùy chọn A — Dừng cụm nhưng giữ nguyên dữ liệu:**
+  - Git Bash: `bash scripts/stop-cluster.sh`
+  - PowerShell: `.\scripts\stop-cluster.ps1`
+  *(Giữ lại toàn bộ block dữ liệu và metadata HDFS trong Docker volumes)*.
+- **Tùy chọn B — Đặt lại toàn bộ cụm về trạng thái sạch ban đầu (Reset lab):**
+  - Git Bash: `bash scripts/reset-lab.sh`
+  - PowerShell: `.\scripts\reset-lab.ps1`
+  *(Thực thi `docker compose down -v` để xóa toàn bộ volume dữ liệu HDFS, không ảnh hưởng đến mã nguồn hay tệp dữ liệu trên máy host)*.
 
 ## Phụ lục: Bảng thuật ngữ
 

@@ -99,8 +99,8 @@ docker exec hdfs-namenode chmod +x /tmp/mapper.py /tmp/reducer.py
 
 # Xác nhận dữ liệu đã có trên HDFS (nạp từ buổi HDFS); nếu thiếu thì tự put lại:
 docker exec hdfs-namenode hdfs dfs -ls /retailstream/web_logs
-# nếu thiếu:
-# docker cp Hdfs/data/web_logs_sample.jsonl hdfs-namenode:/tmp/web_logs_sample.jsonl
+# nếu thiếu (lấy từ nguồn dữ liệu dùng chung 00_shared_data):
+# docker cp 00_shared_data/sample/web_logs_sample.jsonl hdfs-namenode:/tmp/web_logs_sample.jsonl
 # docker exec hdfs-namenode hdfs dfs -mkdir -p /retailstream/web_logs
 # docker exec hdfs-namenode hdfs dfs -put -f /tmp/web_logs_sample.jsonl /retailstream/web_logs/web_logs_sample.jsonl
 ```
@@ -296,11 +296,47 @@ docker exec hdfs-namenode hdfs dfs -rm -r -f \
 Không cần dừng cụm HDFS/YARN — cụm này còn được dùng chung cho các buổi
 khác.
 
-## 12. Script tiện dụng
+## 12. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
 
-Thư mục `scripts/` có `run-yarn-job.sh` (build image, khởi động cụm, chạy
-job trên YARN thật, tự dọn output cũ nếu có — idempotent) và
-`stop-cluster.sh`, có thể dùng thay cho việc gõ tay từng lệnh ở trên.
+Thay vì phải gõ thủ công từng lệnh ở các mục trên (dễ gặp lỗi thiếu Docker image Python3, quyền file hoặc lệch thư mục), toàn bộ quy trình đã được tự động hóa trọn gói trong thư mục `scripts/`.
+
+### Môi trường khuyến nghị:
+- **Git Bash** (trên Windows) hoặc Terminal Linux/macOS.
+- Nếu dùng **PowerShell**: hãy gọi qua Git Bash bằng `bash scripts/<tên_script>.sh`.
+
+### Thư mục làm việc (Working Directory):
+Mở terminal và chuyển vào thư mục `MapReduce`:
+```bash
+cd "d:/school/Big Data/MapReduce"
+```
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Khởi chạy toàn bộ quy trình tự động
+Chạy script chính để tự động hóa từ đầu đến cuối:
+```bash
+bash scripts/run-yarn-job.sh
+```
+*Lệnh này làm gì:*
+1. **Tự động build 2 image NameNode & NodeManager** có sẵn Python 3 từ `Dockerfile.namenode-with-python3` và `Dockerfile.nodemanager-with-python3` (bỏ qua nếu đã build trước đó).
+2. **Khởi động cụm HDFS + YARN** (`Hdfs/docker-compose.yml`) gồm NameNode, 2 DataNode, ResourceManager, NodeManager, HistoryServer.
+3. **Thăm dò sức khỏe (Polling healthcheck)** chờ `hdfs-nodemanager1` chuyển sang trạng thái `healthy` (tối đa 150s) trước khi nộp job.
+4. **Nạp dữ liệu chuẩn**: Tự động copy dữ liệu mẫu từ `00_shared_data/sample/web_logs_sample.jsonl` đưa lên HDFS tại `/retailstream/web_logs/` (nếu chưa có).
+5. **Copy mapper & reducer**: Đưa `mapper.py` và `reducer.py` vào NameNode.
+6. **Xóa output cũ và nộp job Hadoop Streaming trên YARN**: Chạy job đếm lượt truy cập theo sản phẩm.
+7. **In kết quả**: Tự động hiển thị nội dung `part-00000` ra màn hình terminal.
+
+#### Bước 2: Xem trạng thái và trực quan hóa trên Web UI
+Sau khi job hoàn thành (hoặc trong khi job đang chạy), mở trình duyệt web:
+- **YARN ResourceManager UI**: [http://localhost:8088/cluster](http://localhost:8088/cluster) (xem ApplicationMaster, danh sách node, dung lượng RAM/vCores đã cấp phát).
+- **HDFS NameNode UI**: [http://localhost:9870](http://localhost:9870) (duyệt file hệ thống tại Utilities -> Browse the file system).
+
+#### Bước 3: Dừng cụm khi kết thúc học phần
+Khi không còn sử dụng cụm HDFS/YARN:
+```bash
+bash scripts/stop-cluster.sh
+```
+*Lệnh này làm gì:* Chuyển về thư mục `Hdfs` và thực thi `docker compose down` để hạ các container, giải phóng RAM mà vẫn giữ nguyên dữ liệu trong các volume.
 
 ## Phụ lục: Bảng thuật ngữ
 

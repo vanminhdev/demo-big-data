@@ -38,75 +38,66 @@ MongoDb/
 
 ## 3. Khởi động MongoDB
 
+### Môi trường & Thư mục làm việc:
+- Mở terminal và chuyển vào thư mục `MongoDb`:
 ```bash
-cd MongoDb
+cd "d:/school/Big Data/MongoDb"
+```
+- Nếu dùng **Git Bash trên Windows**, hãy chạy trước lệnh sau để tránh lỗi Git Bash tự ý chuyển đổi đường dẫn Unix `/tmp/...`:
+```bash
+export MSYS_NO_PATHCONV=1
+```
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Khởi động container MongoDB
+```bash
 docker compose up -d
 docker exec mongodb mongosh --quiet --eval "db.version()"
 ```
+*Lệnh này làm gì:* Khởi chạy container `mongodb` (phiên bản MongoDB 8.0) và kiểm tra kết nối với engine cơ sở dữ liệu. Kết quả mong đợi: in ra phiên bản `8.0.29`.
 
-**Kết quả mong đợi:**
-
-```text
-8.0.29
-```
-
-## 4. Chuẩn bị và nạp dữ liệu
-
-Dữ liệu lấy từ bộ RetailStream chung (`00_shared_data/`, sinh với
-`--seed 42 --scale sample`: 60 sản phẩm, 150 đơn hàng, 380 dòng chi tiết đơn
-hàng — không tạo dataset riêng cho buổi này). Script `prepare_import_data.py`
-đọc dữ liệu gốc và sinh ra **2 biến thể** cho `orders`, phục vụ đúng phần so
-sánh embedding vs referencing ở mục 7:
-
+#### Bước 2: Chuẩn bị và chuyển đổi dữ liệu
+Dữ liệu được lấy từ bộ RetailStream dùng chung (`00_shared_data/sample/`). Chạy script chuyển đổi mô hình:
 ```bash
-cd MongoDb/scripts
-python prepare_import_data.py
+python scripts/prepare_import_data.py
 ```
+*Lệnh này làm gì:* Đọc `orders_sample.csv` và `order_items_sample.csv`, ép kiểu dữ liệu và tạo ra 3 tệp mô hình hóa dữ liệu trong `data_import/`:
+- `orders_embedded.json` — nhúng mảng chi tiết `items` trực tiếp vào từng đơn hàng (biến thể embedding).
+- `orders_ref.json` — đơn hàng riêng lẻ không kèm chi tiết (biến thể referencing).
+- `order_items.json` — từng dòng sản phẩm trong đơn, liên kết qua `order_id`.
+*(Lưu ý: Tệp `products.json` chứa 60 sản phẩm được lấy trực tiếp từ `00_shared_data/sample/products_sample.json` đã có sẵn trong `data_import/`).*
 
-Script tạo 4 tệp trong `data_import/`:
-
-- `products.json` — danh sách sản phẩm.
-- `orders_embedded.json` — mỗi đơn hàng có sẵn mảng `items` **nhúng bên
-  trong** document (biến thể embedding).
-- `orders_ref.json` — đơn hàng không kèm chi tiết (biến thể referencing,
-  dùng chung với `order_items.json` bên dưới).
-- `order_items.json` — chi tiết từng dòng đơn hàng, mỗi document giữ
-  `order_id` để liên kết ngược lại `orders` (giống khoá ngoại trong SQL).
-
-Nạp vào MongoDB bằng `mongoimport` (công cụ nhập dữ liệu JSON/CSV hàng loạt
-đi kèm MongoDB):
-
+#### Bước 3: Nạp dữ liệu vào MongoDB bằng `mongoimport`
+Copy các tệp dữ liệu vào container và nạp vào database `retailstream`:
 ```bash
+# 1. Sao chép 4 file dữ liệu vào container
 docker cp data_import/products.json mongodb:/tmp/products.json
 docker cp data_import/orders_embedded.json mongodb:/tmp/orders_embedded.json
 docker cp data_import/orders_ref.json mongodb:/tmp/orders_ref.json
 docker cp data_import/order_items.json mongodb:/tmp/order_items.json
 
+# 2. Nạp vào từng collection tương ứng
 docker exec mongodb mongoimport --db retailstream --collection products --file /tmp/products.json --jsonArray
 docker exec mongodb mongoimport --db retailstream --collection orders_embedded --file /tmp/orders_embedded.json --jsonArray
 docker exec mongodb mongoimport --db retailstream --collection orders --file /tmp/orders_ref.json --jsonArray
 docker exec mongodb mongoimport --db retailstream --collection order_items --file /tmp/order_items.json --jsonArray
 ```
+*Lệnh này làm gì:* `mongoimport` nạp hàng loạt dữ liệu dạng JSON vào database. Cờ `--jsonArray` báo cho MongoDB biết tệp là mảng JSON chứa nhiều document. Kết quả mong đợi: nhập thành công `60 / 150 / 150 / 380` document, 0 lỗi.
 
-`--jsonArray` báo cho `mongoimport` biết tệp là **một mảng JSON** chứa nhiều
-document, thay vì mỗi dòng một document (JSON Lines).
-
-**Kết quả mong đợi:** nhập thành công `60 / 150 / 150 / 380` document
-(`products` / `orders_embedded` / `orders` / `order_items`), `0` lỗi.
-
-## 5. Chạy toàn bộ demo
-
-Toàn bộ thao tác của bài (CRUD, index, aggregation, explain, embedding vs
-referencing) nằm trong một tệp script duy nhất, đánh số theo từng phần:
-
+#### Bước 4: Chạy toàn bộ kịch bản demo
+Chạy script tự động thực thi toàn bộ các thao tác nghiệp vụ (CRUD, compound index, aggregation pipeline, explain plan phân tích hiệu năng, và so sánh embedding vs referencing):
 ```bash
 docker cp demo.mongodb.js mongodb:/tmp/demo.mongodb.js
 docker exec mongodb mongosh retailstream /tmp/demo.mongodb.js
 ```
+*(Log chi tiết đầy đủ của một lần chạy chuẩn được lưu tại `demo_output.txt`).*
 
-(Có thể dán từng khối lệnh của `demo.mongodb.js` trực tiếp vào `mongosh`
-hoặc MongoDB Compass Playground nếu muốn chạy và quan sát từng bước riêng
-lẻ.) Log đầy đủ của một lần chạy thật đã lưu tại `demo_output.txt`.
+#### Bước 5: Dọn dẹp khi kết thúc
+```bash
+docker compose down
+```
+*(Nếu muốn xóa sạch toàn bộ dữ liệu database để làm lại từ đầu: chạy `docker compose down`, sau đó xóa sạch các tệp nhị phân trong thư mục `./data/*`).*
 
 ## 6. CRUD cơ bản (V01)
 

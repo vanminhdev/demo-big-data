@@ -34,6 +34,10 @@ StructuredStreaming/
 ├── prepare_batches_v2.py       (chia dữ liệu đã nén thành 19 file cửa sổ 5 phút)
 ├── data_source_v2/             (clickstream_compressed.jsonl + các file batch)
 ├── batches_staging_v2/         (19 file win_XX_HHMM.jsonl + manifest.json mô tả late record)
+├── scripts/
+│   ├── prepare-data.sh         (tự động nén và chia 19 batch cửa sổ 5 phút)
+│   ├── run-demo.sh             (bật cụm Spark, rót dữ liệu và chạy streaming)
+│   └── run-demo-checkpoint-restart.sh (chứng minh fault tolerance: rót 10 batch -> chạy -> rót 9 batch -> chạy tiếp)
 ├── prepare_batches.py          (bản gốc: chia theo ngày, window 1 ngày — tham khảo lịch sử)
 ├── batches_staging/            (15 file batch theo ngày — tham khảo lịch sử)
 └── logs_v2/                    (log console đầy đủ của các lần chạy với window 5 phút)
@@ -188,12 +192,58 @@ kernel/JVM chấm dứt giữa chừng. Trước khi chạy, kiểm tra `docker 
 nó kết thúc rồi chạy lại — checkpoint không bị hỏng, chỉ mất tối đa 1 batch
 chưa commit.
 
-## 7. Script tiện dụng
+## 7. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
 
-Thư mục `scripts/` (nếu có trong môi trường triển khai) chứa các script hỗ
-trợ rót dữ liệu theo đợt và dọn checkpoint để chạy lại từ đầu; tài liệu này
-đã mô tả đầy đủ các lệnh cốt lõi để chạy job trực tiếp mà không cần dùng
-script.
+Toàn bộ quy trình nén dữ liệu, chia 19 batch, nộp streaming job và kiểm chứng cơ chế phục hồi checkpoint đã được tự động hóa trong thư mục `StructuredStreaming/scripts/`.
+
+### Môi trường khuyến nghị:
+- **Git Bash** (trên Windows) hoặc Terminal Linux/macOS.
+- Nếu dùng **PowerShell**: hãy gọi qua Git Bash bằng `bash scripts/<tên_script>.sh`.
+
+### Thư mục làm việc (Working Directory):
+Mở terminal và chuyển vào thư mục `StructuredStreaming`:
+```bash
+cd "d:/school/Big Data/StructuredStreaming"
+```
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Chuẩn bị dữ liệu micro-batches
+Tạo 19 file cửa sổ 5 phút kèm 1 bản ghi đến muộn (late record) từ `00_shared_data/sample/clickstream_sample.jsonl`:
+```bash
+bash scripts/prepare-data.sh
+```
+*Lệnh này làm gì:*
+1. Chạy `compress_timeline.py`: Nén trục thời gian 200 bản ghi clickstream xuống còn 90 phút.
+2. Chạy `prepare_batches_v2.py`: Chia 200 bản ghi thành 19 file batch (`win_01` đến `win_19`) vào thư mục `batches_staging_v2/`, đồng thời cố ý gán sự kiện `CEV000068` (xảy ra lúc 10:28 nhưng đến muộn ở batch 10:55) để kiểm thử watermark.
+
+#### Bước 2: Chạy demo trọn gói Streaming với Output Mode mong muốn
+```bash
+# Chạy với chế độ mặc định update (khuyến nghị để quan sát dòng thay đổi):
+bash scripts/run-demo.sh update
+
+# Hoặc thử nghiệm với complete mode (in lại toàn bộ bảng tổng hợp mỗi batch):
+bash scripts/run-demo.sh complete
+```
+*Lệnh này làm gì:*
+1. Tự động kiểm tra và khởi động cụm Spark (`cd ../Spark && docker compose up -d`).
+2. Dọn sạch checkpoint cũ để chạy từ đầu.
+3. Rót toàn bộ 19 file batch vào thư mục nguồn của Spark (`Spark/data/session11_streaming/data_source_v2/`) và copy `streaming_job.py` vào `Spark/jobs/`.
+4. Kích hoạt `spark-submit` chạy với `Trigger.availableNow` và in kết quả từng micro-batch ra terminal.
+
+#### Bước 3: Kiểm chứng khả năng phục hồi từ Checkpoint (Fault Tolerance)
+Để chứng minh Spark ghi nhớ trạng thái và tiếp tục xử lý chính xác khi có dữ liệu mới tới:
+```bash
+bash scripts/run-demo-checkpoint-restart.sh
+```
+*Lệnh này làm gì:*
+1. **Lần 1:** Chỉ rót 10 file đầu (`win_01` .. `win_10`) vào thư mục nguồn và chạy job -> Job kết thúc ở batch 10.
+2. **Lần 2:** Giữ nguyên checkpoint cũ, rót tiếp 9 file còn lại (`win_11` .. `win_19`) vào thư mục và chạy lại -> Spark đọc checkpoint, phát hiện dữ liệu mới và bắt đầu chạy tiếp từ batch 11 đến batch 19 mà không hề xử lý lại từ batch 0.
+
+#### Bước 4: Dừng cụm khi hoàn tất
+```bash
+cd ../Spark && bash scripts/stop-cluster.sh
+```
 
 ## Phụ lục: Bảng thuật ngữ
 

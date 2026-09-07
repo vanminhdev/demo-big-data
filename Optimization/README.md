@@ -299,6 +299,8 @@ Optimization/
 ├── data_skew_demo.py          (bản sao Spark/jobs/data_skew_demo.py)
 ├── small_files_demo.py        (bản sao Spark/jobs/small_files_demo.py)
 ├── shuffle_demo.py            (bản sao Spark/jobs/shuffle_demo.py)
+├── scripts/
+│   └── run-demo.sh            (chạy tự động liên tiếp cả 3 kịch bản: skew, small files, shuffle)
 ├── data/
 │   └── clickstream_skewed.jsonl   (dữ liệu lệch có chủ đích, sinh bởi make_skewed_data.py)
 └── evidence/
@@ -310,11 +312,55 @@ Optimization/
     └── shuffle_stage_metrics.txt
 ```
 
-## Ghi chú
+## 10. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
 
-Có sẵn script tiện dụng `scripts/run-demo.sh` chạy liên tiếp cả 3 kịch bản (skew, small
-files, shuffle) và tự chuẩn bị dữ liệu, nếu muốn chạy lại toàn bộ mà không gõ từng lệnh
-`spark-submit` ở trên.
+Thư mục `Optimization/scripts/` có sẵn script `run-demo.sh` giúp tự động hóa toàn bộ việc chuẩn bị dữ liệu, cấu hình tắt AQE/bật Event Log và chạy liên tiếp cả 3 kịch bản thử nghiệm trên cụm Spark thật.
+
+### Môi trường khuyến nghị:
+- **Git Bash** (trên Windows) hoặc Terminal Linux/macOS.
+- Nếu dùng **PowerShell**: hãy gọi qua Git Bash bằng `bash scripts/<tên_script>.sh`.
+
+### Thư mục làm việc (Working Directory):
+Mở terminal và chuyển vào thư mục `Optimization`:
+```bash
+cd "d:/school/Big Data/Optimization"
+```
+
+> [!IMPORTANT]
+> **Chuẩn bị file dữ liệu kiểm thử:**
+> Trước khi chạy, hãy đảm bảo file `clickstream_uniform.jsonl` đã được copy từ `00_shared_data/lab/clickstream.jsonl` vào thư mục mount của Spark:
+> ```bash
+> mkdir -p ../Spark/data/session15_optimization
+> cp ../00_shared_data/lab/clickstream.jsonl ../Spark/data/session15_optimization/clickstream_uniform.jsonl
+> ```
+
+### Thứ tự thực hiện:
+
+#### Bước 1: Khởi chạy toàn bộ 3 kịch bản tối ưu hóa
+```bash
+bash scripts/run-demo.sh
+```
+*Lệnh này làm gì:*
+1. Tự động kiểm tra và kích hoạt cụm Spark (`cd ../Spark && docker compose up -d`).
+2. Sinh dữ liệu lệch `clickstream_skewed.jsonl` (nếu chưa có).
+3. Sao chép dữ liệu và mã nguồn demo vào các thư mục mount của Spark.
+4. Nộp lần lượt 3 job `spark-submit` lên cụm Standalone:
+   - **Kịch bản V01 (Data Skew):** Chạy so sánh không salt vs có salt (salting key).
+   - **Kịch bản V02 (Small Files):** Chạy so sánh ghi 100 partition file nhỏ vs ghi 10 partition tối ưu.
+   - **Kịch bản V03 (Shuffle lớn):** Chạy so sánh Shuffle Hash Join thông thường vs Broadcast Hash Join.
+5. Kích hoạt cờ ghi Spark Event Log để phục vụ phân tích số liệu task/stage.
+
+#### Bước 2: Phân tích Event Log đã ghi nhận
+Sau khi chạy xong, xem danh sách các event log trong `Spark/data/session15_optimization/spark-events/` và dùng script Python để trích xuất số liệu:
+```bash
+# Ví dụ phân tích log của kịch bản Data Skew:
+python parse_event_log.py ../Spark/data/session15_optimization/spark-events/app-xxx-xxx
+```
+
+#### Bước 3: Dừng cụm khi hoàn tất
+```bash
+cd ../Spark && bash scripts/stop-cluster.sh
+```
 
 ## Phụ lục: Bảng thuật ngữ
 

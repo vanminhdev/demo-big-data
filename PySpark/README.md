@@ -68,8 +68,15 @@ Spark Standalone dùng cho phần chạy cluster (cấu hình trong
 
 ## 4. Chạy trên local[\*]
 
+Đứng từ thư mục `PySpark/`:
+
 ```bash
-export MSYS_NO_PATHCONV=1   # chỉ cần trên Git Bash / Windows
+# 1) Đồng bộ file code vào thư mục jobs được mount của Spark
+mkdir -p ../Spark/jobs
+cp process_retailstream.py ../Spark/jobs/process_retailstream.py
+
+# 2) Thực thi job (cần export MSYS_NO_PATHCONV=1 trên Git Bash Windows)
+export MSYS_NO_PATHCONV=1
 docker exec -e SPARK_MASTER_URL="local[*]" spark-master /opt/spark/bin/spark-submit \
   --master local[*] \
   --conf spark.sql.shuffle.partitions=4 \
@@ -93,9 +100,15 @@ Kết quả thực tế: `spark.master (thuc te) = local[*]`, `applicationId` d�
 
 ## 5. Chạy trên Spark Standalone cluster thật
 
+Đứng từ thư mục `PySpark/`:
+
 ```bash
-cd Spark
-docker compose up -d   # nếu cụm chưa chạy; không đổi cấu hình
+# 1) Khởi động cụm Spark nếu chưa chạy và copy code vào Spark/jobs
+(cd ../Spark && docker compose up -d)
+mkdir -p ../Spark/jobs
+cp process_retailstream.py ../Spark/jobs/process_retailstream.py
+
+# 2) Nộp job lên cụm Standalone (cần export MSYS_NO_PATHCONV=1 trên Git Bash Windows)
 export MSYS_NO_PATHCONV=1
 docker exec -e SPARK_MASTER_URL="spark://spark-master:7077" spark-master /opt/spark/bin/spark-submit \
   --master spark://spark-master:7077 \

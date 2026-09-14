@@ -6,7 +6,6 @@ PySpark — ví dụ số tiền âm không hợp lệ, trường bị thiếu (
 giả định dữ liệu luôn sạch. Buổi này cũng học cách tối ưu hiệu năng đọc dữ
 liệu bằng cách khai báo rõ schema (kiểu dữ liệu từng cột) thay vì để Spark
 tự đoán.
-Tài liệu học chính: [THUC_HANH_PYSPARK.md](C:/Users/Vanmi/OneDrive/Documents/Giảng%20dạy/BigData/Slide%20chuẩn/10_pyspark/THUC_HANH_PYSPARK.md).
 
 Cụ thể, job PySpark xử lý end-to-end ba nguồn dữ liệu RetailStream
 (`orders`, `order_items`, `products`, mức `sample`): đọc với explicit
@@ -302,7 +301,7 @@ Thư mục `PySpark/scripts/` cung cấp sẵn 2 script tự động hóa cho c�
 ### Thư mục làm việc (Working Directory):
 Mở terminal và chuyển vào thư mục `PySpark`:
 ```bash
-cd "d:/school/Big Data/PySpark"
+cd PySpark
 ```
 
 > [!NOTE]
@@ -344,7 +343,7 @@ cd ../Spark && bash scripts/stop-cluster.sh
 ## Phụ lục: Bảng thuật ngữ
 
 | Thuật ngữ | Giải thích đơn giản |
-| Triệu chứng | Cách xử lý |
+| Vấn đề | Cách xử lý |
 |---|---|
 | **Container** | Một "hộp" chạy phần mềm biệt lập, giống một máy ảo thu nhỏ. Một cụm (Hadoop/Spark/Kafka) trong dự án này gồm nhiều container chạy trên CÙNG một máy thật, giả lập nhiều máy. |
 | **Docker Compose** | Công cụ mô tả "cần bao nhiêu container, cấu hình ra sao" trong 1 file (`docker-compose.yml`), rồi bật/tắt tất cả cùng lúc bằng 1 lệnh. |

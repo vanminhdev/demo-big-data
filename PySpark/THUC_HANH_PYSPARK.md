@@ -143,6 +143,8 @@ assert retail.count() == 376
 
 ### Lab 4 - Doanh thu theo tháng và danh mục, đối chiếu SQL
 
+```python
+
 # Cách 1: Dùng DataFrame API (phong cách hàm)
 report = (retail
     .withColumn("line_amount", F.col("quantity") * F.col("unit_price"))

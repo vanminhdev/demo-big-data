@@ -143,7 +143,7 @@ assert retail.count() == 376
 
 ### Lab 4 - Doanh thu theo tháng và danh mục, đối chiếu SQL
 
-```python
+# Cách 1: Dùng DataFrame API (phong cách hàm)
 report = (retail
     .withColumn("line_amount", F.col("quantity") * F.col("unit_price"))
     .withColumn("month", F.date_format("order_time", "yyyy-MM"))
@@ -152,20 +152,24 @@ report = (retail
     .orderBy("month", "category_name"))
 
 report.show(100, truncate=False)
+
+# Cách 2: Viết thuần Spark SQL (đăng ký bảng tạm rồi query bằng SQL chuẩn)
 retail.createOrReplaceTempView("retail")
+
+sql_report = spark.sql("""
+    SELECT date_format(order_time, 'yyyy-MM') AS month,
+           category_name,
+           SUM(quantity * unit_price) AS revenue
+    FROM retail
+    GROUP BY 1, 2
+    ORDER BY 1, 2
+""")
+
+sql_report.show(100, truncate=False)
 ```
 
-```sql
-SELECT date_format(order_time, 'yyyy-MM') AS month,
-       category_name,
-       SUM(quantity * unit_price) AS revenue
-FROM retail
-GROUP BY 1, 2
-ORDER BY 1, 2
-```
-
-- [ ] Chạy SQL bằng `spark.sql("""...""")`.
-- [ ] So sánh kết quả với `report`.
+- [ ] Chạy lần lượt cả 2 cách và so sánh kết quả (phải khớp từng dòng và số tiền).
+- [ ] **Lưu ý:** PySpark hỗ trợ chạy thuần SQL 100% qua lệnh `spark.sql()`. Cả 2 cách viết này đều được Spark biên dịch ra cùng một kế hoạch thực thi bên dưới.
 
 ### Lab 5 - Parquet và partitioning
 

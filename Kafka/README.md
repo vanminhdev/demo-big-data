@@ -228,6 +228,7 @@ export MSYS_NO_PATHCONV=1
 docker exec spark-master mkdir -p /opt/spark-data/session13_kafka/checkpoint
 docker exec spark-master mkdir -p /opt/spark-data/ivy2cache
 
+export MSYS_NO_PATHCONV=1   # bắt buộc trên Git Bash Windows
 docker exec \
   -e SPARK_MASTER_URL="spark://spark-master:7077" \
   -e KAFKA_BOOTSTRAP_SERVERS="kafka:29092" \

@@ -63,6 +63,7 @@ tính năng `CoalescePartitions` của AQE sẽ gộp các partition nhỏ lại
 mất khả năng quan sát skew qua nhiều task.
 
 ```bash
+export MSYS_NO_PATHCONV=1   # bắt buộc trên Git Bash Windows
 docker exec spark-master /opt/spark/bin/spark-submit \
   --master spark://spark-master:7077 \
   --conf spark.sql.shuffle.partitions=8 \

@@ -94,6 +94,7 @@ Giao diện web:
 ## 4. Chạy job demo trên cụm thật
 
 ```bash
+export MSYS_NO_PATHCONV=1   # bắt buộc trên Git Bash Windows để không bị lỗi "C:/Program Files/Git/opt/..."
 docker exec spark-master /opt/spark/bin/spark-submit \
   --master spark://spark-master:7077 \
   --conf spark.sql.shuffle.partitions=6 \

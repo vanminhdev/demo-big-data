@@ -36,7 +36,7 @@ MongoDb/
     └── prepare_import_data.py  # sinh data_import/ từ dữ liệu RetailStream chung (00_shared_data/)
 ```
 
-## 3. Khởi động MongoDB
+## 3. Hướng dẫn các bước chạy chi tiết theo thứ tự (Khuyến nghị)
 
 ### Môi trường & Thư mục làm việc:
 - Mở terminal và chuyển vào thư mục `MongoDb`:

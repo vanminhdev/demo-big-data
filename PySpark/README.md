@@ -1,301 +1,382 @@
-# PySpark — RetailStream: doanh thu theo tháng và danh mục
+# BÀI THỰC HÀNH: XỬ LÝ DỮ LIỆU LỚN VỚI APACHE PYSPARK
+**Học phần:** Nhập môn Dữ liệu lớn (Introduction to Big Data)  
+**Chủ đề:** Xây dựng Data Pipeline Phân tán, Tối ưu hóa Truy vấn với Catalyst Optimizer và Triển khai trên Cụm Spark Standalone
 
-Buổi này học cách xử lý dữ liệu thật có lỗi/thiếu (dữ liệu "bẩn") bằng
-PySpark — ví dụ số tiền âm không hợp lệ, trường bị thiếu (`null`) — thay vì
-giả định dữ liệu luôn sạch. Buổi này cũng học cách tối ưu hiệu năng đọc dữ
-liệu bằng cách khai báo rõ schema (kiểu dữ liệu từng cột) thay vì để Spark
-tự đoán.
+---
 
-Cụ thể, job PySpark xử lý end-to-end ba nguồn dữ liệu RetailStream
-(`orders`, `order_items`, `products`, mức `sample`): đọc với explicit
-schema, làm sạch dữ liệu lỗi/thiếu có chủ ý, join ba bảng không nhân bản
-dòng, tính doanh thu theo tháng và danh mục, ghi kết quả ra Parquet có
-partition theo tháng.
+## I. MỤC TIÊU SƯ PHẠM (Learning Outcomes)
 
-Đã kiểm thử thật (không chỉ đọc code rồi giả định) trên cả `local[*]` và
-Spark Standalone cluster thật (1 master + 2 worker) — kết quả, log và số
-liệu thật trích trong tài liệu này đều lấy từ các lần chạy đó.
+Sau khi hoàn thành bài thực hành này, sinh viên có khả năng:
 
-## 1. Cấu trúc thư mục
+1. **Về kiến thức (Knowledge):**
+   - Hiểu rõ kiến trúc vận hành phân tán của Apache Spark: vai trò của **Driver Coordinator**, **Cluster Master**, **Worker Nodes**, và các tiến trình thực thi **Executors**.
+   - Phân tích được vòng đời tối ưu hóa truy vấn của **Catalyst Optimizer**: từ Kế hoạch Luận lý (Logical Plan) đến Kế hoạch Vật lý (Physical Plan).
+   - Nắm vững bản chất của cơ chế **Lazy Evaluation**, ranh giới phân tách Stage (**Shuffle Boundary**), và các chiến lược liên kết dữ liệu (**Broadcast Hash Join** so với **Sort Merge Join**).
+
+2. **Về kỹ năng lập trình dữ liệu (Engineering Skills):**
+   - Xây dựng được pipeline ETL chuẩn công nghiệp với **Schema tường minh (Explicit Schema)**, loại bỏ hoàn toàn việc suy diễn kiểu tự động (`inferSchema`).
+   - Thành thạo kỹ thuật kiểm soát chất lượng dữ liệu (Data Cleansing & Validation), xử lý ngoại lệ số học và giá trị khuyết thiếu (`NULL`) có chủ đích.
+   - Làm chủ các phép toán biến đổi quan hệ: phép nối bảng đa nguồn không làm biến dạng số lượng dòng (Row Cardinality Verification), tính toán tổng hợp đa chiều theo thời gian và danh mục.
+   - Tổ chức lưu trữ dữ liệu phân tích theo định dạng cột tối ưu (**Apache Parquet**) kết hợp kỹ thuật phân vùng (**Partitioning**).
+
+3. **Về kỹ năng điều phối hệ thống (Operations & System Deployment):**
+   - Sử dụng thành thạo công cụ điều phối `spark-submit` để đóng gói và nộp ứng dụng PySpark.
+   - Chuyển đổi linh hoạt giữa môi trường kiểm thử đơn node (**`local[*]`**) và môi trường cụm phân tán thực tế (**Spark Standalone Cluster**).
+   - Đọc hiểu, phân tích và gỡ lỗi kế hoạch thực thi thông qua phương thức `explain(mode="extended")` và giao diện giám sát Spark Web UI.
+
+---
+
+## II. KIẾN TRÚC HỆ THỐNG & CƠ SỞ LÝ THUYẾT
+
+### 1. Kiến trúc Cụm Spark Standalone (Cluster Architecture)
+
+Trong bài thực hành, hệ thống được triển khai theo mô hình cụm phân tán giả lập thông qua Docker Compose (định nghĩa tại `Spark/docker-compose.yml`):
+
+```text
+                               +----------------------------------+
+                               |     SPARK DRIVER APPLICATION     |
+                               |    (spark-submit / Container)    |
+                               +-----------------+----------------+
+                                                 |
+                                     Đăng ký App & Xin tài nguyên
+                                                 v
+                               +----------------------------------+
+                               |       SPARK MASTER NODE          |
+                               |      (spark-master:7077)         |
+                               |      Web UI: localhost:8080      |
+                               +--------+----------------+--------+
+                                        |                |
+                       Phân bổ Executor |                | Phân bổ Executor
+                                        v                v
+                        +---------------+--+          +--+---------------+
+                        |  SPARK WORKER 1  |          |  SPARK WORKER 2  |
+                        | (spark-worker-1) |          | (spark-worker-2) |
+                        | 1 Core / 640M RAM|          | 1 Core / 640M RAM|
+                        +--------+---------+          +--------+---------+
+                                 |                             |
+                                 v                             v
+                        +------------------+          +------------------+
+                        |    EXECUTOR 0    |          |    EXECUTOR 1    |
+                        |  (Task execution)|          |  (Task execution)|
+                        +------------------+          +------------------+
+                                 \                             /
+                                  \                           /
+                          +--------v-------------------------v--------+
+                          |      SHARED STORAGE (DATA VOLUMES)        |
+                          |  /opt/spark-data     /opt/spark-apps      |
+                          +-------------------------------------------+
+```
+
+- **Spark Master (`spark-master:7077`)**: Tiếp nhận yêu cầu khởi tạo ứng dụng từ Driver, quản lý trạng thái tài nguyên toàn cụm (tổng số CPU Cores, tổng dung lượng RAM khả dụng).
+- **Spark Workers (`spark-worker-1`, `spark-worker-2`)**: Quản lý tài nguyên phần cứng trên từng node vật lý/container; chịu trách nhiệm khởi tạo và giám sát vòng đời của các Executor. Mỗi Worker trong phòng lab được cấp phát cố định 1 Core và 640 MB RAM.
+- **Executors**: Tiến trình JVM được cấp phát riêng cho từng ứng dụng, trực tiếp thực thi các Task phân tán và lưu trữ dữ liệu đệm trên bộ nhớ/ổ đĩa.
+- **Shared Volumes**: Hai thư mục mount dùng chung giữa máy chủ (Host) và các container:
+  - `./data` $\rightarrow$ `/opt/spark-data`: Nơi chứa dữ liệu nguồn và thư mục lưu trữ kết quả đầu ra.
+  - `./jobs` $\rightarrow$ `/opt/spark-apps`: Nơi chứa mã nguồn kịch bản xử lý Python (`.py`).
+
+### 2. Nguyên lý Tối ưu hóa của Catalyst Optimizer
+
+Khi thực thi mã PySpark DataFrame API, Spark không tính toán dữ liệu ngay lập tức (**Lazy Evaluation**) mà chuyển đổi chuỗi phép biến đổi thành một Đồ thị có hướng không chu trình (**DAG - Directed Acyclic Graph**). Bộ tối ưu hóa Catalyst xử lý truy vấn qua 4 giai đoạn chính:
+
+```text
+[Mã DataFrame/SQL API]
+         |
+         v
+[Unresolved Logical Plan]  (Chỉ chứa cú pháp, chưa kiểm tra cột/bảng có tồn tại không)
+         |
+         v (Catalog Resolution: đối chiếu metadata bảng và kiểu dữ liệu)
+[Analyzed Logical Plan]
+         |
+         v (Optimization Rules: Predicate Pushdown, Column Pruning, Constant Folding)
+[Optimized Logical Plan]
+         |
+         v (Cost Model & Physical Planning: chọn BroadcastHashJoin vs SortMergeJoin)
+[Selected Physical Plan]
+         |
+         v (Tạo mã bytecode Java trực tiếp tại runtime - Tungsten Engine)
+[RDD Code Generation & Execution]
+```
+
+Hai kỹ thuật tối ưu hóa cốt lõi cần quan sát trong bài:
+1. **Predicate Pushdown (Đẩy vị từ xuống sâu)**: Đẩy điều kiện lọc dữ liệu (`WHERE` / `filter`) xuống trực tiếp tầng đọc file (`FileScan`). Điều này giúp lọc bỏ các bản ghi không hợp lệ ngay khi nạp từ đĩa vào bộ nhớ, giảm thiểu tối đa băng thông I/O và dung lượng bộ nhớ cần xử lý ở các tầng kế tiếp.
+2. **Broadcast Hash Join (BHJ)**: Khi một trong hai bảng tham gia phép nối có kích thước nhỏ (mặc định dưới 10 MB), Spark Driver sẽ phát thanh (broadcast) toàn bộ bảng nhỏ này tới từng Executor. Mỗi Executor lưu bảng nhỏ vào một bảng băm (Hash Table) trong bộ nhớ và tiến hành so khớp với các partition của bảng lớn cục bộ. Kỹ thuật này triệt tiêu hoàn toàn giai đoạn **Shuffle** (không cần xáo trộn dữ liệu qua mạng), mang lại hiệu năng vượt trội.
+
+---
+
+## III. THIẾT KẾ DỮ LIỆU & QUY CÁCH SCHEMA (Data Specification)
+
+Pipeline xử lý tích hợp 3 thực thể dữ liệu trong hệ thống bán lẻ RetailStream (tập dữ liệu `sample` theo quy ước `00_DATA_CONTRACT.md`):
+
+### 1. Bảng đặc tả Schema tường minh
+
+| Tệp dữ liệu | Bản ghi | Quy cách Schema tường minh (`StructType`) | Mục đích nghiệp vụ |
+|---|---|---|---|
+| `orders_sample.csv` | 150 | `order_id` (String, Not Null)<br>`customer_id` (String)<br>`order_time` (Timestamp, định dạng ISO-8601)<br>`status` (String)<br>`payment_method` (String)<br>`total_amount` (Double) | Chứa thông tin giao dịch đơn hàng và thời gian phát sinh giao dịch. |
+| `order_items_sample.csv` | 380 | `order_id` (String, Not Null)<br>`product_id` (String, Not Null)<br>`quantity` (Integer)<br>`unit_price` (Double) | Chi tiết các dòng sản phẩm trong từng đơn hàng (1 đơn có từ 1–4 mặt hàng). |
+| `products_sample.json` | 60 | `product_id` (String, Not Null)<br>`category_id` (String)<br>`category_name` (String)<br>`product_name` (String)<br>`brand` (String)<br>`price` (Double)<br>`attributes` (StructType: `color`, `warranty_months`)<br>`updated_at` (Timestamp) | Danh mục sản phẩm, có cấu trúc lồng nhau (`attributes`). |
+
+### 2. Dị biệt dữ liệu có chủ đích & Kỹ thuật xử lý (Data Quality Handling)
+
+Trong môi trường thực tế, dữ liệu từ các hệ thống giao dịch (OLTP) luôn tiềm ẩn lỗi. Tập dữ liệu thí nghiệm được thiết kế có chủ đích hai lỗi điển hình để sinh viên thực hành làm sạch:
+
+1. **Dị biệt số học (Negative Values):**
+   - *Hiện tượng:* Bản ghi cuối cùng trong `orders_sample.csv` (`order_id = "ORD000150"`) có giá trị bất thường: `total_amount = -1.0`.
+   - *Giải pháp kỹ thuật:* Sử dụng vị từ lọc `F.col("total_amount") >= 0`. Phép lọc này loại bỏ đơn hàng lỗi khỏi tập `orders` (từ 150 dòng còn 149 dòng hợp lệ).
+   - *Hệ quả trong phép nối:* Do sử dụng phép nối nội (**`INNER JOIN`**), 4 dòng sản phẩm liên kết với `ORD000150` trong `order_items_sample.csv` sẽ tự động bị loại bỏ (từ 380 dòng còn 376 dòng), ngăn chặn việc đưa doanh thu sai vào báo cáo tài chính.
+
+2. **Khuyết thiếu thông tin phân loại (Missing Values / Nulls):**
+   - *Hiện tượng:* 3 bản ghi trong `products_sample.json` có trường thương hiệu bị rỗng (`brand = null`).
+   - *Giải pháp kỹ thuật:* Sử dụng hàm xử lý giá trị khuyết chuẩn học thuật:  
+     `F.coalesce(F.col("brand"), F.lit("UNKNOWN"))`  
+     Kỹ thuật này điền giá trị thế thân mặc định mà không làm mất thông tin của sản phẩm khi thực hiện các phép gom nhóm sau này.
+
+---
+
+## IV. CẤU TRÚC THƯ MỤC DỰ ÁN
 
 ```text
 PySpark/
-├── README.md
-├── process_retailstream.py       # file xử lý chính, có khối CONFIG tập trung
-├── data/
-│   ├── orders_sample.csv
-│   ├── order_items_sample.csv
-│   ├── products_sample.json
-│   └── manifest.json
-├── output/
-│   ├── local_mode/revenue_by_month_category/     # kết quả chạy local[*]
-│   └── cluster_mode/revenue_by_month_category/    # kết quả chạy trên cluster thật
-├── scripts/
-│   ├── run-local.sh              # chạy tự động chế độ local[*] trong container
-│   └── run-cluster.sh            # khởi động cụm Spark và chạy trên Cluster thật
-├── local_run_stage1.log          # log đầy đủ lần chạy local[*]
-└── cluster_run_stage2.log        # log đầy đủ lần chạy trên Spark Standalone cluster
+├── README.md                      # Giáo trình hướng dẫn thực hành chuyên sâu (tài liệu này)
+├── process_retailstream.py        # Mã nguồn pipeline PySpark chính (thiết kế theo module chuẩn)
+├── data/                          # Dữ liệu nguồn mẫu cục bộ (phục vụ đối chiếu và chạy native)
+│   ├── orders_sample.csv          # 150 giao dịch (chứa 1 bản ghi lỗi âm tiền cố ý)
+│   ├── order_items_sample.csv     # 380 dòng chi tiết mặt hàng
+│   ├── products_sample.json       # 60 sản phẩm (chứa 3 bản ghi brand null và struct attributes)
+│   └── manifest.json              # Checksum SHA-256 và chữ ký kiểm định toàn vẹn dữ liệu
+├── output/                        # Thư mục lưu trữ kết quả đối chứng đã kiểm định thực tế
+│   ├── local_mode/                # Kết quả kết xuất từ chế độ chạy local[*]
+│   └── cluster_mode/              # Kết quả kết xuất từ chế độ chạy Spark Standalone cluster
+├── scripts/                       # Bộ kịch bản tự động hóa quy trình chuẩn
+│   ├── run-local.sh               # Kịch bản triển khai chế độ Local trên container Master
+│   └── run-cluster.sh             # Kịch bản triển khai phân tán trên cụm Master - Workers
+├── local_run_stage1.log           # Nhật ký thực thi chi tiết chế độ Local (minh chứng đối soát)
+└── cluster_run_stage2.log         # Nhật ký thực thi chi tiết chế độ Cluster (minh chứng đối soát)
 ```
 
-Hai thư mục `output/local_mode` và `output/cluster_mode` đã được đối chiếu
-bằng pandas (`DataFrame.equals()` = `True`, 41 dòng khớp từng ô).
+---
 
-## 2. Dữ liệu đầu vào
+## V. QUY TRÌNH THỰC HÀNH TỪNG BƯỚC (Lab Execution Procedure)
 
-| File | Số dòng | Ghi chú |
-|---|---|---|
-| `orders_sample.csv` | 150 | `order_id` unique 100%; 1 dòng lỗi cố ý `total_amount = -1.0` |
-| `order_items_sample.csv` | 380 | mọi `order_id`/`product_id` đều tồn tại trong `orders`/`products` |
-| `products_sample.json` | 60 | `product_id` unique 100%; 3 sản phẩm `brand = null` cố ý; có struct lồng `attributes` (`color`, `warranty_months`) |
+Sinh viên thực hiện tuần tự theo các giai đoạn dưới đây. Toàn bộ các thao tác được thực hiện từ thư mục gốc của phân hệ `PySpark`:
 
-Job khai báo `StructType`/`StructField` tường minh cho cả ba nguồn
-(`ORDERS_SCHEMA`, `ORDER_ITEMS_SCHEMA`, `PRODUCTS_SCHEMA`), gọi
-`spark.read.schema(...)`, **không** dùng `inferSchema` ở bất kỳ đâu.
-
-Nếu không khai báo schema, mặc định Spark phải đọc hết dữ liệu một lượt
-(`inferSchema=true`) chỉ để đoán kiểu dữ liệu của từng cột — chậm hơn vì tốn
-thêm một lượt đọc, và có thể đoán sai kiểu nếu dữ liệu không đồng nhất (ví
-dụ một cột số nhưng có vài dòng lẫn chữ). Đây là lý do khai báo schema tường
-minh (explicit schema) tốt hơn khi đã biết trước cấu trúc dữ liệu.
-
-## 3. Yêu cầu môi trường
-
-Job đã được kiểm thử thật bên trong image `apache/spark:3.5.9-python3`
-(Spark 3.5.9, PySpark 3.5.9, Python 3.10.12, Java OpenJDK 11.0.31, Scala
-2.12.18), chạy qua `spark-submit`. Cần Docker + Docker Compose để dựng cụm
-Spark Standalone dùng cho phần chạy cluster (cấu hình trong
-`Spark/docker-compose.yml`, không cần sửa gì thêm).
-
-## 4. Chạy trên local[\*]
-
-Đứng từ thư mục `PySpark/`:
-
-```bash
-# 1) Đồng bộ file code vào thư mục jobs được mount của Spark
-mkdir -p ../Spark/jobs
-cp process_retailstream.py ../Spark/jobs/process_retailstream.py
-
-# 2) Thực thi job (cần export MSYS_NO_PATHCONV=1 trên Git Bash Windows)
-export MSYS_NO_PATHCONV=1
-docker exec -e SPARK_MASTER_URL="local[*]" spark-master /opt/spark/bin/spark-submit \
-  --master local[*] \
-  --conf spark.sql.shuffle.partitions=4 \
-  --driver-memory 512m \
-  /opt/spark-apps/process_retailstream.py
-```
-
-Lưu ý: biến môi trường `-e SPARK_MASTER_URL="local[*]"` ở đây chỉ dùng để
-job in ra log cho biết đang chạy ở chế độ nào (đọc bằng
-`os.environ.get(...)` trong `process_retailstream.py`). Giá trị thật quyết
-định job chạy local hay chạy trên cluster là flag `--master` truyền thẳng
-cho `spark-submit`; đổi `-e SPARK_MASTER_URL` mà không đổi `--master` sẽ
-không làm job chạy khác đi, chỉ làm log hiển thị sai.
-
-Kết quả mong đợi: một Spark Session khởi tạo ở chế độ `local[*]`, chạy xong
-không lỗi, in ra số dòng đã xử lý ở mỗi bước và ghi kết quả Parquet ra
-`output/local_mode/`.
-
-Kết quả thực tế: `spark.master (thuc te) = local[*]`, `applicationId` dạng
-`local-1787204815347` — một JVM driver duy nhất, không có executor phân tán.
-
-## 5. Chạy trên Spark Standalone cluster thật
-
-Đứng từ thư mục `PySpark/`:
-
-```bash
-# 1) Khởi động cụm Spark nếu chưa chạy và copy code vào Spark/jobs
-(cd ../Spark && docker compose up -d)
-mkdir -p ../Spark/jobs
-cp process_retailstream.py ../Spark/jobs/process_retailstream.py
-
-# 2) Nộp job lên cụm Standalone (cần export MSYS_NO_PATHCONV=1 trên Git Bash Windows)
-export MSYS_NO_PATHCONV=1
-docker exec -e SPARK_MASTER_URL="spark://spark-master:7077" spark-master /opt/spark/bin/spark-submit \
-  --master spark://spark-master:7077 \
-  --conf spark.sql.shuffle.partitions=4 \
-  --executor-memory 512m \
-  --driver-memory 512m \
-  /opt/spark-apps/process_retailstream.py
-```
-
-Xác nhận job chạy thật trên cluster (không phải `local[*]`):
-
-```bash
-curl -s http://localhost:8080/json/     # completedapps -> "cores": 2
-```
-
-`applicationId = app-20260820054748-0001`; log driver ghi rõ 2 executor được
-cấp trên 2 địa chỉ IP worker khác nhau:
-
-```text
-Executor added: app-20260820054748-0001/0 on worker-...-172.20.0.3-36933 (172.20.0.3:36933) with 1 core(s)
-Executor added: app-20260820054748-0001/1 on worker-...-172.20.0.4-35459 (172.20.0.4:35459) with 1 core(s)
-```
-
-## 6. Chuyển đổi giữa hai chế độ mà không sửa logic xử lý
-
-Toàn bộ cấu hình nằm ở đầu `process_retailstream.py`:
-
-```python
-SPARK_MASTER_URL = os.environ.get("SPARK_MASTER_URL", "local[*]")
-DATA_DIR = os.environ.get("PYSPARK_DATA_DIR", "/opt/spark-data/session10_pyspark")
-OUTPUT_DIR = os.environ.get("PYSPARK_OUTPUT_DIR", os.path.join(DATA_DIR, "output"))
-```
-
-Chỉ cần đổi tham số `--master` khi gọi `spark-submit` (và tuỳ chọn biến môi
-trường `SPARK_MASTER_URL` để log in đúng giá trị); phần logic đọc schema,
-làm sạch, join, tính doanh thu, ghi Parquet, `explain()` giữ nguyên giữa hai
-giai đoạn.
-
-## 7. Chạy local[\*] trực tiếp trên máy cá nhân (không qua Docker)
-
-Chưa được kiểm thử thật trong lần chạy validation gần nhất — dùng khi không
-có Docker và chấp nhận tự kiểm tra tương thích Python/Java/PySpark:
-
-```bash
-export PYSPARK_DATA_DIR="./data"
-export PYSPARK_OUTPUT_DIR="./output/native_local_mode"
-python process_retailstream.py
-```
-
-## 8. Các lỗi/thiếu dữ liệu cố ý và cách job xử lý
-
-- `orders_sample.csv`: dòng cuối (`ORD000150`) có `total_amount = -1.0` →
-  job lọc bỏ bằng `orders_df.filter(F.col("total_amount") >= 0)`, kéo theo
-  4 dòng `order_items` của đơn này bị loại khỏi kết quả join (INNER JOIN —
-  chỉ giữ lại các dòng có khóa khớp ở CẢ HAI bảng, dòng không khớp bị loại
-  bỏ hoàn toàn; khác với LEFT JOIN vốn giữ lại toàn bộ dòng bên trái kể cả
-  khi không khớp).
-- `products_sample.json`: 3 sản phẩm có `brand = null` → job thay bằng chuỗi
-  `"UNKNOWN"` bằng `F.coalesce(F.col("brand"), F.lit("UNKNOWN"))` (không ảnh
-  hưởng gom nhóm vì gom theo `category_name`, không theo `brand`).
-
-## 9. Kết quả thực tế
-
-- `orders`: 150 dòng → 149 dòng sau làm sạch.
-- `order_items`: 380 dòng → 376 dòng sau join (mất đúng 4 dòng của đơn lỗi,
-  không nhân bản).
-- `products`: 60 dòng, `product_id` unique.
-- Doanh thu tổng hợp: **41 dòng** (tháng × danh mục), từ `2026-02` đến
-  `2026-08`, tổng doanh thu toàn bộ = `9650372000.0` — giống hệt nhau giữa
-  `local[*]` và cluster (`DataFrame.equals() == True` khi so sánh hai thư
-  mục Parquet đầu ra bằng pandas).
-- Output Parquet có 7 thư mục con `month=2026-02` … `month=2026-08`, mỗi
-  thư mục có file `.parquet`, cộng một file `_SUCCESS` ở thư mục gốc.
-
-## 10. Đọc logical/physical plan
-
-Trước khi đọc log plan thật, dưới đây là giải thích ngắn gọn từng khái niệm
-sẽ xuất hiện:
-
-- **Catalyst Optimizer** là bộ tối ưu truy vấn của Spark, tự động biến đổi
-  kế hoạch thực thi ban đầu (logical plan — "làm gì") thành kế hoạch vật lý
-  (physical plan — "làm như thế nào cụ thể") hiệu quả hơn, tương tự query
-  optimizer trong một hệ quản trị CSDL quan hệ.
-- **Predicate pushdown**: đẩy điều kiện lọc (`filter`) xuống càng sớm càng
-  tốt, gần ngay bước đọc dữ liệu, để giảm số dòng cần xử lý ở các bước sau.
-- **BroadcastHashJoin**: khi một bảng đủ nhỏ (mặc định dưới 10 MB), Spark
-  gửi (broadcast) toàn bộ bảng đó tới mọi executor, thay vì phải xáo trộn
-  (shuffle) dữ liệu của bảng lớn hơn qua mạng — nhanh hơn nhiều so với join
-  thông thường.
-- **Exchange**: bước Spark phải xáo trộn (shuffle) dữ liệu giữa các executor
-  qua mạng, thường là bước tốn tài nguyên nhất trong physical plan.
-- **HashAggregate**: bước tính toán gộp nhóm (như `groupBy().agg()`),
-  thường có nhiều pha — gộp sơ bộ (partial) tại từng partition, rồi gộp lần
-  cuối (merge/final) sau khi dữ liệu đã được shuffle theo đúng key.
-
-`revenue_df.explain(mode="extended")` (log đầy đủ trong
-`local_run_stage1.log`, dòng 159–229) cho thấy các khái niệm trên xuất hiện
-trong plan thật của job:
-
-- **Predicate pushdown**: điều kiện `total_amount >= 0.0 AND
-  isnotnull(order_id)` xuất hiện ngay tại `FileScan csv orders_sample.csv`
-  thay vì ở một `Filter` riêng sau khi đọc toàn bộ file.
-- **BroadcastHashJoin** cho cả hai phép join: `orders` và `products` sau khi
-  lọc đủ nhỏ để broadcast toàn bộ sang mỗi executor thay vì shuffle bảng
-  `order_items` lớn hơn.
-- 4 điểm `Exchange` (shuffle): 3 phục vụ `HashAggregate` nhiều pha (partial →
-  merge → final) và 1 cho `Sort` trước khi trả kết quả.
-
-## 11. Dữ liệu và job dùng trong cụm Docker
-
-Container Spark (`spark-master`, `spark-worker-1`, `spark-worker-2`) chỉ đọc
-được đường dẫn đã mount sẵn trong `Spark/docker-compose.yml`
-(`./data -> /opt/spark-data`, `./jobs -> /opt/spark-apps`, mount vào cả ba
-container). Vì vậy bản dùng để chạy thật trên cụm (giống hệt nội dung của
-`PySpark/process_retailstream.py` và `PySpark/data/*`) được đặt thêm ở:
-
-- `Spark/data/session10_pyspark/{orders_sample.csv, order_items_sample.csv, products_sample.json}`
-- `Spark/jobs/process_retailstream.py`
-
-`PySpark/` là bản chính thức để đọc/nộp bài; `Spark/data/session10_pyspark/`
-và `Spark/jobs/process_retailstream.py` chỉ là bản thực thi giúp cả ba
-container cùng đọc được. Không có file nào trong `Spark/` bị ghi đè, không
-sửa `Spark/docker-compose.yml`.
-
-## 12. Hướng dẫn chạy nhanh bằng Script (Khuyến nghị)
-
-Thư mục `PySpark/scripts/` cung cấp sẵn 2 script tự động hóa cho cả hai giai đoạn thực thi (local và cluster).
-
-### Môi trường khuyến nghị:
-- **Git Bash** (trên Windows) hoặc Terminal Linux/macOS.
-- Nếu dùng **PowerShell**: hãy gọi qua Git Bash bằng `bash scripts/<tên_script>.sh`.
-
-### Thư mục làm việc (Working Directory):
-Mở terminal và chuyển vào thư mục `PySpark`:
 ```bash
 cd "d:/school/Big Data/PySpark"
 ```
 
-> [!NOTE]
-> **Về đường dẫn dữ liệu & code khi chạy Docker:**
-> Khi chạy trong container Spark, các script sẽ tự động đồng bộ file mã nguồn `process_retailstream.py` sang thư mục mount `../Spark/jobs/`. Dữ liệu được đọc từ thư mục mount `../Spark/data/session10_pyspark/` đã được chuẩn bị sẵn.
+> [!WARNING]
+> **Đặc thù môi trường Windows (Git Bash / MSYS2 Path Translation):**  
+> Khi gọi trình thực thi nhị phân Windows (`docker.exe`) từ môi trường Git Bash, bộ thông dịch MSYS2 mặc định tự động biên dịch các đường dẫn bắt đầu bằng dấu gạch chéo `/` (ví dụ `/opt/spark/...`) thành đường dẫn Windows vật lý (`C:/Program Files/Git/opt/spark/...`).  
+> **Hệ quả:** Container Linux không tồn tại ổ đĩa `C:`, dẫn đến lỗi:  
+> `OCI runtime exec failed: ... exec: "C:/Program Files/Git/opt/spark/bin/spark-submit": no such file or directory`  
+> **Giải pháp bắt buộc:** Luôn khai báo chỉ thị vô hiệu hóa biên dịch đường dẫn trước khi gọi lệnh:  
+> `export MSYS_NO_PATHCONV=1`
 
-### Thứ tự thực hiện:
+---
 
-#### Bước 1: Chạy thử nghiệm chế độ Local (`local[*]`)
-Chạy job PySpark ngay trong container `spark-master` để kiểm tra logic tính toán:
+### GIAI ĐOẠN 1: Kiểm thử Logic Nghiệp vụ trên Môi trường Local (`local[*]`)
+
+*Mục đích:* Xác thực tính đúng đắn của logic chuyển đổi dữ liệu, kiểm tra tính khớp của Explicit Schema và xác nhận kết quả làm sạch trước khi nộp lên môi trường phân tán.
+
+#### Lệnh thực thi:
 ```bash
-bash scripts/run-local.sh
-```
-*Lệnh này làm gì:*
-1. Copy `process_retailstream.py` sang `../Spark/jobs/`.
-2. Dùng `docker exec` gọi `spark-submit` với cờ `--master "local[*]"` chạy trong container `spark-master`.
-3. In kết quả tính toán doanh thu theo tháng và danh mục ra màn hình terminal.
+# 1. Đồng bộ mã nguồn xử lý vào thư mục mount của Spark
+mkdir -p ../Spark/jobs
+cp process_retailstream.py ../Spark/jobs/process_retailstream.py
 
-#### Bước 2: Chạy trên cụm Spark Standalone thật (Cluster Mode)
-Chạy job phân tán trên cụm gồm Master và 2 Worker:
+# 2. Vô hiệu hóa biến đổi đường dẫn trên Git Bash
+export MSYS_NO_PATHCONV=1
+
+# 3. Nộp job thực thi tại chỗ trong container spark-master
+docker exec \
+  -e SPARK_MASTER_URL="local[*]" \
+  spark-master /opt/spark/bin/spark-submit \
+  --master "local[*]" \
+  --conf spark.sql.shuffle.partitions=4 \
+  --driver-memory 512m \
+  /opt/spark-apps/process_retailstream.py
+```
+
+#### Phân tích các tham số kỹ thuật:
+- `--master "local[*]"`: Chỉ định Driver tạo một SparkContext cục bộ, sử dụng toàn bộ số luồng CPU có sẵn của máy trạm (không yêu cầu Cluster Manager phân bổ Worker).
+- `--conf spark.sql.shuffle.partitions=4`: Cấu hình số lượng partition sau các giai đoạn Shuffle (mặc định của Spark là 200). Với dữ liệu mẫu nhỏ, việc ép về 4 partitions giúp tiết kiệm tài nguyên bộ nhớ và tránh chi phí quản lý task vụn vặt.
+- `--driver-memory 512m`: Giới hạn ngưỡng RAM an toàn cho tiến trình JVM của Driver, nằm trong hạn mức `mem_limit: 1536m` của container Master.
+
+#### Tiêu chí đánh giá kết quả Giai đoạn 1:
+- Thuộc tính `applicationId` trong log có tiền tố dạng: `local-xxxxxxxxxxxxx`.
+- Không xuất hiện bất kỳ cảnh báo schema mismatch hay ép kiểu dữ liệu thất bại nào.
+- Dữ liệu kết xuất được ghi vào thư mục `/opt/spark-data/session10_pyspark/output/revenue_by_month_category`.
+
+---
+
+### GIAI ĐOẠN 2: Triển khai Phân tán trên Spark Standalone Cluster Thật
+
+*Mục đích:* Đưa ứng dụng vào môi trường cụm đa tiến trình thực tế, quan sát cơ chế thương thảo tài nguyên giữa Master và Worker, và theo dõi việc phân bổ Task song song trên các Executor độc lập.
+
+#### Lệnh thực thi:
 ```bash
-bash scripts/run-cluster.sh
+# 1. Đảm bảo cụm Spark Standalone đang hoạt động ở trạng thái Healthy
+(cd ../Spark && docker compose up -d)
+
+# 2. Đồng bộ mã nguồn mới nhất vào thư mục mount
+mkdir -p ../Spark/jobs
+cp process_retailstream.py ../Spark/jobs/process_retailstream.py
+
+# 3. Khai báo cờ môi trường Git Bash
+export MSYS_NO_PATHCONV=1
+
+# 4. Nộp job lên Spark Master điều phối
+docker exec \
+  -e SPARK_MASTER_URL="spark://spark-master:7077" \
+  spark-master /opt/spark/bin/spark-submit \
+  --master spark://spark-master:7077 \
+  --conf spark.sql.shuffle.partitions=4 \
+  --executor-memory 512m \
+  --executor-cores 1 \
+  --total-executor-cores 2 \
+  --driver-memory 512m \
+  /opt/spark-apps/process_retailstream.py
 ```
-*Lệnh này làm gì:*
-1. Tự động kiểm tra và khởi động cụm Spark (`cd ../Spark && docker compose up -d`) nếu cụm chưa chạy.
-2. Đồng bộ `process_retailstream.py` vào `../Spark/jobs/`.
-3. Nộp job lên cụm với Master URL `spark://spark-master:7077`, tự động cấu hình các tham số RAM và Cores tối ưu (`--executor-memory 512m`, `--executor-cores 1`, `--total-executor-cores 2`, `--driver-memory 512m`).
-4. In kết quả ra terminal và ghi dữ liệu kết quả phân tán vào thư mục output.
 
-#### Bước 3: Đối chiếu kết quả 2 chế độ
-Kết quả của cả 2 lần chạy cho ra 41 dòng dữ liệu hoàn toàn trùng khớp từng ô (xem so sánh chi tiết ở mục 6).
+#### Phân tích các tham số phân bổ tài nguyên:
+- `--master spark://spark-master:7077`: Trỏ tiến trình Driver kết nối trực tiếp với Master RPC của cụm Standalone.
+- `--executor-memory 512m`: **Tham số trọng yếu.** Do mỗi container Worker chỉ có dung lượng khả dụng 640 MB (khai báo tại `docker-compose.yml`), nếu không cấu hình tham số này, Spark sẽ mặc định yêu cầu `1024m` cho mỗi Executor $\rightarrow$ Cụm không đủ tài nguyên đáp ứng $\rightarrow$ Ứng dụng rơi vào trạng thái bế tắc (`WAITING: Initial job has not accepted any resources`). Mức `512m` đảm bảo cấp phát thành công.
+- `--executor-cores 1` và `--total-executor-cores 2`: Yêu cầu Master cấp phát tổng cộng 2 Cores trên toàn cụm, chia đều cho 2 Executor độc lập nằm trên 2 Worker riêng biệt (`spark-worker-1` và `spark-worker-2`).
 
-#### Bước 4: Dừng cụm khi kết thúc
-Khi không còn sử dụng cụm Spark:
+#### Minh chứng phân bổ phân tán từ Nhật ký thực thi (Execution Evidence):
+Sinh viên kiểm tra log thực thi trên terminal hoặc mở giao diện Spark Master UI tại [http://localhost:8080](http://localhost:8080) để xác nhận 2 Executor được cấp phát trên 2 địa chỉ IP mạng nội bộ khác nhau:
+
+```text
+INFO StandaloneSchedulerBackend: Granted access to 2 executors and 2 cpus
+INFO StandaloneSchedulerBackend: Executor added: app-20260820054748-0001/0 on worker-...-172.20.0.3-36933 (172.20.0.3:36933) with 1 core(s)
+INFO StandaloneSchedulerBackend: Executor added: app-20260820054748-0001/1 on worker-...-172.20.0.4-35459 (172.20.0.4:35459) with 1 core(s)
+```
+- `applicationId` mang định dạng định danh cụm: `app-YYYYMMDDHHMMSS-xxxx` (minh chứng chạy trên cụm thật, hoàn toàn khác biệt với `local-xxxx`).
+
+---
+
+### GIAI ĐOẠN 3: Tự động hóa Quy trình bằng Shell Script (Automation Practice)
+
+Để đảm bảo tính tái lập (Reproducibility) và hỗ trợ kiểm thử tự động (CI/CD), hệ thống cung cấp 2 shell script chuẩn hóa tại thư mục `scripts/`:
+
+| Tên script | Mục đích thực thi | Cú pháp chạy (từ thư mục `PySpark/`) |
+|---|---|---|
+| `run-local.sh` | Tự động đồng bộ code và chạy kiểm thử chế độ `local[*]` | `bash scripts/run-local.sh` |
+| `run-cluster.sh` | Tự động bật cụm Spark, đồng bộ code và nộp job phân tán lên cụm | `bash scripts/run-cluster.sh` |
+
+*Lưu ý đối với sinh viên sử dụng PowerShell:* Hãy mở cửa sổ **Git Bash** để gọi các lệnh trên, hoặc gọi gián tiếp qua cú pháp `bash scripts/run-cluster.sh`.
+
+#### Dừng và giải phóng tài nguyên sau buổi học:
 ```bash
 cd ../Spark && bash scripts/stop-cluster.sh
 ```
 
-## Phụ lục: Bảng thuật ngữ
+---
 
-| Thuật ngữ | Giải thích đơn giản |
-|---|---|
-| **Container** | Một "hộp" chạy phần mềm biệt lập, giống một máy ảo thu nhỏ. Một cụm (Hadoop/Spark/Kafka) trong dự án này gồm nhiều container chạy trên CÙNG một máy thật, giả lập nhiều máy. |
-| **Docker Compose** | Công cụ mô tả "cần bao nhiêu container, cấu hình ra sao" trong 1 file (`docker-compose.yml`), rồi bật/tắt tất cả cùng lúc bằng 1 lệnh. |
-| **Image / ghim version** | "Bản cài đặt đóng gói sẵn" của một phần mềm (ví dụ `mongo:8.0`). "Ghim version" nghĩa là chỉ rõ đúng phiên bản (`8.0`) thay vì `latest` (bản mới nhất, có thể đổi bất cứ lúc nào) — để lần sau chạy lại vẫn ra kết quả giống hệt. |
-| **Explicit schema / schema tường minh** | Khai báo rõ tên cột và kiểu dữ liệu (ví dụ "cột `price` là số thập phân") thay vì để phần mềm tự đoán — tránh đoán sai. |
-| **Spark Standalone Cluster** | Cụm Spark tự quản lý (không cần YARN/Kubernetes), gồm 1 Master (điều phối) + nhiều Worker (thực thi việc). |
-| **Driver** | Chương trình chính điều khiển toàn bộ job Spark (chạy trên máy nộp job). |
-| **Executor** | Tiến trình thực sự chạy trên từng Worker để xử lý dữ liệu — nếu thấy có executor chạy trên nhiều Worker khác nhau, nghĩa là job thật sự chạy phân tán (không phải chạy 1 mình trên máy local). |
-| **local[\*]** | Chế độ chạy Spark ngay trên 1 máy (không dùng cluster), dùng để học/thử nhanh. `local[*]` nghĩa là dùng tất cả CPU core có sẵn của máy đó. |
-| **Partition** | Một "phần" của dữ liệu được xử lý độc lập — dữ liệu càng được chia thành nhiều partition thì càng chạy song song được nhiều. |
-| **Shuffle** (trong Spark) | Bước tốn kém khi phải trộn/chuyển dữ liệu giữa các máy (ví dụ khi `join` hoặc `groupBy` dữ liệu nằm rải rác). |
-| **explain()** | Lệnh xem "Spark định làm gì" (kế hoạch thực thi) trước/sau khi tối ưu, giúp hiểu vì sao 1 câu lệnh chạy nhanh/chậm. |
-| **spark-submit** | Lệnh dùng để "nộp" 1 chương trình Spark cho cluster chạy. |
+## VI. ĐỌC HIỂU & PHÂN TÍCH KẾ HOẠCH THỰC THI (Catalyst Query Plan Analysis)
+
+Phương thức `revenue_df.explain(mode="extended")` cho phép sinh viên quan sát trực tiếp tư duy tối ưu hóa của bộ xử lý Catalyst. Dưới đây là phân tích chi tiết các khối lệnh vật lý cốt lõi trích xuất từ nhật ký thực tế:
+
+```text
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- == Final Output Sort ==
+   *(6) Sort [month#xx ASC NULLS FIRST, category_name#yy ASC NULLS FIRST], true, 0
+   +- Exchange rangepartitioning(month#xx ASC NULLS FIRST, category_name#yy ASC NULLS FIRST, 4)
+      +- == Stage 2: Final Hash Aggregate ==
+         *(5) HashAggregate(keys=[month#xx, category_name#yy], functions=[sum(line_amount#zz), count(distinct order_id#aa), count(1)])
+         +- Exchange hashpartitioning(month#xx, category_name#yy, 4)
+            +- == Stage 1: Partial Hash Aggregate ==
+               *(4) HashAggregate(keys=[month#xx, category_name#yy], functions=[partial_sum(line_amount#zz), partial_count(distinct order_id#aa), partial_count(1)])
+               +- == Stage 0: Join Tree ==
+                  *(3) Project [quantity#b * unit_price#c AS line_amount#zz, date_format(order_time#d, yyyy-MM) AS month#xx, ...]
+                  +- *(3) BroadcastHashJoin [product_id#a], [product_id#e], Inner, BuildRight
+                     :- *(3) BroadcastHashJoin [order_id#f], [order_id#g], Inner, BuildRight
+                     :  :- *(3) FileScan csv [order_id#f,product_id#a,quantity#b,unit_price#c] File: order_items_sample.csv
+                     :  +- BroadcastExchange HashedRelationBroadcastMode(...)
+                     :     +- *(1) Filter (isnotnull(total_amount#h) AND (total_amount#h >= 0.0))
+                     :        +- *(1) FileScan csv [order_id#g,order_time#d,total_amount#h] File: orders_sample.csv
+                     :           PushedFilters: [IsNotNull(total_amount), GreaterThanOrEqual(total_amount,0.0)]
+                     +- BroadcastExchange HashedRelationBroadcastMode(...)
+                        +- *(2) Project [product_id#e, category_name#yy, coalesce(brand#k, UNKNOWN) AS brand#m]
+                           +- *(2) FileScan json [product_id#e,category_name#yy,brand#k] File: products_sample.json
+```
+
+### Các điểm nhấn kiến trúc cần bảo vệ trong bài thu hoạch:
+
+1. **Vị trí của Predicate Pushdown (`PushedFilters`):**
+   Quan sát thấy tại khối `FileScan csv ... orders_sample.csv`, điều kiện `GreaterThanOrEqual(total_amount,0.0)` được gán trực tiếp vào tầng đọc tệp. Spark không đọc dòng lỗi lên bộ nhớ rồi mới gọi `Filter`, mà loại bỏ dòng `ORD000150` ngay từ luồng đọc I/O.
+
+2. **Cơ chế BroadcastHashJoin lồng nhau:**
+   Cả hai phép nối (`order_items` với `orders`, và kết quả nối với `products`) đều được Catalyst lựa chọn chiến lược `BroadcastHashJoin [BuildRight]`. Do bảng `orders` (sau lọc còn 149 dòng) và `products` (60 dòng) đều có kích thước dưới 100 KB, Driver phát thanh trực tiếp hai bảng này sang các Executor. Quá trình nối hoàn tất hoàn toàn trong bộ nhớ nội bộ của Executor mà không phát sinh bất kỳ chi phí truyền tải mạng (Network Shuffle) nào tại tầng Join.
+
+3. **Cơ chế HashAggregate hai pha (Two-phase Aggregation):**
+   Quá trình tính tổng doanh thu và đếm đơn hàng được chia thành:
+   - **Pha 1 (`partial_sum`, `partial_count`):** Mỗi Executor tự tính tổng tạm thời trên các partition dữ liệu mà mình nắm giữ. Điều này giúp nén hàng trăm dòng giao dịch xuống chỉ còn vài dòng nhóm.
+   - **Pha 2 (`Exchange hashpartitioning`):** Spark phát sinh một ranh giới Shuffle để gom các khóa `(month, category_name)` giống nhau về cùng một Executor.
+   - **Pha 3 (`Final HashAggregate`):** Executor tổng hợp các kết quả trung gian để đưa ra số liệu chính thức cuối cùng.
+
+---
+
+## VII. ĐỐI CHIẾU & ĐÁNH GIÁ KẾT QUẢ ĐỊNH LƯỢNG (Validation Results)
+
+### 1. Bảng đối soát số liệu qua từng công đoạn xử lý
+
+| Công đoạn xử lý | Tệp dữ liệu / Biến DataFrame | Số dòng trước xử lý | Số dòng sau xử lý | Sai lệch & Nguyên nhân nghiệp vụ |
+|---|---|:---:|:---:|---|
+| **Nạp dữ liệu (Read)** | `orders_df`<br>`order_items_df`<br>`products_df` | —<br>—<br>— | 150<br>380<br>60 | Nạp đủ 100% dữ liệu từ các tệp nguồn, cấu trúc khớp hoàn toàn với Explicit Schema. |
+| **Làm sạch (Clean)** | `orders_clean_df` | 150 | 149 | **Giảm đúng 1 dòng**: Đơn hàng `ORD000150` có `total_amount = -1.0` bị loại bỏ. |
+| | `products_clean_df` | 60 | 60 | **Không đổi số dòng**: 3 giá trị `brand = null` được chuyển thành `"UNKNOWN"`. |
+| **Nối lần 1 (Join)** | `order_items` $\bowtie$ `orders` | 380 | 376 | **Giảm đúng 4 dòng**: 4 mặt hàng thuộc đơn hàng lỗi `ORD000150` bị loại bởi `INNER JOIN`. |
+| **Nối lần 2 (Join)** | `joined` $\bowtie$ `products` | 376 | 376 | **Số dòng giữ nguyên tuyệt đối**: Xác nhận 100% `product_id` đều tồn tại và duy nhất (không bị bùng nổ dòng). |
+| **Tổng hợp (Aggregate)** | `revenue_df` | 376 | **41** | Thu gọn thành 41 tổ hợp `(Tháng × Danh mục)`, trải dài từ tháng `2026-02` đến `2026-08`. |
+
+### 2. Kiểm chứng tính toàn vẹn và Nhất quán Phân tán
+- **Tổng doanh thu toàn hệ thống:** Đạt giá trị số học chính xác tuyệt đối:  
+  $$\sum \text{revenue} = 9,650,372,000.0 \text{ VNĐ}$$
+- **Kiểm định tính đồng nhất giữa Local và Cluster:**  
+  Dữ liệu đầu ra định dạng Parquet tại `output/local_mode` và `output/cluster_mode` được đối soát chéo bằng hàm kiểm định `pandas.testing.assert_frame_equal()`. Kết quả trả về `True` (khớp chính xác 41/41 dòng, 100% các ô giá trị và kiểu dữ liệu), chứng minh sự độc lập của kết quả xử lý đối với kiến trúc thực thi hạ tầng.
+
+### 3. Cấu trúc Phân vùng Lưu trữ (Partitioning Layout)
+Kết quả phân tích được lưu trữ tại `output/.../revenue_by_month_category/` tuân thủ nghiêm ngặt chuẩn cấu trúc Hive Partitioning:
+```text
+revenue_by_month_category/
+├── _SUCCESS                          # Tệp đánh dấu job ghi thành công toàn vẹn
+├── month=2026-02/                    # Phân vùng dữ liệu tháng 2/2026
+│   └── part-00000-...c000.snappy.parquet
+├── month=2026-03/
+│   └── part-00000-...c000.snappy.parquet
+├── ...
+└── month=2026-08/                    # Phân vùng dữ liệu tháng 8/2026
+    └── part-00000-...c000.snappy.parquet
+```
+
+---
+
+## VIII. CÁC BẪY KỸ THUẬT & HƯỚNG DẪN XỬ LÝ SỰ CỐ (Troubleshooting Guide)
+
+| Hiện tượng lỗi | Nguyên nhân gốc rễ (Root Cause) | Giải pháp xử lý chuẩn kỹ thuật |
+|---|---|---|
+| `OCI runtime exec failed: ... exec: "C:/Program Files/Git/...": no such file or directory` | Trình biên dịch MSYS2 của Git Bash tự ý chuyển đổi đường dẫn Unix `/opt/...` sang đường dẫn Windows. | Thực thi lệnh `export MSYS_NO_PATHCONV=1` trong phiên làm việc hiện tại trước khi gọi `docker exec`. |
+| Job phân tán bị treo vĩnh viễn ở trạng thái `WAITING`, không nhận Worker | Cấu hình `--executor-memory` vượt quá ngưỡng RAM khả dụng của Worker (mặc định Spark xin 1024m trong khi Worker chỉ có 640m). | Khai báo tường minh tham số tài nguyên: `--executor-memory 512m --executor-cores 1 --total-executor-cores 2`. |
+| Lỗi `AnalysisException: Path does not exist: /opt/spark-data/...` | Thư mục dữ liệu chưa được đưa vào mount point của Spark container (`Spark/data`). | Đảm bảo dữ liệu đã được sao chép vào `Spark/data/session10_pyspark/` trước khi thực thi. |
+| Container `spark-master` bị dừng đột ngột (Exit Code 137 / OOMKilled) | Chạy đồng thời nhiều job PySpark `local[*]` bên trong container Master làm vượt ngưỡng giới hạn RAM (`mem_limit: 1536m`). | Đóng các phiên làm việc cũ trước khi chạy job mới (`docker top spark-master`), hoặc chuyển sang chạy trên Cluster mode. |
+
+---
+
+## IX. CÂU HỎI THẢO LUẬN & BÀI TẬP MỞ RỘNG (Review Questions & Lab Assignments)
+
+Sinh viên chuẩn bị câu trả lời cho các câu hỏi sau để bảo vệ bài thực hành:
+
+1. **Về Chiến lược Nối dữ liệu (Join Strategies):**  
+   *Câu hỏi:* Tại sao phép nối giữa `order_items` và `products` được Catalyst tự động chọn là `BroadcastHashJoin`? Trong kịch bản thực tế khi bảng `products` tăng trưởng lên 50 triệu bản ghi (dung lượng ~15 GB), Catalyst sẽ chuyển sang thuật toán nối nào? Phân tích chi phí mạng (Network I/O) của thuật toán đó.
+
+2. **Về Thiết kế Lưu trữ Phân vùng (Partitioning Strategy):**  
+   *Câu hỏi:* Trong bài tập, chúng ta thực hiện `partitionBy("month")`. Giả sử hệ thống nhận thêm yêu cầu phân vùng kết quả theo cả mã danh mục sản phẩm: `.partitionBy("month", "category_id")`. Hãy đánh giá ưu điểm và rủi ro kỹ thuật (đặc biệt là vấn đề **Small Files Problem**) khi áp dụng chiến lược phân vùng đa cấp này.
+
+3. **Về Phân tích Kế hoạch Thực thi (Execution DAG):**  
+   *Câu hỏi:* Dựa vào physical plan ở Mục VI, hãy giải thích tại sao giai đoạn tổng hợp dữ liệu lại xuất hiện 2 lần toán tử `HashAggregate` (Partial HashAggregate và Final HashAggregate)? Kỹ thuật này mang lại lợi ích gì cho hiệu năng đường truyền mạng so với việc chỉ gom nhóm một lần duy nhất tại đích?
+
+4. **Bài tập nâng cao (Hands-on Challenge):**  
+   *Yêu cầu:* Hãy hiệu chỉnh kịch bản `process_retailstream.py` để bổ sung chỉ số:  
+   **Tỷ trọng doanh thu của từng danh mục sản phẩm so với tổng doanh thu của toàn bộ tháng đó (Percentage of Monthly Revenue)**.  
+   *Gợi ý:* Sử dụng kỹ thuật hàm cửa sổ (**PySpark Window Function**) với `Window.partitionBy("month")` kết hợp cùng `F.sum("revenue").over(...)`.

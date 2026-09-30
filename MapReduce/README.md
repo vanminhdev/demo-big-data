@@ -354,3 +354,24 @@ bash scripts/stop-cluster.sh
 | **YARN / ResourceManager / NodeManager** | YARN là "người điều phối tài nguyên" cho cả cụm — quyết định job nào chạy ở đâu, dùng bao nhiêu CPU/RAM. ResourceManager là bộ não trung tâm, NodeManager là "cánh tay" chạy trên từng máy để thực thi. Có YARN thì job mới thực sự chạy phân tán qua nhiều máy; không có YARN, job chạy gói gọn trong 1 tiến trình (gọi là **LocalJobRunner**) — vẫn đúng kết quả nhưng không phải chạy phân tán thật. |
 | **ApplicationMaster (AM/AppMaster)** | "Người quản lý" của MỘT job cụ thể khi chạy trên YARN — do ResourceManager cấp phát, có nhiệm vụ xin thêm tài nguyên (container) từ ResourceManager và theo dõi tiến độ các Mapper/Reducer của job đó. Mỗi job có 1 ApplicationMaster riêng. |
 | **numReduceTasks** | Số lượng "luồng Reduce" chạy song song — càng nhiều thì kết quả bị chia thành càng nhiều file đầu ra nhỏ hơn. |
+
+## Bổ sung (Buổi 7): tính trung bình
+
+Ví dụ minh họa thiết kế key–value cho phép tính không cộng dồn trực tiếp được.
+
+```bash
+# thử cục bộ bằng ống Unix
+cat ../00_shared_data/sample/web_logs_sample.jsonl | python mapper_avg.py | sort -k1,1 | python reducer_avg.py
+# chạy trên YARN (cần cụm Hdfs và web_logs đã nằm trên HDFS)
+bash scripts/run-avg-job.sh
+```
+
+Mapper phát `(status_code, "response_time_ms,1")`; Reducer cộng tổng và số lượng rồi mới chia. Kết quả (khớp với tính bằng Python thuần):
+
+| status_code | số lượng | tổng (ms) | trung bình (ms) |
+|---|---:|---:|---:|
+| 200 | 183 | 110590 | 604,32 |
+| 404 | 6 | 2750 | 458,33 |
+| 500 | 11 | 9047 | 822,45 |
+
+Trung bình của ba con số trung bình là 628,37 (sai); trung bình đúng của toàn bộ 200 bản ghi là 611,93.

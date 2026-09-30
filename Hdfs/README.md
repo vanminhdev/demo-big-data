@@ -360,3 +360,9 @@ Mở trình duyệt:
 | **Block / Replication** | Block = 1 mảnh của file lớn. Replication = số bản sao của mỗi mảnh (ví dụ 2 nghĩa là mỗi mảnh được lưu ở 2 DataNode khác nhau, để nếu 1 cái hỏng vẫn còn bản kia). |
 | **Heartbeat** | Tín hiệu "tôi vẫn sống" mà DataNode gửi định kỳ cho NameNode. Nếu NameNode không nhận được tín hiệu này trong một khoảng thời gian (mặc định ~10.5 phút), mới coi DataNode đó là "chết". |
 | **fsck** | Lệnh kiểm tra "sức khoẻ" của file/hệ thống lưu trữ (file có đủ bản sao không, có bị hỏng không). |
+
+## Bổ sung 2026-09-30: tệp nhiều block và cụm 2 NodeManager
+
+- `bash scripts/b06-blocks.sh`: upload `00_shared_data/lab/web_logs.jsonl` (20,9 MB) với block size 4 MB (chỉ cho tệp này) → 5 block, mỗi block 2 bản sao trên 2 DataNode. Log mẫu: `evidence/b06_blocks.log`.
+- `docker-compose.yml` có thêm `nodemanager2` (cổng UI 8043). Cả hai NodeManager được cấp 1536 MB cho YARN, `mem_limit` 2048 MB (Docker Desktop trên máy giảng viên chỉ có khoảng 4 GB RAM).
+- ResourceManager dùng **FairScheduler**. Với CapacityScheduler, map task bị xếp lần lượt từng cái vì scheduler chờ node-local, mà trong cụm Docker NodeManager và DataNode là hai container khác nhau.

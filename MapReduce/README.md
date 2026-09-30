@@ -375,3 +375,14 @@ Mapper phát `(status_code, "response_time_ms,1")`; Reducer cộng tổng và s�
 | 500 | 11 | 9047 | 822,45 |
 
 Trung bình của ba con số trung bình là 628,37 (sai); trung bình đúng của toàn bộ 200 bản ghi là 611,93.
+
+## Bổ sung 2026-09-30: job trên 5 block, 2 NodeManager
+
+```bash
+bash ../Hdfs/scripts/b06-blocks.sh      # đưa web_logs bản lab (5 block) lên HDFS
+bash scripts/run-b07-lab.sh             # 5 map + 2 reduce, in node chạy từng task
+```
+
+Kết quả (`evidence/b07_lab_run.log`): `number of splits:5`, 5 map chia 3/2 cho `nodemanager1`/`nodemanager2`, 2 tệp `part-0000x`, 16.738 lượt xem của 4.830 sản phẩm (khớp phép đếm độc lập bằng Python). `Rack-local map tasks=5`: không có map nào data-local, vì NodeManager không chạy cùng container với DataNode.
+
+Phải truyền `-D yarn.app.mapreduce.am.resource.mb=512`. Nếu không, ApplicationMaster lấy mặc định 1536 MB, chiếm trọn một NodeManager, và mọi task dồn về node còn lại.

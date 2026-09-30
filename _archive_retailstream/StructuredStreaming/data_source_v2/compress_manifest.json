@@ -1,0 +1,67 @@
+{
+  "source_file": "00_shared_data/sample/clickstream_sample.jsonl (KHONG sua, chi doc)",
+  "record_count": 200,
+  "formula": "new_event_time = ANCHOR + (event_time - min(event_time)) * SCALE, SCALE = target_span_seconds / original_span_seconds",
+  "original_span": {
+    "min_event_time": "2026-08-05T05:57:18+00:00",
+    "max_event_time": "2026-08-19T16:42:52+00:00",
+    "span_seconds": 1248334.0,
+    "span_days": 14.448310185185186
+  },
+  "target_span_seconds": 5400,
+  "scale_factor": 0.0043257653800985955,
+  "compression_ratio": 231.17296296296297,
+  "anchor_utc": "2026-08-20T09:00:00+00:00",
+  "compressed_span": {
+    "min_event_time": "2026-08-20T09:00:00+00:00",
+    "max_event_time": "2026-08-20T10:30:00+00:00",
+    "span_seconds": 5400.0
+  },
+  "unchanged_fields": [
+    "event_id",
+    "customer_id",
+    "session_id",
+    "product_id",
+    "event_type"
+  ],
+  "changed_fields": [
+    "event_time"
+  ],
+  "sample_before_after": [
+    {
+      "event_id": "CEV000155",
+      "event_time_original": "2026-08-05T05:57:18+00:00",
+      "event_time_compressed": "2026-08-20T09:00:00+00:00"
+    },
+    {
+      "event_id": "CEV000026",
+      "event_time_original": "2026-08-05T13:21:14+00:00",
+      "event_time_compressed": "2026-08-20T09:01:55.221087+00:00"
+    },
+    {
+      "event_id": "CEV000185",
+      "event_time_original": "2026-08-05T14:01:10+00:00",
+      "event_time_compressed": "2026-08-20T09:02:05.585620+00:00"
+    },
+    {
+      "event_id": "CEV000112",
+      "event_time_original": "2026-08-12T20:10:42+00:00",
+      "event_time_compressed": "2026-08-20T09:47:17.719392+00:00"
+    },
+    {
+      "event_id": "CEV000062",
+      "event_time_original": "2026-08-19T05:39:22+00:00",
+      "event_time_compressed": "2026-08-20T10:27:07.791280+00:00"
+    },
+    {
+      "event_id": "CEV000118",
+      "event_time_original": "2026-08-19T06:31:41+00:00",
+      "event_time_compressed": "2026-08-20T10:27:21.369858+00:00"
+    },
+    {
+      "event_id": "CEV000085",
+      "event_time_original": "2026-08-19T16:42:52+00:00",
+      "event_time_compressed": "2026-08-20T10:30:00+00:00"
+    }
+  ]
+}

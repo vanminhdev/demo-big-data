@@ -1,0 +1,41 @@
+{
+  "auc": 0.5117425524857946,
+  "accuracy": 0.5332112704709592,
+  "f1_weighted": 0.6245467330024119,
+  "precision_label1_cancelled": 0.10534384581690757,
+  "recall_label1_cancelled": 0.4883248730964467,
+  "confusion_matrix": [
+    {
+      "label": 0.0,
+      "prediction": 0.0,
+      "count": 4761
+    },
+    {
+      "label": 0.0,
+      "prediction": 1.0,
+      "count": 4085
+    },
+    {
+      "label": 1.0,
+      "prediction": 0.0,
+      "count": 504
+    },
+    {
+      "label": 1.0,
+      "prediction": 1.0,
+      "count": 481
+    }
+  ],
+  "run_tag": "local_mode",
+  "spark_master_url_config": "local[*]",
+  "spark_master_actual": "local[*]",
+  "application_id": "local-1787206578595",
+  "seed": 42,
+  "test_fraction": 0.2,
+  "class_weights_from_train": {
+    "1.0": 4.9444854751354015,
+    "0.0": 0.5562494807101116
+  },
+  "reload_prediction_match": true,
+  "feature_df_num_partitions": 8
+}

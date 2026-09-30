@@ -1,0 +1,15 @@
+{
+  "scale": "sample",
+  "seed": 2026,
+  "rows": {
+    "zones": 12,
+    "drivers": 40,
+    "trips": 200,
+    "trip_payments": 174
+  },
+  "trip_status": {
+    "completed": 165,
+    "rider_cancelled": 28,
+    "driver_cancelled": 7
+  }
+}

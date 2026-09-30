@@ -1,0 +1,2 @@
+This lab package is instructional material prepared for classroom use.
+The referenced Apache Kafka and Kafka UI software remain under their respective licenses.

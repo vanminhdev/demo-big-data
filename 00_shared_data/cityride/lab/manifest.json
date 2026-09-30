@@ -1,0 +1,15 @@
+{
+  "scale": "lab",
+  "seed": 2026,
+  "rows": {
+    "zones": 12,
+    "drivers": 2000,
+    "trips": 300000,
+    "trip_payments": 254031
+  },
+  "trip_status": {
+    "completed": 239879,
+    "rider_cancelled": 51107,
+    "driver_cancelled": 9014
+  }
+}

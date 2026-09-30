@@ -10,9 +10,20 @@ Kafka/checkpoint/
 Spark/data/
 Hdfs/data/
 MongoDb/data/
-StructuredStreaming/**/checkpoint/
-StructuredStreaming/**/data/
+tmp/
 *.log
+
+# Checkpoints & streaming state (all services and archive folders)
+**/checkpoint/
+**/checkpoint_*/
+**/checkpoint/**
+**/logs/
+**/logs_*/
+
+# Spark / Hadoop temporary & checksum files
+*.crc
+.tmp*
+_temporary/
 
 # Python
 __pycache__/
@@ -37,5 +48,3 @@ Thumbs.db
 
 # Archives
 *.zip
-
-tmp/

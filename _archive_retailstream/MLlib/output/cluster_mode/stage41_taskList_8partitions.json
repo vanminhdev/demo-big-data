@@ -1,0 +1,521 @@
+[ {
+  "taskId" : 33,
+  "index" : 0,
+  "attempt" : 0,
+  "partitionId" : 0,
+  "launchTime" : "2026-08-20T06:18:07.345GMT",
+  "duration" : 259,
+  "executorId" : "0",
+  "host" : "172.20.0.3",
+  "status" : "SUCCESS",
+  "taskLocality" : "PROCESS_LOCAL",
+  "speculative" : false,
+  "accumulatorUpdates" : [ ],
+  "taskMetrics" : {
+    "executorDeserializeTime" : 104,
+    "executorDeserializeCpuTime" : 29305700,
+    "executorRunTime" : 97,
+    "executorCpuTime" : 40054500,
+    "resultSize" : 7050,
+    "jvmGcTime" : 0,
+    "resultSerializationTime" : 0,
+    "memoryBytesSpilled" : 0,
+    "diskBytesSpilled" : 0,
+    "peakExecutionMemory" : 0,
+    "inputMetrics" : {
+      "bytesRead" : 259424,
+      "recordsRead" : 1
+    },
+    "outputMetrics" : {
+      "bytesWritten" : 0,
+      "recordsWritten" : 0
+    },
+    "shuffleReadMetrics" : {
+      "remoteBlocksFetched" : 0,
+      "localBlocksFetched" : 0,
+      "fetchWaitTime" : 0,
+      "remoteBytesRead" : 0,
+      "remoteBytesReadToDisk" : 0,
+      "localBytesRead" : 0,
+      "recordsRead" : 0,
+      "remoteReqsDuration" : 0,
+      "shufflePushReadMetrics" : {
+        "corruptMergedBlockChunks" : 0,
+        "mergedFetchFallbackCount" : 0,
+        "remoteMergedBlocksFetched" : 0,
+        "localMergedBlocksFetched" : 0,
+        "remoteMergedChunksFetched" : 0,
+        "localMergedChunksFetched" : 0,
+        "remoteMergedBytesRead" : 0,
+        "localMergedBytesRead" : 0,
+        "remoteMergedReqsDuration" : 0
+      }
+    },
+    "shuffleWriteMetrics" : {
+      "bytesWritten" : 59,
+      "writeTime" : 614031,
+      "recordsWritten" : 1
+    }
+  },
+  "executorLogs" : {
+    "stdout" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stdout",
+    "stderr" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stderr"
+  },
+  "schedulerDelay" : 58,
+  "gettingResultTime" : 0
+}, {
+  "taskId" : 34,
+  "index" : 1,
+  "attempt" : 0,
+  "partitionId" : 1,
+  "launchTime" : "2026-08-20T06:18:07.603GMT",
+  "duration" : 69,
+  "executorId" : "0",
+  "host" : "172.20.0.3",
+  "status" : "SUCCESS",
+  "taskLocality" : "PROCESS_LOCAL",
+  "speculative" : false,
+  "accumulatorUpdates" : [ ],
+  "taskMetrics" : {
+    "executorDeserializeTime" : 14,
+    "executorDeserializeCpuTime" : 8626500,
+    "executorRunTime" : 8,
+    "executorCpuTime" : 4752700,
+    "resultSize" : 7093,
+    "jvmGcTime" : 0,
+    "resultSerializationTime" : 4,
+    "memoryBytesSpilled" : 0,
+    "diskBytesSpilled" : 0,
+    "peakExecutionMemory" : 0,
+    "inputMetrics" : {
+      "bytesRead" : 257640,
+      "recordsRead" : 1
+    },
+    "outputMetrics" : {
+      "bytesWritten" : 0,
+      "recordsWritten" : 0
+    },
+    "shuffleReadMetrics" : {
+      "remoteBlocksFetched" : 0,
+      "localBlocksFetched" : 0,
+      "fetchWaitTime" : 0,
+      "remoteBytesRead" : 0,
+      "remoteBytesReadToDisk" : 0,
+      "localBytesRead" : 0,
+      "recordsRead" : 0,
+      "remoteReqsDuration" : 0,
+      "shufflePushReadMetrics" : {
+        "corruptMergedBlockChunks" : 0,
+        "mergedFetchFallbackCount" : 0,
+        "remoteMergedBlocksFetched" : 0,
+        "localMergedBlocksFetched" : 0,
+        "remoteMergedChunksFetched" : 0,
+        "localMergedChunksFetched" : 0,
+        "remoteMergedBytesRead" : 0,
+        "localMergedBytesRead" : 0,
+        "remoteMergedReqsDuration" : 0
+      }
+    },
+    "shuffleWriteMetrics" : {
+      "bytesWritten" : 59,
+      "writeTime" : 439822,
+      "recordsWritten" : 1
+    }
+  },
+  "executorLogs" : {
+    "stdout" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stdout",
+    "stderr" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stderr"
+  },
+  "schedulerDelay" : 43,
+  "gettingResultTime" : 0
+}, {
+  "taskId" : 35,
+  "index" : 2,
+  "attempt" : 0,
+  "partitionId" : 2,
+  "launchTime" : "2026-08-20T06:18:07.667GMT",
+  "duration" : 84,
+  "executorId" : "0",
+  "host" : "172.20.0.3",
+  "status" : "SUCCESS",
+  "taskLocality" : "PROCESS_LOCAL",
+  "speculative" : false,
+  "accumulatorUpdates" : [ ],
+  "taskMetrics" : {
+    "executorDeserializeTime" : 33,
+    "executorDeserializeCpuTime" : 7646600,
+    "executorRunTime" : 14,
+    "executorCpuTime" : 6360000,
+    "resultSize" : 7093,
+    "jvmGcTime" : 10,
+    "resultSerializationTime" : 0,
+    "memoryBytesSpilled" : 0,
+    "diskBytesSpilled" : 0,
+    "peakExecutionMemory" : 0,
+    "inputMetrics" : {
+      "bytesRead" : 256776,
+      "recordsRead" : 1
+    },
+    "outputMetrics" : {
+      "bytesWritten" : 0,
+      "recordsWritten" : 0
+    },
+    "shuffleReadMetrics" : {
+      "remoteBlocksFetched" : 0,
+      "localBlocksFetched" : 0,
+      "fetchWaitTime" : 0,
+      "remoteBytesRead" : 0,
+      "remoteBytesReadToDisk" : 0,
+      "localBytesRead" : 0,
+      "recordsRead" : 0,
+      "remoteReqsDuration" : 0,
+      "shufflePushReadMetrics" : {
+        "corruptMergedBlockChunks" : 0,
+        "mergedFetchFallbackCount" : 0,
+        "remoteMergedBlocksFetched" : 0,
+        "localMergedBlocksFetched" : 0,
+        "remoteMergedChunksFetched" : 0,
+        "localMergedChunksFetched" : 0,
+        "remoteMergedBytesRead" : 0,
+        "localMergedBytesRead" : 0,
+        "remoteMergedReqsDuration" : 0
+      }
+    },
+    "shuffleWriteMetrics" : {
+      "bytesWritten" : 59,
+      "writeTime" : 620133,
+      "recordsWritten" : 1
+    }
+  },
+  "executorLogs" : {
+    "stdout" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stdout",
+    "stderr" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stderr"
+  },
+  "schedulerDelay" : 37,
+  "gettingResultTime" : 0
+}, {
+  "taskId" : 36,
+  "index" : 3,
+  "attempt" : 0,
+  "partitionId" : 3,
+  "launchTime" : "2026-08-20T06:18:07.747GMT",
+  "duration" : 71,
+  "executorId" : "0",
+  "host" : "172.20.0.3",
+  "status" : "SUCCESS",
+  "taskLocality" : "PROCESS_LOCAL",
+  "speculative" : false,
+  "accumulatorUpdates" : [ ],
+  "taskMetrics" : {
+    "executorDeserializeTime" : 23,
+    "executorDeserializeCpuTime" : 8308300,
+    "executorRunTime" : 18,
+    "executorCpuTime" : 7161300,
+    "resultSize" : 7050,
+    "jvmGcTime" : 0,
+    "resultSerializationTime" : 0,
+    "memoryBytesSpilled" : 0,
+    "diskBytesSpilled" : 0,
+    "peakExecutionMemory" : 0,
+    "inputMetrics" : {
+      "bytesRead" : 259928,
+      "recordsRead" : 1
+    },
+    "outputMetrics" : {
+      "bytesWritten" : 0,
+      "recordsWritten" : 0
+    },
+    "shuffleReadMetrics" : {
+      "remoteBlocksFetched" : 0,
+      "localBlocksFetched" : 0,
+      "fetchWaitTime" : 0,
+      "remoteBytesRead" : 0,
+      "remoteBytesReadToDisk" : 0,
+      "localBytesRead" : 0,
+      "recordsRead" : 0,
+      "remoteReqsDuration" : 0,
+      "shufflePushReadMetrics" : {
+        "corruptMergedBlockChunks" : 0,
+        "mergedFetchFallbackCount" : 0,
+        "remoteMergedBlocksFetched" : 0,
+        "localMergedBlocksFetched" : 0,
+        "remoteMergedChunksFetched" : 0,
+        "localMergedChunksFetched" : 0,
+        "remoteMergedBytesRead" : 0,
+        "localMergedBytesRead" : 0,
+        "remoteMergedReqsDuration" : 0
+      }
+    },
+    "shuffleWriteMetrics" : {
+      "bytesWritten" : 59,
+      "writeTime" : 1505679,
+      "recordsWritten" : 1
+    }
+  },
+  "executorLogs" : {
+    "stdout" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stdout",
+    "stderr" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stderr"
+  },
+  "schedulerDelay" : 30,
+  "gettingResultTime" : 0
+}, {
+  "taskId" : 37,
+  "index" : 4,
+  "attempt" : 0,
+  "partitionId" : 4,
+  "launchTime" : "2026-08-20T06:18:07.814GMT",
+  "duration" : 68,
+  "executorId" : "0",
+  "host" : "172.20.0.3",
+  "status" : "SUCCESS",
+  "taskLocality" : "PROCESS_LOCAL",
+  "speculative" : false,
+  "accumulatorUpdates" : [ ],
+  "taskMetrics" : {
+    "executorDeserializeTime" : 18,
+    "executorDeserializeCpuTime" : 8553100,
+    "executorRunTime" : 26,
+    "executorCpuTime" : 6334900,
+    "resultSize" : 7050,
+    "jvmGcTime" : 0,
+    "resultSerializationTime" : 0,
+    "memoryBytesSpilled" : 0,
+    "diskBytesSpilled" : 0,
+    "peakExecutionMemory" : 0,
+    "inputMetrics" : {
+      "bytesRead" : 257184,
+      "recordsRead" : 1
+    },
+    "outputMetrics" : {
+      "bytesWritten" : 0,
+      "recordsWritten" : 0
+    },
+    "shuffleReadMetrics" : {
+      "remoteBlocksFetched" : 0,
+      "localBlocksFetched" : 0,
+      "fetchWaitTime" : 0,
+      "remoteBytesRead" : 0,
+      "remoteBytesReadToDisk" : 0,
+      "localBytesRead" : 0,
+      "recordsRead" : 0,
+      "remoteReqsDuration" : 0,
+      "shufflePushReadMetrics" : {
+        "corruptMergedBlockChunks" : 0,
+        "mergedFetchFallbackCount" : 0,
+        "remoteMergedBlocksFetched" : 0,
+        "localMergedBlocksFetched" : 0,
+        "remoteMergedChunksFetched" : 0,
+        "localMergedChunksFetched" : 0,
+        "remoteMergedBytesRead" : 0,
+        "localMergedBytesRead" : 0,
+        "remoteMergedReqsDuration" : 0
+      }
+    },
+    "shuffleWriteMetrics" : {
+      "bytesWritten" : 59,
+      "writeTime" : 577932,
+      "recordsWritten" : 1
+    }
+  },
+  "executorLogs" : {
+    "stdout" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stdout",
+    "stderr" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stderr"
+  },
+  "schedulerDelay" : 24,
+  "gettingResultTime" : 0
+}, {
+  "taskId" : 38,
+  "index" : 5,
+  "attempt" : 0,
+  "partitionId" : 5,
+  "launchTime" : "2026-08-20T06:18:07.878GMT",
+  "duration" : 68,
+  "executorId" : "0",
+  "host" : "172.20.0.3",
+  "status" : "SUCCESS",
+  "taskLocality" : "PROCESS_LOCAL",
+  "speculative" : false,
+  "accumulatorUpdates" : [ ],
+  "taskMetrics" : {
+    "executorDeserializeTime" : 14,
+    "executorDeserializeCpuTime" : 6231600,
+    "executorRunTime" : 29,
+    "executorCpuTime" : 7452400,
+    "resultSize" : 7093,
+    "jvmGcTime" : 0,
+    "resultSerializationTime" : 1,
+    "memoryBytesSpilled" : 0,
+    "diskBytesSpilled" : 0,
+    "peakExecutionMemory" : 0,
+    "inputMetrics" : {
+      "bytesRead" : 256480,
+      "recordsRead" : 1
+    },
+    "outputMetrics" : {
+      "bytesWritten" : 0,
+      "recordsWritten" : 0
+    },
+    "shuffleReadMetrics" : {
+      "remoteBlocksFetched" : 0,
+      "localBlocksFetched" : 0,
+      "fetchWaitTime" : 0,
+      "remoteBytesRead" : 0,
+      "remoteBytesReadToDisk" : 0,
+      "localBytesRead" : 0,
+      "recordsRead" : 0,
+      "remoteReqsDuration" : 0,
+      "shufflePushReadMetrics" : {
+        "corruptMergedBlockChunks" : 0,
+        "mergedFetchFallbackCount" : 0,
+        "remoteMergedBlocksFetched" : 0,
+        "localMergedBlocksFetched" : 0,
+        "remoteMergedChunksFetched" : 0,
+        "localMergedChunksFetched" : 0,
+        "remoteMergedBytesRead" : 0,
+        "localMergedBytesRead" : 0,
+        "remoteMergedReqsDuration" : 0
+      }
+    },
+    "shuffleWriteMetrics" : {
+      "bytesWritten" : 59,
+      "writeTime" : 3670095,
+      "recordsWritten" : 1
+    }
+  },
+  "executorLogs" : {
+    "stdout" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stdout",
+    "stderr" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stderr"
+  },
+  "schedulerDelay" : 24,
+  "gettingResultTime" : 0
+}, {
+  "taskId" : 39,
+  "index" : 6,
+  "attempt" : 0,
+  "partitionId" : 6,
+  "launchTime" : "2026-08-20T06:18:07.937GMT",
+  "duration" : 58,
+  "executorId" : "0",
+  "host" : "172.20.0.3",
+  "status" : "SUCCESS",
+  "taskLocality" : "PROCESS_LOCAL",
+  "speculative" : false,
+  "accumulatorUpdates" : [ ],
+  "taskMetrics" : {
+    "executorDeserializeTime" : 13,
+    "executorDeserializeCpuTime" : 6456600,
+    "executorRunTime" : 13,
+    "executorCpuTime" : 4669000,
+    "resultSize" : 7050,
+    "jvmGcTime" : 0,
+    "resultSerializationTime" : 0,
+    "memoryBytesSpilled" : 0,
+    "diskBytesSpilled" : 0,
+    "peakExecutionMemory" : 0,
+    "inputMetrics" : {
+      "bytesRead" : 257184,
+      "recordsRead" : 1
+    },
+    "outputMetrics" : {
+      "bytesWritten" : 0,
+      "recordsWritten" : 0
+    },
+    "shuffleReadMetrics" : {
+      "remoteBlocksFetched" : 0,
+      "localBlocksFetched" : 0,
+      "fetchWaitTime" : 0,
+      "remoteBytesRead" : 0,
+      "remoteBytesReadToDisk" : 0,
+      "localBytesRead" : 0,
+      "recordsRead" : 0,
+      "remoteReqsDuration" : 0,
+      "shufflePushReadMetrics" : {
+        "corruptMergedBlockChunks" : 0,
+        "mergedFetchFallbackCount" : 0,
+        "remoteMergedBlocksFetched" : 0,
+        "localMergedBlocksFetched" : 0,
+        "remoteMergedChunksFetched" : 0,
+        "localMergedChunksFetched" : 0,
+        "remoteMergedBytesRead" : 0,
+        "localMergedBytesRead" : 0,
+        "remoteMergedReqsDuration" : 0
+      }
+    },
+    "shuffleWriteMetrics" : {
+      "bytesWritten" : 59,
+      "writeTime" : 443424,
+      "recordsWritten" : 1
+    }
+  },
+  "executorLogs" : {
+    "stdout" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stdout",
+    "stderr" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stderr"
+  },
+  "schedulerDelay" : 32,
+  "gettingResultTime" : 0
+}, {
+  "taskId" : 40,
+  "index" : 7,
+  "attempt" : 0,
+  "partitionId" : 7,
+  "launchTime" : "2026-08-20T06:18:07.992GMT",
+  "duration" : 68,
+  "executorId" : "0",
+  "host" : "172.20.0.3",
+  "status" : "SUCCESS",
+  "taskLocality" : "PROCESS_LOCAL",
+  "speculative" : false,
+  "accumulatorUpdates" : [ ],
+  "taskMetrics" : {
+    "executorDeserializeTime" : 17,
+    "executorDeserializeCpuTime" : 6395900,
+    "executorRunTime" : 28,
+    "executorCpuTime" : 5709500,
+    "resultSize" : 7050,
+    "jvmGcTime" : 0,
+    "resultSerializationTime" : 0,
+    "memoryBytesSpilled" : 0,
+    "diskBytesSpilled" : 0,
+    "peakExecutionMemory" : 0,
+    "inputMetrics" : {
+      "bytesRead" : 257384,
+      "recordsRead" : 1
+    },
+    "outputMetrics" : {
+      "bytesWritten" : 0,
+      "recordsWritten" : 0
+    },
+    "shuffleReadMetrics" : {
+      "remoteBlocksFetched" : 0,
+      "localBlocksFetched" : 0,
+      "fetchWaitTime" : 0,
+      "remoteBytesRead" : 0,
+      "remoteBytesReadToDisk" : 0,
+      "localBytesRead" : 0,
+      "recordsRead" : 0,
+      "remoteReqsDuration" : 0,
+      "shufflePushReadMetrics" : {
+        "corruptMergedBlockChunks" : 0,
+        "mergedFetchFallbackCount" : 0,
+        "remoteMergedBlocksFetched" : 0,
+        "localMergedBlocksFetched" : 0,
+        "remoteMergedChunksFetched" : 0,
+        "localMergedChunksFetched" : 0,
+        "remoteMergedBytesRead" : 0,
+        "localMergedBytesRead" : 0,
+        "remoteMergedReqsDuration" : 0
+      }
+    },
+    "shuffleWriteMetrics" : {
+      "bytesWritten" : 59,
+      "writeTime" : 517128,
+      "recordsWritten" : 1
+    }
+  },
+  "executorLogs" : {
+    "stdout" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stdout",
+    "stderr" : "http://172.20.0.3:8082/logPage/?appId=app-20260820061723-0006&executorId=0&logType=stderr"
+  },
+  "schedulerDelay" : 23,
+  "gettingResultTime" : 0
+} ]

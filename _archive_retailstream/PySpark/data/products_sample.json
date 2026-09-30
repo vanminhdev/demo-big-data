@@ -1,0 +1,782 @@
+[
+  {
+    "product_id": "PROD00001",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Nimbus #1",
+    "brand": "Aurora",
+    "price": 8292000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-08-08T08:43:26+00:00"
+  },
+  {
+    "product_id": "PROD00002",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Vertex #2",
+    "brand": "Kestrel",
+    "price": 976000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-06T23:40:49+00:00"
+  },
+  {
+    "product_id": "PROD00003",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Solace #3",
+    "brand": "Aurora",
+    "price": 24606000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-08-04T00:53:51+00:00"
+  },
+  {
+    "product_id": "PROD00004",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Kestrel #4",
+    "brand": "Kestrel",
+    "price": 13008000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-24T05:06:27+00:00"
+  },
+  {
+    "product_id": "PROD00005",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Marlow #5",
+    "brand": "Marlow",
+    "price": 15586000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-19T22:24:18+00:00"
+  },
+  {
+    "product_id": "PROD00006",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Aurora #6",
+    "brand": "Vertex",
+    "price": 10072000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 12
+    },
+    "updated_at": "2026-08-07T20:27:24+00:00"
+  },
+  {
+    "product_id": "PROD00007",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Nimbus #7",
+    "brand": "Nimbus",
+    "price": 16939000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-25T20:04:33+00:00"
+  },
+  {
+    "product_id": "PROD00008",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Vertex #8",
+    "brand": "Solace",
+    "price": 7187000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-22T16:14:50+00:00"
+  },
+  {
+    "product_id": "PROD00009",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Solace #9",
+    "brand": "Marlow",
+    "price": 12789000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-08-02T08:04:44+00:00"
+  },
+  {
+    "product_id": "PROD00010",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Kestrel #10",
+    "brand": "Nimbus",
+    "price": 8393000.0,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-07-02T11:09:37+00:00"
+  },
+  {
+    "product_id": "PROD00011",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Marlow #11",
+    "brand": "Solace",
+    "price": 6136000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-22T19:49:10+00:00"
+  },
+  {
+    "product_id": "PROD00012",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Aurora #12",
+    "brand": "Marlow",
+    "price": 4877000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": null
+    },
+    "updated_at": "2026-07-26T21:06:20+00:00"
+  },
+  {
+    "product_id": "PROD00013",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Nimbus #13",
+    "brand": "Aurora",
+    "price": 159000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-08-08T12:41:23+00:00"
+  },
+  {
+    "product_id": "PROD00014",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Vertex #14",
+    "brand": "Kestrel",
+    "price": 11624000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-22T20:15:44+00:00"
+  },
+  {
+    "product_id": "PROD00015",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Solace #15",
+    "brand": "Kestrel",
+    "price": 13288000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 24
+    },
+    "updated_at": "2026-06-23T03:26:24+00:00"
+  },
+  {
+    "product_id": "PROD00016",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Kestrel #16",
+    "brand": "Kestrel",
+    "price": 20379000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": null
+    },
+    "updated_at": "2026-06-26T10:54:58+00:00"
+  },
+  {
+    "product_id": "PROD00017",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Marlow #17",
+    "brand": null,
+    "price": 11263000.0,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": null
+    },
+    "updated_at": "2026-07-13T03:09:59+00:00"
+  },
+  {
+    "product_id": "PROD00018",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Aurora #18",
+    "brand": "Nimbus",
+    "price": 17844000.0,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-31T07:11:40+00:00"
+  },
+  {
+    "product_id": "PROD00019",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Nimbus #19",
+    "brand": "Solace",
+    "price": 3788000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-08-15T18:08:08+00:00"
+  },
+  {
+    "product_id": "PROD00020",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Vertex #20",
+    "brand": "Aurora",
+    "price": 11659000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": null
+    },
+    "updated_at": "2026-07-26T21:26:53+00:00"
+  },
+  {
+    "product_id": "PROD00021",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Solace #21",
+    "brand": "Kestrel",
+    "price": 508000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": null
+    },
+    "updated_at": "2026-08-19T07:25:09+00:00"
+  },
+  {
+    "product_id": "PROD00022",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Kestrel #22",
+    "brand": "Solace",
+    "price": 21339000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 12
+    },
+    "updated_at": "2026-07-21T10:40:19+00:00"
+  },
+  {
+    "product_id": "PROD00023",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Marlow #23",
+    "brand": "Vertex",
+    "price": 745000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-06-29T16:31:20+00:00"
+  },
+  {
+    "product_id": "PROD00024",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Aurora #24",
+    "brand": "Solace",
+    "price": 13362000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 6
+    },
+    "updated_at": "2026-08-14T13:15:27+00:00"
+  },
+  {
+    "product_id": "PROD00025",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Nimbus #25",
+    "brand": "Vertex",
+    "price": 4560000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-08-06T23:41:30+00:00"
+  },
+  {
+    "product_id": "PROD00026",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Vertex #26",
+    "brand": "Solace",
+    "price": 6971000.0,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-22T01:31:50+00:00"
+  },
+  {
+    "product_id": "PROD00027",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Solace #27",
+    "brand": "Vertex",
+    "price": 24998000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-03T12:02:02+00:00"
+  },
+  {
+    "product_id": "PROD00028",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Kestrel #28",
+    "brand": "Nimbus",
+    "price": 23741000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-08-05T05:36:12+00:00"
+  },
+  {
+    "product_id": "PROD00029",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Marlow #29",
+    "brand": "Nimbus",
+    "price": 14108000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-04T19:48:27+00:00"
+  },
+  {
+    "product_id": "PROD00030",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Aurora #30",
+    "brand": "Marlow",
+    "price": 24094000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-06-23T00:18:56+00:00"
+  },
+  {
+    "product_id": "PROD00031",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Nimbus #31",
+    "brand": "Kestrel",
+    "price": 23224000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": null
+    },
+    "updated_at": "2026-06-24T07:43:14+00:00"
+  },
+  {
+    "product_id": "PROD00032",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Vertex #32",
+    "brand": "Marlow",
+    "price": 17272000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-08T21:06:20+00:00"
+  },
+  {
+    "product_id": "PROD00033",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Solace #33",
+    "brand": "Aurora",
+    "price": 15018000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-29T18:10:25+00:00"
+  },
+  {
+    "product_id": "PROD00034",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Kestrel #34",
+    "brand": null,
+    "price": 1743000.0,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-06-29T05:41:50+00:00"
+  },
+  {
+    "product_id": "PROD00035",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Marlow #35",
+    "brand": "Vertex",
+    "price": 10849000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-07-24T04:01:16+00:00"
+  },
+  {
+    "product_id": "PROD00036",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Aurora #36",
+    "brand": "Kestrel",
+    "price": 6767000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": null
+    },
+    "updated_at": "2026-07-24T03:57:32+00:00"
+  },
+  {
+    "product_id": "PROD00037",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Nimbus #37",
+    "brand": "Nimbus",
+    "price": 8071000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-06-27T20:50:32+00:00"
+  },
+  {
+    "product_id": "PROD00038",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Vertex #38",
+    "brand": "Marlow",
+    "price": 14255000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-08-17T11:06:00+00:00"
+  },
+  {
+    "product_id": "PROD00039",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Solace #39",
+    "brand": "Vertex",
+    "price": 12199000.0,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-08-02T15:34:48+00:00"
+  },
+  {
+    "product_id": "PROD00040",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Kestrel #40",
+    "brand": "Kestrel",
+    "price": 13904000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-08-05T03:05:57+00:00"
+  },
+  {
+    "product_id": "PROD00041",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Marlow #41",
+    "brand": "Marlow",
+    "price": 18959000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": null
+    },
+    "updated_at": "2026-07-24T02:13:55+00:00"
+  },
+  {
+    "product_id": "PROD00042",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Aurora #42",
+    "brand": "Marlow",
+    "price": 5555000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-10T19:24:36+00:00"
+  },
+  {
+    "product_id": "PROD00043",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Nimbus #43",
+    "brand": "Solace",
+    "price": 13282000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-29T10:57:24+00:00"
+  },
+  {
+    "product_id": "PROD00044",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Vertex #44",
+    "brand": "Aurora",
+    "price": 6300000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-08-12T07:30:58+00:00"
+  },
+  {
+    "product_id": "PROD00045",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Solace #45",
+    "brand": "Nimbus",
+    "price": 4645000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-07-06T14:08:08+00:00"
+  },
+  {
+    "product_id": "PROD00046",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Kestrel #46",
+    "brand": "Aurora",
+    "price": 14928000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 24
+    },
+    "updated_at": "2026-08-06T04:17:49+00:00"
+  },
+  {
+    "product_id": "PROD00047",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Marlow #47",
+    "brand": "Nimbus",
+    "price": 17706000.0,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-06-22T00:17:16+00:00"
+  },
+  {
+    "product_id": "PROD00048",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Aurora #48",
+    "brand": "Marlow",
+    "price": 23603000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-06-28T02:04:48+00:00"
+  },
+  {
+    "product_id": "PROD00049",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Nimbus #49",
+    "brand": "Vertex",
+    "price": 11978000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-08-04T00:36:41+00:00"
+  },
+  {
+    "product_id": "PROD00050",
+    "category_id": "CAT01",
+    "category_name": "Dien tu",
+    "product_name": "Dien tu Vertex #50",
+    "brand": "Solace",
+    "price": 20556000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-15T17:18:04+00:00"
+  },
+  {
+    "product_id": "PROD00051",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Solace #51",
+    "brand": null,
+    "price": 3747000.0,
+    "attributes": {
+      "color": "xanh",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-06-21T06:02:00+00:00"
+  },
+  {
+    "product_id": "PROD00052",
+    "category_id": "CAT04",
+    "category_name": "Sach",
+    "product_name": "Sach Kestrel #52",
+    "brand": "Kestrel",
+    "price": 15166000.0,
+    "attributes": {
+      "color": "trang",
+      "warranty_months": null
+    },
+    "updated_at": "2026-07-23T13:04:35+00:00"
+  },
+  {
+    "product_id": "PROD00053",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Marlow #53",
+    "brand": "Vertex",
+    "price": 24751000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-13T17:06:33+00:00"
+  },
+  {
+    "product_id": "PROD00054",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Aurora #54",
+    "brand": "Vertex",
+    "price": 15645000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-08-05T01:53:53+00:00"
+  },
+  {
+    "product_id": "PROD00055",
+    "category_id": "CAT02",
+    "category_name": "Thoi trang",
+    "product_name": "Thoi trang Nimbus #55",
+    "brand": "Solace",
+    "price": 87000.0,
+    "attributes": {
+      "color": null,
+      "warranty_months": null
+    },
+    "updated_at": "2026-08-02T07:15:45+00:00"
+  },
+  {
+    "product_id": "PROD00056",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Vertex #56",
+    "brand": "Solace",
+    "price": 7082000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-06-24T19:26:52+00:00"
+  },
+  {
+    "product_id": "PROD00057",
+    "category_id": "CAT06",
+    "category_name": "My pham",
+    "product_name": "My pham Solace #57",
+    "brand": "Nimbus",
+    "price": 14753000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-17T16:56:04+00:00"
+  },
+  {
+    "product_id": "PROD00058",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Kestrel #58",
+    "brand": "Aurora",
+    "price": 20669000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": 12
+    },
+    "updated_at": "2026-07-02T20:55:43+00:00"
+  },
+  {
+    "product_id": "PROD00059",
+    "category_id": "CAT05",
+    "category_name": "Thuc pham",
+    "product_name": "Thuc pham Marlow #59",
+    "brand": "Solace",
+    "price": 23031000.0,
+    "attributes": {
+      "color": "den",
+      "warranty_months": null
+    },
+    "updated_at": "2026-07-09T00:12:35+00:00"
+  },
+  {
+    "product_id": "PROD00060",
+    "category_id": "CAT03",
+    "category_name": "Gia dung",
+    "product_name": "Gia dung Aurora #60",
+    "brand": "Solace",
+    "price": 12522000.0,
+    "attributes": {
+      "color": "do",
+      "warranty_months": 6
+    },
+    "updated_at": "2026-07-14T06:22:13+00:00"
+  }
+]

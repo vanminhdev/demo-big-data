@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" width="100%" height="100%" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#EDF2F7"/>
+    </linearGradient>
+    <filter id="shadow2" x="-2%" y="-2%" width="104%" height="106%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrowBlue2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0B5FA5"/>
+    </marker>
+    <marker id="arrowGreen2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1F7A4D"/>
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1100" height="520" rx="12" fill="url(#bgGrad2)" stroke="#D7DEE8" stroke-width="1.5"/>
+
+  <!-- Title & Subtitle -->
+  <text x="40" y="38" font-size="20" font-weight="bold" fill="#002A5C">QUY TRÌNH 4 BƯỚC BĂM KHÓA (KEY HASHING): VÌ SAO KAFKA GIỮ ĐÚNG THỨ TỰ?</text>
+  <text x="40" y="60" font-size="13" fill="#667085">Giảng viên hướng dẫn từng bước: Từ Khóa chuỗi $\to$ Hàm băm Murmur2 $\to$ Chỉ số Partition $\to$ Đảm bảo thứ tự thời gian</text>
+
+  <!-- ==================== 4 BƯỚC NGANG ==================== -->
+
+  <!-- BƯỚC 1: KHÓA BẢN TIN -->
+  <rect x="35" y="90" width="230" height="230" rx="8" fill="#FFFFFF" stroke="#0B5FA5" stroke-width="1.5" filter="url(#shadow2)"/>
+  <rect x="35" y="90" width="230" height="34" rx="8" fill="#EAF0F6"/>
+  <text x="45" y="113" font-size="13" font-weight="bold" fill="#002A5C">BƯỚC 1: XÁC ĐỊNH KHÓA</text>
+
+  <rect x="50" y="135" width="200" height="60" rx="5" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="60" y="157" font-size="11" fill="#64748B">Bản tin phát sinh:</text>
+  <text x="60" y="178" font-size="13" font-weight="bold" fill="#0B5FA5">Key = "SESS00039"</text>
+
+  <text x="50" y="225" font-size="11" fill="#334155">• Đại diện cho 1 phiên khách hàng.</text>
+  <text x="50" y="245" font-size="11" fill="#334155">• Mọi hành vi cùng phiên này:</text>
+  <text x="60" y="265" font-size="10.5" fill="#0E7490">1. Xem hàng (09:00)</text>
+  <text x="60" y="282" font-size="10.5" fill="#0E7490">2. Thêm giỏ (09:02)</text>
+  <text x="60" y="299" font-size="10.5" fill="#0E7490">3. Đặt hàng (09:05)</text>
+
+  <path d="M 265 205 L 295 205" stroke="#0B5FA5" stroke-width="2.5" marker-end="url(#arrowBlue2)"/>
+
+  <!-- BƯỚC 2: HÀM BĂM MURMUR2 -->
+  <rect x="305" y="90" width="230" height="230" rx="8" fill="#FFFFFF" stroke="#6B4FA1" stroke-width="1.5" filter="url(#shadow2)"/>
+  <rect x="305" y="90" width="230" height="34" rx="8" fill="#F3E8FF"/>
+  <text x="315" y="113" font-size="13" font-weight="bold" fill="#6B4FA1">BƯỚC 2: BĂM TOÁN HỌC</text>
+
+  <rect x="320" y="135" width="200" height="60" rx="5" fill="#FAF5FF" stroke="#D8B4FE"/>
+  <text x="330" y="157" font-size="11" fill="#6B4FA1">Hàm băm phân tán Murmur2:</text>
+  <text x="330" y="178" font-size="12" font-weight="bold" fill="#6B4FA1">Murmur2("SESS00039")</text>
+
+  <text x="320" y="225" font-size="11" fill="#334155">• Sinh ra số nguyên 32-bit dương:</text>
+  <text x="330" y="248" font-size="13" font-weight="bold" fill="#002A5C">1,847,291,041</text>
+  <text x="320" y="275" font-size="10.5" fill="#334155">✔ Tính tất định 100%:</text>
+  <text x="330" y="295" font-size="10" fill="#475467">Cùng chuỗi đầu vào luôn cho ra</text>
+  <text x="330" y="310" font-size="10" fill="#475467">cùng một giá trị băm!</text>
+
+  <path d="M 535 205 L 565 205" stroke="#6B4FA1" stroke-width="2.5" marker-end="url(#arrowBlue2)"/>
+
+  <!-- BƯỚC 3: PHÉP CHIA LẤY DƯ (MODULO) -->
+  <rect x="575" y="90" width="230" height="230" rx="8" fill="#FFFFFF" stroke="#B76E00" stroke-width="1.5" filter="url(#shadow2)"/>
+  <rect x="575" y="90" width="230" height="34" rx="8" fill="#FEF3EB"/>
+  <text x="585" y="113" font-size="13" font-weight="bold" fill="#B76E00">BƯỚC 3: CHIA LẤY DƯ (%)</text>
+
+  <rect x="590" y="135" width="200" height="60" rx="5" fill="#FEF9F0" stroke="#FDE68A"/>
+  <text x="600" y="157" font-size="11" fill="#B76E00">Công thức định tuyến:</text>
+  <text x="600" y="178" font-size="13" font-weight="bold" fill="#B76E00">Hash % (Số Partition)</text>
+
+  <text x="590" y="225" font-size="11" fill="#334155">• Topic có 4 partition (0, 1, 2, 3):</text>
+  <text x="600" y="248" font-size="12" font-weight="bold" fill="#002A5C">1,847,291,041 % 4 = 1</text>
+  <text x="590" y="280" font-size="11" font-weight="bold" fill="#B76E00">KẾT QUẢ ĐÍCH: PARTITION 1</text>
+  <text x="590" y="302" font-size="10" fill="#475467">(Không bao giờ rơi nhầm sang P0, P2, P3)</text>
+
+  <path d="M 805 205 L 835 205" stroke="#B76E00" stroke-width="2.5" marker-end="url(#arrowGreen2)"/>
+
+  <!-- BƯỚC 4: GHI NỐI TIẾP VÀO LOG -->
+  <rect x="845" y="90" width="220" height="230" rx="8" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.5" filter="url(#shadow2)"/>
+  <rect x="845" y="90" width="220" height="34" rx="8" fill="#F0FDF4"/>
+  <text x="855" y="113" font-size="13" font-weight="bold" fill="#15803D">BƯỚC 4: LƯU VÀO LOG</text>
+
+  <!-- Partition 1 Log Box -->
+  <rect x="855" y="135" width="200" height="75" rx="5" fill="#F8FAFC" stroke="#16A34A"/>
+  <text x="865" y="153" font-size="10.5" font-weight="bold" fill="#002A5C">Partition 1 (Nối tiếp nhau):</text>
+  <text x="865" y="172" font-size="9.5" fill="#334155">Off 12: SESS00039 (Xem hàng)</text>
+  <text x="865" y="188" font-size="9.5" fill="#334155">Off 13: SESS00039 (Thêm giỏ)</text>
+  <text x="865" y="204" font-size="9.5" font-weight="bold" fill="#15803D">Off 14: SESS00039 (Đặt hàng) ★</text>
+
+  <text x="855" y="235" font-size="11.5" font-weight="bold" fill="#15803D">CAM KẾT THỨ TỰ:</text>
+  <text x="855" y="255" font-size="10.5" fill="#334155">Consumer đọc Partition 1 sẽ</text>
+  <text x="855" y="272" font-size="10.5" fill="#334155">thấy ĐÚNG thứ tự Xem $\to$ Mua,</text>
+  <text x="855" y="290" font-size="10.5" fill="#15803D">hoàn toàn không bị đảo lộn!</text>
+
+  <!-- ==================== BOTTOM NOTE FOR LECTURER ==================== -->
+  <rect x="35" y="340" width="1030" height="150" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="50" y="365" font-size="13" font-weight="bold" fill="#002A5C">GỢI Ý GIẢNG DẠY (DÀNH CHO GIẢNG VIÊN ĐỨNG LỚP):</text>
+  <text x="50" y="390" font-size="12" fill="#334155">1. <tspan font-weight="bold">Đặt câu hỏi gợi mở cho sinh viên:</tspan> "Nếu một khách hàng vừa thêm đồ vào giỏ, 1 giây sau họ bấm hủy đơn. Làm sao chắc chắn hệ thống không ghi nhận việc Hủy trước khi Thêm?"</text>
+  <text x="50" y="415" font-size="12" fill="#334155">2. <tspan font-weight="bold">Chỉ vào Bước 1 &amp; 3:</tspan> Vì cả 2 hành động đều có chung `Key = session_id`, qua hàm Murmur2 đều ra cùng 1 Partition $\implies$ Thứ tự được bảo toàn tuyệt đối!</text>
+  <text x="50" y="440" font-size="12" fill="#334155">3. <tspan font-weight="bold">Lật ngược lại vấn đề (Hot Partition):</tspan> "Nếu cả lớp mình đều chọn `Key = 'Ha Noi'`, chuyện gì xảy ra?" $\implies$ Tất cả dồn vào 1 Partition, 3 Partition kia mốc meo!</text>
+  <text x="50" y="465" font-size="12" font-style="italic" fill="#0B5FA5">$\implies$ Giảng viên chỉ cần nhìn sơ đồ 4 bước trên là dẫn dắt bài giảng trôi chảy, không cần nhớ thuộc lòng công thức!</text>
+</svg>

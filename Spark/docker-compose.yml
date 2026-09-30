@@ -21,7 +21,7 @@ services:
       --host spark-master --port 7077 --webui-port 8080
     ports:
       - "7077:7077"   # Spark master RPC (spark-submit trỏ tới đây)
-      - "8080:8080"   # Spark Master Web UI
+      - "${SPARK_MASTER_UI_PORT:-8080}:8080"   # Spark Master Web UI (đổi cổng host nếu 8080 bận)
       - "4040:4040"   # Spark Application UI (chỉ có khi driver đang chạy job, client mode
                        # bên trong container spark-master, ví dụ khi spark-submit từ đây)
     environment:

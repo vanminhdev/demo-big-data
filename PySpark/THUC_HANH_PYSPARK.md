@@ -1,283 +1,99 @@
-# THỰC HÀNH PYSPARK: RETAILSTREAM
+# Thực hành PySpark: báo cáo doanh thu CityRide
 
-> Làm theo thứ tự. Mỗi lab có một kết quả cần kiểm tra. Không dùng `inferSchema` trong Lab 2-6.
+**Học phần:** Nhập môn dữ liệu lớn · **Buổi 10** · Thời lượng gợi ý: 100 phút trên lớp + bài tập về nhà
 
-## 1. Tóm lược lõi kiến thức
+## 1. Mục tiêu
 
-| Nội dung | RDD | DataFrame |
-|---|---|---|
-| Dạng dữ liệu | Bản ghi tổng quát | Bảng có cột, kiểu dữ liệu |
-| Tối ưu hóa | Tự quản lý nhiều hơn | Catalyst biết schema và tối ưu kế hoạch |
-| Nên dùng khi | Xử lý mức thấp, đặc thù | ETL, SQL, báo cáo, bài lab này |
+Sau bài thực hành, sinh viên:
 
-| Nhóm lệnh | Ví dụ | Spark thực thi ngay? |
-|---|---|---|
-| Narrow transformation | `select`, `filter`, `withColumn` | Chưa, Spark ghi kế hoạch |
-| Wide transformation | `groupBy`, `join`, `orderBy` | Chưa, có thể gây shuffle khi chạy |
-| Action | `show`, `count`, `write`, `collect` | Có |
+1. Đọc dữ liệu CSV bằng schema khai báo; kiểm tra chất lượng dữ liệu sau khi đọc.
+2. Làm sạch, ghép bảng và tổng hợp bằng DataFrame API và Spark SQL.
+3. Phát hiện và sửa hai lỗi ghép bảng: mất dòng (inner join) và nhân dòng (một – nhiều).
+4. Ghi Parquet chia thư mục theo tháng; đọc `explain()` để thấy lọc sớm, chọn cột, gửi bảng nhỏ.
+5. Chạy cùng chương trình ở `local[*]` và trên cụm 2 worker, đối chiếu kết quả.
 
-- **Lazy evaluation:** Spark gom chuỗi transformation thành một kế hoạch trước khi chạy action.
-- **Catalyst:** dùng schema để cắt cột thừa, đẩy điều kiện lọc gần dữ liệu và chọn kế hoạch join.
-- **Không dùng `collect()` cho dữ liệu lớn:** nó kéo toàn bộ kết quả về Driver.
+## 2. Dữ liệu
 
-| Định dạng | Cách lưu | Khi phù hợp |
-|---|---|---|
-| CSV | Text theo dòng | Trao đổi dữ liệu, dễ xem bằng tay |
-| JSON | Text bán cấu trúc | Dữ liệu lồng nhau, API |
-| Parquet | Nhị phân theo cột | Phân tích dữ liệu lớn, nén và chỉ đọc cột cần thiết |
+Thư mục `00_shared_data/cityride/lab` (xem README trong đó):
 
-Partition theo `month` tạo thư mục như `month=2026-07/`. Bộ lọc theo tháng cho phép Spark bỏ qua các thư mục không liên quan.
+| Bảng | Số dòng | Khóa | Ghi chú |
+|---|---|---|---|
+| `trips.csv` | 300.000 | `trip_id` | chuyến xe; chỉ chuyến `completed` mới có cước |
+| `drivers.csv` | 2.000 | `driver_id` | 244 chuyến có `driver_id` không có trong bảng này |
+| `zones.csv` | 12 | `zone_id` | bảng nhỏ |
+| `trip_payments.csv` | 254.031 | (`trip_id`, `method`) | một chuyến có thể có 2 dòng thanh toán |
 
-## 2. Môi trường và lệnh khởi động
-
-> **Lưu ý quan trọng:** Toàn bộ môi trường thực hành đã được đóng gói sẵn trong Docker. Sinh viên **không cần cài đặt Java hay Apache Spark** trên máy cá nhân để tránh lỗi xung đột phiên bản trên Windows.
-
-### Chuẩn bị
-
-- [ ] Đã bật Docker Desktop.
-- [ ] Đã mở terminal tại thư mục dự án `D:\school\Big Data`.
-- [ ] Nếu dùng Git Bash trên Windows, luôn chạy `export MSYS_NO_PATHCONV=1` trước các lệnh `docker exec`.
-
-### Bước 1: Khởi động cụm Spark Standalone bằng Docker Compose
-
-Mở terminal và di chuyển vào thư mục `Spark`:
+## 3. Môi trường
 
 ```bash
 cd "D:/school/Big Data/Spark"
-docker compose up -d
+bash scripts/start-cluster.sh              # 1 master + 2 worker
+cd ../PySpark
+bash scripts/run-local.sh                  # chạy mẫu ở local[*]
+bash scripts/run-cluster.sh                # chạy mẫu trên cụm
 ```
 
-Kiểm tra giao diện Spark Master Web UI tại: `http://localhost:8080` (phải thấy 2 Worker đang ở trạng thái `ALIVE`).
+Chương trình mẫu `b10_cityride_pipeline.py` in ra 8 mục [1]–[8]. Sinh viên đọc mã mẫu, chạy, rồi làm các nhiệm vụ dưới đây trong một tệp mới `b10_<mssv>.py` (chép vào `Spark/jobs/` trước khi chạy).
 
-### Bước 2: Mở PySpark Shell tương tác (Dùng cho Lab 1)
+## 4. Nhiệm vụ trên lớp
 
-Để gõ từng dòng lệnh PySpark tương tác trực tiếp trong môi trường Docker:
+### Nhiệm vụ 1: schema và kiểm tra chất lượng
 
-```bash
-docker exec -it spark-master /opt/spark/bin/pyspark --master "local[*]"
-```
+1. Đọc `trips.csv` hai lần: `inferSchema=True` và schema khai báo. Ghi lại thời gian của từng lệnh đọc.
+2. Đếm: tổng số chuyến; số chuyến theo `status`; số chuyến hoàn thành có `fare_vnd = 0`; số chuyến hoàn thành thiếu `payment_method`.
+3. Tạo `clean`: chỉ chuyến hoàn thành, cước > 0, `payment_method` rỗng thay bằng `unknown`, thêm cột `month` dạng `yyyy-MM`.
 
-*(Nhấn `Ctrl + D` hoặc gõ `exit()` khi muốn thoát khỏi PySpark Shell).*
+**Kết quả cần đạt:** 300.000 → 239.879 → 239.456 dòng.
 
-### Bước 3: Thực thi kịch bản xử lý tự động (Dùng cho Lab 2 - 6 và Bài tập)
+### Nhiệm vụ 2: ghép bảng không mất dòng
 
-**Nếu dùng Git Bash / Linux / macOS:**
+1. Ghép `clean` với `drivers` bằng `inner` và `left`; so số dòng.
+2. Liệt kê 5 `driver_id` không có trong `drivers` và số chuyến của mỗi mã.
 
-```bash
-cd "D:/school/Big Data/PySpark"
-export MSYS_NO_PATHCONV=1
-./scripts/run-local.sh       # Chạy chế độ local[*]
-./scripts/run-cluster.sh     # Chạy trên cụm Spark Master + 2 Workers
-```
+**Câu hỏi:** Báo cáo doanh thu nên dùng kiểu ghép nào? Vì sao?
 
-**Nếu dùng PowerShell:**
+### Nhiệm vụ 3: ghép bảng không nhân dòng
 
-```powershell
-cd 'D:\school\Big Data\PySpark'
-# Copy các script sang thư mục Spark/jobs để container nhìn thấy:
-Copy-Item process_retailstream.py ..\Spark\jobs\ -Force
-Copy-Item bai_tap_1_top_customers.py ..\Spark\jobs\ -Force
-Copy-Item bai_tap_2_revenue_share.py ..\Spark\jobs\ -Force
+1. Ghép `clean` với `trip_payments` theo `trip_id`. So số dòng trước và sau.
+2. Tính tổng `fare_vnd` sau khi ghép và so với tổng trước khi ghép. Giải thích chênh lệch.
+3. Viết lại để có **doanh thu theo hình thức thanh toán** (`wallet`, `cash`, `card`) đúng: tổng các hình thức phải bằng 15.762.641.000 đồng.
 
-# Chạy pipeline chính:
-docker exec -e SPARK_MASTER_URL="local[*]" spark-master /opt/spark/bin/spark-submit --master "local[*]" /opt/spark-apps/process_retailstream.py
-```
+### Nhiệm vụ 4: báo cáo doanh thu tháng theo quận
 
-## 3. Hands-on Labs
+1. Viết bằng DataFrame API: `month`, `zone_name`, số chuyến, doanh thu, cước trung bình.
+2. Viết lại bằng Spark SQL; kiểm tra hai kết quả giống nhau.
+3. Gọi `explain()`: tìm `BroadcastHashJoin`, `Exchange`, `PushedFilters`, `ReadSchema`. Mỗi từ khóa cho biết điều gì?
 
-### Lab 1 - DataFrame và thao tác cột
+### Nhiệm vụ 5: Parquet và chia thư mục
 
-- [ ] Mở terminal và kết nối vào PySpark shell trong container:
-  ```bash
-  docker exec -it spark-master /opt/spark/bin/pyspark --master "local[*]"
-  ```
-- [ ] Chạy lần lượt từng khối lệnh bên dưới:
+1. Ghi `clean` ra Parquet, `partitionBy("month")`. Liệt kê cây thư mục kết quả.
+2. So dung lượng với cùng dữ liệu ghi ra CSV.
+3. Đọc lại Parquet, lọc tháng `2026-08`, chọn 2 cột; tìm `PartitionFilters` trong `explain()`.
 
-```python
-from pyspark.sql import functions as F
+### Nhiệm vụ 6: local và cụm
 
-data = [("Alice", 85), ("Bob", 92), ("Charlie", 78)]
-df = spark.createDataFrame(data, ["name", "score"])
+Chạy chương trình của bạn ở hai chế độ. Lập bảng so sánh số dòng, tổng doanh thu và thời gian. Giải thích vì sao với 300.000 dòng, cụm có thể chậm hơn local.
 
-df.select("name", "score") \
-  .filter(F.col("score") >= 80) \
-  .withColumn("passed", F.col("score") >= 50) \
-  .show()
+## 5. Bài tập về nhà
 
-df.groupBy("passed").count().show()
-```
+**Bài 1. Tỷ lệ khách hủy theo quận và giờ.** Từ `trips`, tính theo (`pickup_zone`, giờ đặt xe): số yêu cầu, số khách hủy, tỷ lệ hủy. Lưu Parquet chia theo `pickup_zone`. Chỉ ra 3 khung giờ có tỷ lệ hủy cao nhất ở Q01 và giải thích bằng `eta_min`, `surge`.
 
-**Tự kiểm tra:** `Alice` và `Bob` xuất hiện trong kết quả lọc; `show()` là action.
+**Bài 2. Top 10 tài xế theo doanh thu tháng 8.** Chỉ tính tài xế có trong `drivers`. Kèm `vehicle_type` và `rating`. Kiểm tra: tổng doanh thu của mọi tài xế cộng với doanh thu của các chuyến có `driver_id` lạ phải bằng tổng doanh thu tháng 8.
 
-### Lab 2 - Đọc RetailStream bằng schema rõ ràng và làm sạch
+## 6. Nộp bài
 
-- [ ] Đọc `PySpark/data/orders_sample.csv` với `ORDERS_SCHEMA` trong `process_retailstream.py`.
-- [ ] Lọc `total_amount >= 0`.
-- [ ] Đọc `products_sample.json`, đổi `brand = null` thành `UNKNOWN` bằng `F.coalesce`.
+| Sản phẩm | Yêu cầu |
+|---|---|
+| `b10_<mssv>.py` | chạy được bằng `spark-submit` ở cả hai chế độ, không sửa code |
+| Log hai lần chạy | local và cụm |
+| Báo cáo ngắn (PDF, ≤ 3 trang) | bảng số liệu các nhiệm vụ; trả lời các câu hỏi; ảnh Spark UI có 2 executor |
 
-```python
-orders_ok = orders.filter(F.col("total_amount") >= 0)
-products_ok = products.withColumn(
-    "brand", F.coalesce(F.col("brand"), F.lit("UNKNOWN"))
-)
-```
+## 7. Tiêu chí chấm
 
-**Tự kiểm tra:** `orders.count() = 150`, `orders_ok.count() = 149`; có 3 brand `null` trước khi làm sạch và 0 sau khi làm sạch.
-
-### Lab 3 - Join ba bảng và kiểm soát số dòng
-
-```python
-items_orders = order_items.join(orders_ok, "order_id", "inner")
-retail = items_orders.join(products_ok, "product_id", "inner")
-
-assert order_items.count() == 380
-assert items_orders.count() == 376
-assert retail.count() == 376
-```
-
-- [ ] Nối `order_items` với `orders_ok` bằng `order_id`.
-- [ ] Nối kết quả với `products_ok` bằng `product_id`.
-- [ ] Đếm sau từng phép nối.
-
-**Giải thích:** bốn dòng item của đơn âm bị loại. `product_id` duy nhất nên join sản phẩm không làm nhân bản dòng.
-
-### Lab 4 - Doanh thu theo tháng và danh mục, đối chiếu SQL
-
-```python
-
-# Cách 1: Dùng DataFrame API (phong cách hàm)
-report = (retail
-    .withColumn("line_amount", F.col("quantity") * F.col("unit_price"))
-    .withColumn("month", F.date_format("order_time", "yyyy-MM"))
-    .groupBy("month", "category_name")
-    .agg(F.sum("line_amount").alias("revenue"))
-    .orderBy("month", "category_name"))
-
-report.show(100, truncate=False)
-
-# Cách 2: Viết thuần Spark SQL (đăng ký bảng tạm rồi query bằng SQL chuẩn)
-retail.createOrReplaceTempView("retail")
-
-sql_report = spark.sql("""
-    SELECT date_format(order_time, 'yyyy-MM') AS month,
-           category_name,
-           SUM(quantity * unit_price) AS revenue
-    FROM retail
-    GROUP BY 1, 2
-    ORDER BY 1, 2
-""")
-
-sql_report.show(100, truncate=False)
-```
-
-- [ ] Chạy lần lượt cả 2 cách và so sánh kết quả (phải khớp từng dòng và số tiền).
-- [ ] **Lưu ý:** PySpark hỗ trợ chạy thuần SQL 100% qua lệnh `spark.sql()`. Cả 2 cách viết này đều được Spark biên dịch ra cùng một kế hoạch thực thi bên dưới.
-
-### Lab 5 - Parquet và partitioning
-
-```python
-(report.write.mode("overwrite")
- .partitionBy("month")
- .parquet("output/revenue_by_month_category"))
-
-spark.read.parquet("output/revenue_by_month_category") \
-     .filter("month = '2026-07'") \
-     .select("category_name", "revenue") \
-     .show()
-```
-
-- [ ] Mở thư mục kết quả và tìm các thư mục `month=...`.
-- [ ] So sánh dung lượng bằng `Get-ChildItem -Recurse` (PowerShell) hoặc `du -sh` (Git Bash).
-- [ ] Giải thích vì sao truy vấn tháng 07 không cần quét partition tháng 02.
-
-### Lab 6 - Đọc execution plan
-
-```python
-report.explain(mode="extended")
-```
-
-- [ ] Tìm `FileScan` hoặc `PushedFilters` khi có filter trên nguồn Parquet.
-- [ ] Tìm `BroadcastHashJoin` khi Spark broadcast bảng `products` nhỏ.
-- [ ] Tìm `Exchange`: đó là điểm Spark shuffle dữ liệu giữa stage.
-
-## 4. Bài tập thực hành bắt buộc
-
-### Bài tập 1 - Top khách hàng
-
-**Tệp phải tạo:** `bai_tap_1_top_customers.py`
-
-Yêu cầu: đọc `orders_sample.csv` bằng explicit schema, bỏ đơn âm, tính tổng chi tiêu mỗi khách hàng; chọn phương thức có tổng thanh toán lớn nhất của mỗi khách hàng (hòa thì lấy tên phương thức tăng dần); in top 5 giảm dần theo `total_spend`.
-
-```python
-from pyspark.sql import functions as F
-from pyspark.sql.window import Window
-
-clean = orders.filter(F.col("total_amount") >= 0)
-customer_total = clean.groupBy("customer_id").agg(F.sum("total_amount").alias("total_spend"))
-payment_total = clean.groupBy("customer_id", "payment_method").agg(F.sum("total_amount").alias("payment_spend"))
-window = Window.partitionBy("customer_id").orderBy(F.desc("payment_spend"), F.asc("payment_method"))
-top_payment = payment_total.withColumn("rn", F.row_number().over(window)).filter("rn = 1")
-result = customer_total.join(top_payment, "customer_id").orderBy(F.desc("total_spend"), "customer_id").limit(5)
-```
-
-| customer_id | total_spend | payment_method |
-|---|---:|---|
-| CUST00064 | 558698000.0 | CREDIT_CARD |
-| CUST00045 | 349651000.0 | E_WALLET |
-| CUST00059 | 334550000.0 | CREDIT_CARD |
-| CUST00013 | 309953000.0 | CREDIT_CARD |
-| CUST00006 | 262945000.0 | CREDIT_CARD |
-
-### Bài tập 2 - Tỷ trọng doanh thu danh mục bằng Window Function
-
-**Tệp phải tạo:** `bai_tap_2_revenue_share.py`
-
-Yêu cầu: dùng `retail` từ Lab 3, tính doanh thu theo `month`, `category_name`; thêm `percent_of_monthly_revenue`, làm tròn 2 chữ số; trong mỗi tháng tổng tỷ trọng xấp xỉ 100%.
-
-```python
-from pyspark.sql import functions as F
-from pyspark.sql.window import Window
-
-monthly_category = (retail
-    .withColumn("month", F.date_format("order_time", "yyyy-MM"))
-    .withColumn("line_amount", F.col("quantity") * F.col("unit_price"))
-    .groupBy("month", "category_name")
-    .agg(F.sum("line_amount").alias("revenue")))
-
-w = Window.partitionBy("month")
-result = monthly_category.withColumn(
-    "percent_of_monthly_revenue",
-    F.round(F.col("revenue") / F.sum("revenue").over(w) * 100, 2),
-).orderBy("month", F.desc("revenue"))
-```
-
-**Tự đối chiếu cho tháng `2026-07`**
-
-| category_name | revenue | percent_of_monthly_revenue |
-|---|---:|---:|
-| Thuc pham | 449889000.0 | 28.20 |
-| Dien tu | 328590000.0 | 20.59 |
-| Sach | 245079000.0 | 15.36 |
-| Thoi trang | 204112000.0 | 12.79 |
-| My pham | 191018000.0 | 11.97 |
-| Gia dung | 176805000.0 | 11.08 |
-
-## 5. Nộp bài và rubric
-
-### Checklist nộp bài
-
-- [ ] `bai_tap_1_top_customers.py`
-- [ ] `bai_tap_2_revenue_share.py`
-- [ ] Thư mục kết quả Parquet của Lab 5
-- [ ] Ảnh terminal có lệnh chạy và kết quả
-- [ ] Ảnh Spark Master UI (`:8080`) và Spark Application UI (`:4040`) khi job chạy
-
-| Tiêu chí | Điểm |
-|---|---:|
-| Schema rõ ràng, đọc và làm sạch đúng | 2.0 |
-| Join đúng, có kiểm tra số dòng | 2.0 |
-| Bài tập 1 đúng kết quả và sắp xếp | 2.0 |
-| Bài tập 2 dùng Window Function đúng | 2.0 |
-| Parquet, ảnh minh chứng và mã dễ đọc | 2.0 |
-
-**Tổng: 10 điểm.**
+| Tiêu chí | Tỷ trọng | Đạt khi |
+|---|---|---|
+| Schema và làm sạch đúng | 20% | số dòng khớp mục 4.1 |
+| Ghép bảng đúng | 30% | giải thích được mất dòng, nhân dòng; tổng tiền theo hình thức thanh toán khớp |
+| Báo cáo và Spark SQL | 20% | hai cách cho cùng kết quả; đọc đúng các từ khóa trong `explain()` |
+| Parquet, chia thư mục | 15% | có `PartitionFilters`; so sánh dung lượng |
+| Local và cụm | 15% | cùng kết quả; giải thích thời gian |

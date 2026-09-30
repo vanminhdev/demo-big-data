@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Khoi dong Kafka (KRaft, 1 broker) + tao san 2 topic clickstream/product_events.
+# Khoi dong Kafka (KRaft, 1 broker) cho Buoi 13 (CityRide).
 # Kafka gan vao network cua Spark (spark_spark-net) nen Spark PHAI chay truoc.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -24,11 +24,6 @@ for i in $(seq 1 20); do
   fi
 done
 
-echo "[3/3] Tao topic (bo qua neu da co)..."
-docker exec kafka /opt/kafka/bin/kafka-topics.sh --create --if-not-exists \
-  --topic clickstream --bootstrap-server localhost:29092 --partitions 4 --replication-factor 1
-docker exec kafka /opt/kafka/bin/kafka-topics.sh --create --if-not-exists \
-  --topic product_events --bootstrap-server localhost:29092 --partitions 2 --replication-factor 1
-
-docker exec kafka /opt/kafka/bin/kafka-topics.sh --describe --topic clickstream --bootstrap-server localhost:29092
-echo "Kafka san sang. bootstrap host: localhost:9092 (host) / kafka:29092 (trong Docker network)."
+echo "[3/3] Kafka san sang. Topic cua demo CityRide do b13_kafka_demo.py tao (ride-events, ride-events-by-zone)."
+docker exec kafka /opt/kafka/bin/kafka-topics.sh --list --bootstrap-server localhost:29092
+echo "bootstrap: localhost:9092 (host) / kafka:29092 (trong Docker network). Chay demo: bash scripts/reset-b13.sh"

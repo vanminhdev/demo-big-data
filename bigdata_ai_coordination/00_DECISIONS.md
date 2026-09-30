@@ -139,6 +139,38 @@ Giảng viên yêu cầu trực tiếp: "nên sửa lại cho nhỏ đi cho phù
 
 ---
 
+## D009 – Buổi 9–15 dùng bối cảnh CityRide thay cho RetailStream
+
+**Ngày:** 2026-09-30
+**Trạng thái:** APPROVED (đã triển khai)
+
+### Quyết định
+
+Viết lại slide Buổi 9–15 và toàn bộ demo tương ứng theo bối cảnh CityRide
+(ứng dụng gọi xe hư cấu tại Hà Nội). Bộ dữ liệu mới:
+`00_shared_data/cityride/` (generator có seed). Buổi 5–7 giữ RetailStream.
+
+### Lý do
+
+Giảng viên đánh giá bài giảng Buổi 9–15 khó dạy, thiếu logic, ngữ cảnh
+RetailStream "không rõ bài toán" khi ép vào streaming, Kafka, học máy.
+CityRide có nhu cầu tự nhiên cho từng công nghệ: báo cáo doanh thu (batch),
+giá cao điểm mỗi 5 phút (streaming), một sự kiện cho nhiều dịch vụ (Kafka),
+dự đoán khách hủy (MLlib), quận trung tâm đông (dữ liệu lệch).
+
+### Ảnh hưởng
+
+- Slide: `OneDrive/.../BigData/Slide chuẩn/09_spark … 15_optimization` (bản cũ:
+  `BigData/_backup_slide_2026-09-29/`); PDF ngoài đã đè.
+- Demo: `Spark/`, `PySpark/`, `StructuredStreaming/`, `MLlib/`, `Kafka/`,
+  `Optimization/` viết lại, log thật trong `evidence/`; demo cũ chuyển sang
+  `_archive_retailstream/`.
+- `Spark/docker-compose.yml`: cổng host của Master UI cấu hình được qua
+  `SPARK_MASTER_UI_PORT` (mặc định 8080).
+- Skill học phần: `BigData/.claude/skills/bai-giang-bigdata/`.
+
+---
+
 ## Mẫu quyết định mới
 
 ## DXXX – Tên quyết định

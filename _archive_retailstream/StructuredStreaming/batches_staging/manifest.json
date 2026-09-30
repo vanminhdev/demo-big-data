@@ -1,0 +1,91 @@
+{
+  "late_record": {
+    "event_id": "CEV000096",
+    "event_time": "2026-08-06T22:41:42+00:00",
+    "customer_id": "CUST00067",
+    "session_id": "SESS00003",
+    "product_id": "PROD00031",
+    "event_type": "PURCHASE"
+  },
+  "late_day": "2026-08-06",
+  "inject_day": "2026-08-10",
+  "batches_in_arrival_order": [
+    {
+      "file": "day_01_2026-08-05.jsonl",
+      "day": "2026-08-05",
+      "count": 10
+    },
+    {
+      "file": "day_02_2026-08-06.jsonl",
+      "day": "2026-08-06",
+      "count": 14
+    },
+    {
+      "file": "day_03_2026-08-07.jsonl",
+      "day": "2026-08-07",
+      "count": 15
+    },
+    {
+      "file": "day_04_2026-08-08.jsonl",
+      "day": "2026-08-08",
+      "count": 12
+    },
+    {
+      "file": "day_05_2026-08-09.jsonl",
+      "day": "2026-08-09",
+      "count": 15
+    },
+    {
+      "file": "day_06_2026-08-10.jsonl",
+      "day": "2026-08-10",
+      "count": 12,
+      "contains_late_record": "CEV000096",
+      "late_record_actual_day": "2026-08-06"
+    },
+    {
+      "file": "day_07_2026-08-11.jsonl",
+      "day": "2026-08-11",
+      "count": 12
+    },
+    {
+      "file": "day_08_2026-08-12.jsonl",
+      "day": "2026-08-12",
+      "count": 12
+    },
+    {
+      "file": "day_09_2026-08-13.jsonl",
+      "day": "2026-08-13",
+      "count": 13
+    },
+    {
+      "file": "day_10_2026-08-14.jsonl",
+      "day": "2026-08-14",
+      "count": 11
+    },
+    {
+      "file": "day_11_2026-08-15.jsonl",
+      "day": "2026-08-15",
+      "count": 16
+    },
+    {
+      "file": "day_12_2026-08-16.jsonl",
+      "day": "2026-08-16",
+      "count": 13
+    },
+    {
+      "file": "day_13_2026-08-17.jsonl",
+      "day": "2026-08-17",
+      "count": 20
+    },
+    {
+      "file": "day_14_2026-08-18.jsonl",
+      "day": "2026-08-18",
+      "count": 20
+    },
+    {
+      "file": "day_15_2026-08-19.jsonl",
+      "day": "2026-08-19",
+      "count": 5
+    }
+  ]
+}

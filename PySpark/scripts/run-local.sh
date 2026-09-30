@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
-# Chay process_retailstream.py o che do local[*] (ben trong container spark-master).
+# Buổi 10: chạy cùng pipeline ở chế độ local[*] (một tiến trình, không dùng worker).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 export MSYS_NO_PATHCONV=1
-
-echo "Copy job vao Spark/jobs (container chi mount duoc Spark/jobs)..."
-mkdir -p ../Spark/jobs
-cp process_retailstream.py ../Spark/jobs/process_retailstream.py
-
-docker exec -e SPARK_MASTER_URL="local[*]" spark-master /opt/spark/bin/spark-submit \
-  --master local[*] \
+mkdir -p ../Spark/data/cityride ../Spark/jobs
+cp -r ../00_shared_data/cityride/lab ../Spark/data/cityride/
+cp b10_cityride_pipeline.py ../Spark/jobs/
+(cd ../Spark && docker compose up -d)
+docker exec spark-master /opt/spark/bin/spark-submit \
+  --master "local[*]" --driver-memory 1g \
   --conf spark.sql.shuffle.partitions=4 \
-  --driver-memory 512m \
-  /opt/spark-apps/process_retailstream.py
+  /opt/spark-apps/b10_cityride_pipeline.py
